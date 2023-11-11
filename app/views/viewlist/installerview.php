@@ -11,7 +11,7 @@ $body = <<<HTML
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="text-center">
-                        <img src="$root/app/assets/public/light-icon.png" class="logo" />
+                        <img src="$root/app/assets/public/light-logo.png" class="logo" />
                     </div>
                 </div>
             </div>
