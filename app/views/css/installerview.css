@@ -1,0 +1,39 @@
+.center-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.warning-box {
+    background-color: var(--warning-accent);
+    border-color: var(--warning-primary);
+    color: var(--warning-background);
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: -10px;
+}
+
+.submit {
+    background-color: var(--warning-background);
+    color: var(--warning-text);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 16px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    transform: translateY(0.8px);
+    background-color: var(--warning-background);
+}
+
+.logo {
+    width: 220px;
+    margin: 0 auto;
+    display: block;
+}
+
+.container {
+    margin-top: -40px;
+}
