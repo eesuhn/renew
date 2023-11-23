@@ -1,3 +1,6 @@
 # Ignore content from user folder, but not the folder itself
 app/assets/user/*
 !app/assets/user/.gitkeep
+
+# Ignore config
+app/config/config.php
