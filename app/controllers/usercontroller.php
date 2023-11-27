@@ -11,7 +11,13 @@ use App\Views\ViewManager;
 
 class UserController
 {
-    public function register(){
+    public function register()
+    {
         return ViewManager::renderView('registerview');
+    }
+
+    public function login()
+    {
+        return ViewManager::renderView('loginview');
     }
 }
