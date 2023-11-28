@@ -63,7 +63,7 @@ label {
 }
 
 .btn-success:hover {
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
 }
 
 .title-small {
@@ -74,4 +74,17 @@ label {
 .log-link {
     color: var(--accent-color);
     font-weight: bold;
+}
+
+.log-link:hover {
+    color: var(--accent-dark-color);
+    text-decoration: none;
+}
+
+.logo {
+    width: 20%;
+    object-fit: cover;
+    margin: left;
+    display: block;
+    margin-bottom: 20px;
 }
