@@ -26,6 +26,18 @@ $vm->addView(
     ['indexview.css'],
     ['indexview.js']);
 
+$vm->addView(
+    'registerview',
+    'Register',
+    ['registerview.css'],
+    ['registerview.js']);
+
+$vm->addView(
+    'loginview',
+    'Login',
+    ['loginview.css'],
+    ['loginview.js']);
+
 // Add segments here
 $vm->addSeg(
     'sample');

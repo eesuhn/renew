@@ -1,10 +1,11 @@
 :root {
     /* Root */
-    --text-color: #161818;
+    --text-color: #011618;
     --background-color: #ffffff;
-    --primary-color: #444c60;
-    --secondary-color: #c8ced0;
-    --accent-color: #6e686e;
+    --primary-color: #79BE79;
+    --secondary-color: #CFE7E7;
+    --accent-color: #44448D;
+    --accent-dark-color: #2a2a4f;
 
     /* Warning */
     --warning-text: #ecedee;
@@ -19,7 +20,7 @@
 
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     background-color: var(--background-color) !important;
     overflow-y: scroll;
     box-sizing: border-box;
