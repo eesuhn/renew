@@ -5,11 +5,12 @@
     letter-spacing: 1.5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    height: 100px;
 }
 
 .vl {
     border-left: 1px solid #2E2E2E;
-    height: 30px;
+    height: 34px;
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -17,7 +18,7 @@
 .navbar-nav .nav-item .nav-link {
     font-weight: 600;
     font-size: 16px;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     margin-right: 20px;
 }
 
@@ -26,8 +27,12 @@
 }
 
 .navbar-brand {
-    margin-left:10%;
-    margin-right:20px;
+    margin-left: 10%;
+    margin-right: 20px;
+}
+
+.navbar-logo {
+    width: 60px;
 }
 
 .btn {
@@ -40,14 +45,14 @@
 .btn {
     border: none;
     outline: none;
-    height: 50px;
-    width: 200px;
-    background-color: var(--primary-color);
+    height: 46px;
+    width: 186px;
+    background-color: var(--primary-dark-color);
     color: var(--background-color);
     border-radius: 25px;
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: 1.5px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -82,18 +87,6 @@
     color: var(--accent-dark-color);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.nav-right-icon {
+    font-size: 20px;
+}

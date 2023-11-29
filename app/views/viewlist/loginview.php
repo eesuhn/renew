@@ -6,7 +6,7 @@ if (!defined('ACCESS')) {
 }
 
 $body = <<<HTML
-<div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 p-0">
                 <img src="$root/app/assets/public/login.jpg" class="img-fluid" alt="Login Image">
@@ -20,21 +20,17 @@ $body = <<<HTML
 
                     <!-- Log In Form -->
                     <form action="" method="post" class="mt-2">
-
-                        <label for="email">Email</label>
+                        <label for="email" class="login-label">Email</label>
                         <input type="email" id="email" name="email" placeholder="Type your e-mail" class="form-control mb-3" required>
 
-                        <label for="password">Password</label>
+                        <label for="password" class="login-label">Password</label>
                         <input type="password" id="password" name="password" placeholder="Type your password" class="form-control mb-3" required>
-                        <br>
 
-                        <button type="submit" class="btn btn-success mt-3" style="border-radius: 90px;">Sign Up</button>
+                        <button type="submit" class="btn btn-success mt-3" style="border-radius: 90px;">Log In</button>
                         <p class="mt-3 text-center">Don't have an account? <a href="#" class="log-link">Sign up here</a></p>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    
-
 HTML;

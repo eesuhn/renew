@@ -15,27 +15,26 @@ $body = <<<HTML
             <div class="col-md-6 row d-flex align-items-center">
                 <div class="mx-auto col-sm-12 col-lg-6">
                     <img src="$root/app/assets/public/light-icon.png" class="logo" alt="Logo">
-                    <h2 class="text-center text-md-left mb-4 font-weight-bold">Create your account now</h2>
+                    <h2 class="text-center text-md-left mb-4 font-weight-bold reg-title">Create your account today</h2>
                     <p class="title-small">Earn rewards while saving the planet.</p>
 
                     <!-- Registration Form -->
                     <form action="" method="post" class="mt-2">
-                        <label for="name">How should we address you?</label>
+                        <label for="name" class="reg-label">How should we address you?</label>
                         <input type="text" id="name" name="name" placeholder="Enter your name" class="form-control mb-3" required>
 
-                        <label for="email">Email</label>
+                        <label for="email" class="reg-label">Email</label>
                         <input type="email" id="email" name="email" placeholder="Type your e-mail" class="form-control mb-3" required>
 
-                        <label for="password">Password</label>
+                        <label for="password" class="reg-label">Password</label>
                         <input type="password" id="password" name="password" placeholder="Type your password" class="form-control mb-3" required>
                         
-                        <small class="text-muted">Must be 8 characters at least</small>
-                        
+                        <small class="text-muted pwd-text">Must be 8 characters at least</small>
                         <br>
 
                         <div class="form-check mt-2">
                             <input type="checkbox" class="form-check-input" id="agreeTerms" required>
-                            <label class="form-check-label text-justify" for="agreeTerms">
+                            <label class="form-check-label text-justify agr-text" for="agreeTerms">
                                 By creating an account means you agree to the Terms and Conditions and our Privacy Policy
                             </label>
                         </div>

@@ -1,16 +1,21 @@
 :root {
     /* Root */
+    --background-color: #ffffff;
+
     --text-color: #011618;
     --text-light-color: #777E90;
-    --background-color: #ffffff;
+
     --primary-color: #79BE79;
+    --primary-dark-color: #346534;
+
     --secondary-color: #CFE7E7;
+
     --accent-color: #44448D;
     --accent-dark-color: #2a2a4f;
 
     /* Warning */
-    --warning-text: #ecedee;
     --warning-background: #722c24;
+    --warning-text: #ecedee;
     --warning-primary: #f2abb2;
     --warning-accent: #f8d8da;
 

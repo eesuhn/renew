@@ -51,7 +51,7 @@ label {
 }
 
 .btn-success {
-    background-color: var(--primary-color);
+    background-color: var(--primary-dark-color);
     color: #fff;
     border: none;
     width: 100%;
@@ -59,7 +59,7 @@ label {
     border-radius: 4px;
     font-size: 1.2rem;
     font-weight: bold;
-    margin-top: 5px;
+    margin-top: -20px;
 }
 
 .btn-success:hover {
@@ -89,6 +89,10 @@ label {
     margin-bottom: 20px;
 }
 
+.login-label {
+    margin-bottom: 0px;
+}
 
-
-
+.login-label:not(:first-child) {
+    margin-top: 20px;
+}
