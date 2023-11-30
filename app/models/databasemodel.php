@@ -21,6 +21,19 @@ class DatabaseModel
      * @var array $tables Database tables.
      */
     private static $tables = [
+        'user',
+        'user_lang',
+        'public_lang',
+        'artist_lang',
+        'rec_center',
+        'recyclable',
+        'rec_lang',
+        'order',
+        'product',
+        'prod_lang',
+        'order_item',
+        'rating',
+        'cart'
     ];
 
     /**
