@@ -19,7 +19,7 @@ $body = <<<HTML
                 <div class="col-md-6 offset-md-3">
                     <div class="card text-center warning-box">
                         <div class="card-body">
-                            <p class="invalid-text-1">Error 404: Page Not Found</p>
+                            <p class="invalid-text-1"><strong>Error 404</strong>: Page Not Found</p>
                             <p class="invalid-text-2">The page you are looking for does not exist.</p>
                             <button onclick="window.location.href = '/renew/'" class="submit">Back to Home</button>
                         </div>
