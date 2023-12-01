@@ -71,7 +71,7 @@ class CookieModel
     private static function getDbCookie($id)
     {
         $sql = <<<SQL
-            -- SELECT cookie FROM user WHERE user_id = :id LIMIT 1
+            SELECT cookie FROM user WHERE user_id = :id LIMIT 1
         SQL;
 
         $params = [
@@ -96,7 +96,7 @@ class CookieModel
         }
 
         $sql = <<<SQL
-            -- UPDATE user SET cookie = :cookie WHERE user_id = :id
+            UPDATE user SET cookie = :cookie WHERE user_id = :id
         SQL;
 
         $params = [
@@ -119,7 +119,7 @@ class CookieModel
     private static function deleteDbCookie($id)
     {
         $sql = <<<SQL
-            -- UPDATE user SET cookie = '' WHERE user_id = :id
+            UPDATE user SET cookie = '' WHERE user_id = :id
         SQL;
 
         $params = [
@@ -163,7 +163,7 @@ class CookieModel
         }
 
         $sql = <<<SQL
-            -- SELECT user_id FROM user WHERE cookie = :cookie LIMIT 1
+            SELECT user_id FROM user WHERE cookie = :cookie LIMIT 1
         SQL;
 
         $params = [
