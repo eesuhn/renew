@@ -21,20 +21,12 @@ class CookieModel
      * Set local cookie.
      * 
      * @param string $cookie
-     * @param bool $stayLogin Set cookie expiry to 0 if false
      * 
      * @return void
      */
-    private static function setLocalCookie($cookie, $stayLogin)
+    private static function setLocalCookie($cookie)
     {
         $expiry = time() + self::$expiryDuration;
-
-        /**
-         * If user opts to not stay logged in, set cookie expiry to 0.
-         */
-        if (!$stayLogin) {
-            $expiry = 0;
-        }
         setcookie('renew_user', $cookie, $expiry, '/renew/');
     }
 
@@ -134,11 +126,10 @@ class CookieModel
      * Check if database cookie exists, if not create one.
      * 
      * @param int $id
-     * @param bool $stayLogin
      * 
      * @return void
      */
-    public static function setLoginCookie($id, $stayLogin)
+    public static function setLoginCookie($id)
     {
         $dbCookie = self::getDbCookie($id);
 
@@ -146,7 +137,7 @@ class CookieModel
             $dbCookie = self::setDbCookie($id);
         }
 
-        self::setLocalCookie($dbCookie, $stayLogin);
+        self::setLocalCookie($dbCookie);
     }
 
     /**

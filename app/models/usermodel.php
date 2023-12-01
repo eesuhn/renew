@@ -166,11 +166,10 @@ class UserModel
      * 
      * @param string $email
      * @param string $password
-     * @param bool $stayLogin
      * 
      * @return bool|array Returns true if login is successful, array of errors otherwise
      */
-    public function login($email, $password, $stayLogin)
+    public function login($email, $password)
     {
         $errors = $this->validateLogin($email, $password);
 
@@ -179,7 +178,7 @@ class UserModel
         }
 
         $sql = <<<SQL
-            -- SELECT user_id FROM user WHERE email = :email LIMIT 1
+            SELECT user_id FROM user WHERE email = :email LIMIT 1
         SQL;
 
         $params = [
@@ -187,7 +186,7 @@ class UserModel
         ];
 
         $id = DatabaseModel::exec($sql, $params)->fetchColumn();
-        CookieModel::setLoginCookie($id, $stayLogin);
+        CookieModel::setLoginCookie($id);
 
         return true;
     }
@@ -250,7 +249,7 @@ class UserModel
     private function verifyPwd($email, $password)
     {
         $sql = <<<SQL
-            -- SELECT pwd FROM user WHERE email = :email
+            SELECT pwd FROM user WHERE email = :email
         SQL;
 
         $params = [
@@ -292,7 +291,7 @@ class UserModel
     private function getUserInfo($id)
     {
         $sql = <<<SQL
-            -- SELECT * FROM user WHERE user_id = :id
+            SELECT * FROM user WHERE user_id = :id
         SQL;
 
         $params = [
@@ -302,7 +301,7 @@ class UserModel
         $user = DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_ASSOC);
 
         $sql_lang = <<<SQL
-            -- SELECT * FROM user_lang WHERE user_id = :id
+            SELECT * FROM user_lang WHERE user_id = :id
         SQL;
 
         $params_lang = [

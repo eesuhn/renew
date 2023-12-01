@@ -40,13 +40,6 @@ $body = <<<HTML
                             <span id="passwordError" class="errorText"></span>
                         </div>
 
-                        <div class="form-check mt-2">
-                            <input type="checkbox" class="form-check-input" id="agreeTerms">
-                            <label class="form-check-label text-justify agr-text" for="agreeTerms">
-                                By creating an account means you agree to the Terms and Conditions and our Privacy Policy
-                            </label>
-                        </div>
-
                         <button type="submit" class="btn btn-success mt-3" style="border-radius: 90px;">Sign Up</button>
                         <p class="mt-3 text-center">Already have an account? <a href="$root/login" class="log-link">Log in here</a></p>
                     </form>

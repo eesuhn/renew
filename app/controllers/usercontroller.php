@@ -31,8 +31,20 @@ class UserController
         AjaxUtil::sendAjax($flag, $result);
     }
 
-    public function login()
+    public function loginView()
     {
         return ViewManager::renderView('loginview');
+    }
+
+    public function login()
+    {
+        $email = $_POST['email'];
+        $pwd = $_POST['password'];
+
+        $um = new UserModel;
+        $result = $um->login($email, $pwd);
+        $flag = !is_array($result);
+
+        AjaxUtil::sendAjax($flag, $result);
     }
 }
