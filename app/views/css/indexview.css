@@ -1,0 +1,92 @@
+.navbar {
+    padding: 30px;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    height: 100px;
+}
+
+.vl {
+    border-left: 1px solid #2E2E2E;
+    height: 34px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-right: 20px;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: var(--accent-color);
+}
+
+.navbar-brand {
+    margin-left: 10%;
+    margin-right: 20px;
+}
+
+.navbar-logo {
+    width: 60px;
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+.btn {
+    border: none;
+    outline: none;
+    height: 46px;
+    width: 186px;
+    background-color: var(--primary-dark-color);
+    color: var(--background-color);
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-dark-color);
+}
+
+.cart {
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    color: var(--text-light-color);
+}
+
+.cart:hover {
+    color: var(--accent-dark-color);
+}
+
+.user {
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    color: var(--text-light-color);
+}
+
+.user:hover {
+    color: var(--accent-dark-color);
+}
+
+.nav-right-icon {
+    font-size: 20px;
+}

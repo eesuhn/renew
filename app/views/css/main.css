@@ -1,0 +1,68 @@
+:root {
+    /* Root */
+    --background-color: #ffffff;
+
+    --text-color: #011618;
+    --text-light-color: #777E90;
+
+    --primary-color: #79BE79;
+    --primary-dark-color: #346534;
+
+    --secondary-color: #CFE7E7;
+
+    --accent-color: #44448D;
+    --accent-dark-color: #2a2a4f;
+
+    /* Warning */
+    --warning-background: #722c24;
+    --warning-text: #ecedee;
+    --warning-primary: #f2abb2;
+    --warning-accent: #f8d8da;
+
+    /* Login, Register */
+    --lr-btn-primary: #802f24;
+    --lr-btn-primary-hover: #c44946;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif !important;
+    background-color: var(--background-color) !important;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    min-width: 500px;
+}
+
+/* Modal */
+.modal {
+    z-index: 900 !important;
+}
+
+.modal-backdrop {
+    z-index: 800 !important;
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    top: 12px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.notification p {
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.notification-box {
+    padding: 11px 38px 11px 10px;
+    border-radius: 6px;
+    min-width: 120px;
+}
+
+.notification-box .close {
+    margin-top: -2.6px;
+    margin-right: -6px;
+}
