@@ -114,32 +114,6 @@ class DatabaseModel
     }
 
     /**
-     * Add table to database and tables array.
-     * 
-     * @param string $tableName Add to tables array.
-     * @param string $sql SQL attributes for table.
-     * 
-     * @return void|Exception Returns Exception if table already exists.
-     * 
-     * @deprecated Lack of security since bindParam is not used.
-     */
-    public static function addTable($tableName, $sql)
-    {
-        if (array_key_exists($tableName, self::$tables)) {
-            throw new \Exception('Table already exists');
-        }
-        self::$tables[] = $tableName;
-
-        $sql = <<<SQL
-            CREATE TABLE IF NOT EXISTS `$tableName` (
-                $sql
-            );
-        SQL;
-
-        self::$connection->prepare($sql)->execute();
-    }
-
-    /**
      * Execute SQL query.
      * Convert array to PDO parameters.
      * 
