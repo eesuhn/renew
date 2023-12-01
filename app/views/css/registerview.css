@@ -46,10 +46,6 @@ label {
     margin-top: 3px;
 }
 
-.form-check {
-    margin-top: 10px;
-}
-
 .btn-success {
     background-color: var(--primary-dark-color);
     color: #fff;
@@ -95,6 +91,7 @@ label {
 
 .pwd-text {
     margin-top: -10px;
+    line-height: 18px;
 }
 
 .reg-label {
@@ -107,4 +104,15 @@ label {
 
 .reg-title { 
     font-size: 30px;
+}
+
+.errorText {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: -13px;
+}
+
+.reg-input:not(:last-child) {
+    padding-bottom: 18px;
 }

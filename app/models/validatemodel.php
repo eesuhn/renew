@@ -40,26 +40,6 @@ class ValidateModel
     }
 
     /**
-     * AJAX: Handle errors and return JSON response
-     * 
-     * @param array $errors
-     * 
-     * @return void
-     * 
-     * @deprecated Use App\Utils\AjaxUtil::sendAjax() instead
-     */
-    public static function handleErrors($errors)
-    {
-        header('Content-Type: application/json');
-        if (is_array($errors)) {
-            echo json_encode(['success' => false, 'errors' => $errors]);
-        } else {
-            echo json_encode(['success' => true]);
-        }
-        exit();
-    }
-
-    /**
      * Validate login.
      * 
      * @return bool Returns true if user is logged in, false otherwise

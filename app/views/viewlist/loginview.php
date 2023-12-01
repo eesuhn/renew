@@ -19,15 +19,21 @@ $body = <<<HTML
                     <p class="title-small">Get recycling today.</p>
 
                     <!-- Log In Form -->
-                    <form action="" method="post" class="mt-2">
-                        <label for="email" class="login-label">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Type your e-mail" class="form-control mb-3" required>
+                    <form id="user-login" method="post" class="mt-2">
+                        <div class="login-input">
+                            <label for="email" class="login-label">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Type your e-mail" class="form-control mb-3">
+                            <span id="emailError" class="errorText"></span>
+                        </div>
 
-                        <label for="password" class="login-label">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Type your password" class="form-control mb-3" required>
+                        <div class="login-input">
+                            <label for="password" class="login-label">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Type your password" class="form-control mb-3">
+                            <span id="passwordError" class="errorText"></span>
+                        </div>
 
                         <button type="submit" class="btn btn-success mt-3" style="border-radius: 90px;">Log In</button>
-                        <p class="mt-3 text-center">Don't have an account? <a href="#" class="log-link">Sign up here</a></p>
+                        <p class="mt-3 text-center">Don't have an account? <a href="$root/register" class="log-link">Sign up here</a></p>
                     </form>
                 </div>
             </div>

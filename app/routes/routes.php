@@ -20,9 +20,18 @@ $rm->get(
 
 $rm->get(
     '/register',
-    'UserController@register');
+    'UserController@registerView');
 
 $rm->get(
+    '/login',
+    'UserController@loginView');
+
+// Add POST routes here
+$rm->post(
+    '/register',
+    'UserController@register');
+
+$rm->post(
     '/login',
     'UserController@login');
 

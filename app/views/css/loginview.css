@@ -96,3 +96,14 @@ label {
 .login-label:not(:first-child) {
     margin-top: 20px;
 }
+
+.errorText {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: -13px;
+}
+
+.login-input:not(:last-child) {
+    padding-bottom: 18px;
+}

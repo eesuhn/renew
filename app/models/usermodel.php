@@ -19,38 +19,40 @@ class UserModel
      * Register user.
      * Validate email and password.
      * 
-     * @param string $publicName
+     * @param string $displayName
      * @param string $email
      * @param string $password
-     * @param string $confirmPwd
      * 
      * @return bool|array Returns true if registration is successful, array of errors otherwise
      */
-    public function register($publicName, $email, $password, $confirmPwd)
+    public function register($displayName, $email, $password)
     {
-        $errors = $this->validateRegister($publicName, $email, $password, $confirmPwd);
-
+        $errors = $this->validateRegister($displayName, $email, $password);
         if (count($errors) > 0) {
             return $errors;
         }
 
-        $name = $this->getUniqueName($email);
+        $dirName = $this->getUniqueName($email);
         $password = $this->encryptPwd($password);
 
+        // Role is set to public by default.
+        $role = 'public';
+
         // Create user folder
-        $this->addUserFolder($name);
+        $this->addUserFolder($dirName);
 
         /**
          * @var string $sql Insert to user table.
          */
         $sql = <<<SQL
-            -- INSERT INTO user (name, email, pwd) VALUES (:name, :email, :password)
+            INSERT INTO user (dir_name, email, pwd, role) VALUES (:dirName, :email, :password, :role)
         SQL;
 
         $params = [
-            ':name' => $name,
+            ':dirName' => $dirName,
             ':email' => $email,
-            ':password' => $password
+            ':password' => $password,
+            ':role' => $role
         ];
         
         DatabaseModel::exec($sql, $params);
@@ -61,12 +63,12 @@ class UserModel
          * @var string $sql_lang Insert to user_lang table.
          */
         $sql_lang = <<<SQL
-            -- INSERT INTO user_lang (user_id, public_name) VALUES (:userId, :publicName)
+            INSERT INTO user_lang (user_id, display_name) VALUES (:userId, :displayName)
         SQL;
 
         $params_lang = [
             ':userId' => $userId,
-            ':publicName' => $publicName
+            ':displayName' => $displayName
         ];
 
         DatabaseModel::exec($sql_lang, $params_lang);
@@ -106,7 +108,7 @@ class UserModel
     private function verifyUniqueName($name)
     {
         $sql = <<<SQL
-            -- SELECT name FROM user WHERE name = :name
+            SELECT dir_name FROM user WHERE dir_name = :name
         SQL;
 
         $params = [
@@ -122,11 +124,10 @@ class UserModel
      * @param string $name
      * @param string $email
      * @param string $password
-     * @param string $confirmPwd
      * 
      * @return array Returns array of errors
      */
-    private function validateRegister($name, $email, $password, $confirmPwd)
+    private function validateRegister($name, $email, $password)
     {
         $errors = [];
         
@@ -138,7 +139,7 @@ class UserModel
             $errors['email'] = '*Required';
         }
 
-        if (empty($password) || empty($confirmPwd)) {
+        if (empty($password)) {
             $errors['password'] = '*Required';
         }
 
@@ -151,11 +152,7 @@ class UserModel
         }
         
         if (!ValidateModel::validatePassword($password) && !isset($errors['password'])) {
-            $errors['password'] = '*At least 8 characters, 1 alphabet, 1 number and 1 special character';
-        }
-
-        if ($password !== $confirmPwd && !isset($errors['password'])) {
-            $errors['password'] = '*Passwords do not match';
+            $errors['password'] = '*Invalid password format';
         }
 
         return $errors;
@@ -169,11 +166,10 @@ class UserModel
      * 
      * @param string $email
      * @param string $password
-     * @param bool $stayLogin
      * 
      * @return bool|array Returns true if login is successful, array of errors otherwise
      */
-    public function login($email, $password, $stayLogin)
+    public function login($email, $password)
     {
         $errors = $this->validateLogin($email, $password);
 
@@ -182,7 +178,7 @@ class UserModel
         }
 
         $sql = <<<SQL
-            -- SELECT user_id FROM user WHERE email = :email LIMIT 1
+            SELECT user_id FROM user WHERE email = :email LIMIT 1
         SQL;
 
         $params = [
@@ -190,7 +186,7 @@ class UserModel
         ];
 
         $id = DatabaseModel::exec($sql, $params)->fetchColumn();
-        CookieModel::setLoginCookie($id, $stayLogin);
+        CookieModel::setLoginCookie($id);
 
         return true;
     }
@@ -253,7 +249,7 @@ class UserModel
     private function verifyPwd($email, $password)
     {
         $sql = <<<SQL
-            -- SELECT pwd FROM user WHERE email = :email
+            SELECT pwd FROM user WHERE email = :email
         SQL;
 
         $params = [
@@ -275,7 +271,7 @@ class UserModel
     private function verifyEmail($email)
     {
         $sql = <<<SQL
-            -- SELECT email FROM user WHERE email = :email
+            SELECT email FROM user WHERE email = :email
         SQL;
 
         $params = [
@@ -295,7 +291,7 @@ class UserModel
     private function getUserInfo($id)
     {
         $sql = <<<SQL
-            -- SELECT * FROM user WHERE user_id = :id
+            SELECT * FROM user WHERE user_id = :id
         SQL;
 
         $params = [
@@ -305,7 +301,7 @@ class UserModel
         $user = DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_ASSOC);
 
         $sql_lang = <<<SQL
-            -- SELECT * FROM user_lang WHERE user_id = :id
+            SELECT * FROM user_lang WHERE user_id = :id
         SQL;
 
         $params_lang = [
