@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 .navbar {
     padding: 30px;
     font-weight: 500;
@@ -134,7 +138,7 @@
     transition: all 0.3s ease;
     padding: 15px;
     margin-top: 30px;
-    width:200px;
+    width: 200px;
 }
 
 .carousel-caption1 .btn4:hover {
@@ -215,8 +219,7 @@
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding:10px;
-    
+    padding: 10px;
 }
 
 .btn1:hover {
@@ -302,7 +305,7 @@
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding:25px;
+    padding: 25px;
     margin-left: 60%;
 }
 
@@ -353,10 +356,10 @@
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding:25px;
+    padding: 25px;
     margin-top: 50px;
     margin-bottom: 50px;
-    width:300px;
+    width: 300px;
 }
 
 .center-text2 .btn3:hover {
@@ -386,4 +389,17 @@
     font-size: 60px;
     line-height: 90px;
     color: var(--primary-color);
+}
+
+.item-card {
+    width: 70%;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+}
+
+.hero-title {
+    font-weight: bold;
 }
