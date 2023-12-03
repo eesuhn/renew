@@ -90,3 +90,300 @@
 .nav-right-icon {
     font-size: 20px;
 }
+
+.carousel-caption1 {
+    position: absolute;
+    top: 55%;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--background-color);
+    width: 90%;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+
+.carousel-caption1 h3 {
+    font-size: 70px;
+    letter-spacing: 2px;
+    margin-top: 25px;
+    font-weight: 600;
+}
+
+.carousel-caption1 p {
+    font-size: 15px;
+    line-height: 1.9;
+    margin-top: 25px;
+    letter-spacing: 1px;
+    width: 60%;
+}
+
+.carousel-caption1 .btn4 {
+    border: none;
+    outline: none;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 15px;
+    margin-top: 30px;
+    width:200px;
+}
+
+.carousel-caption1 .btn4:hover {
+    background-color: var(--primary-dark-color);
+    text-decoration: none;
+}
+
+.center-text {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 20px; 
+    margin-left: 10%;
+}
+
+.grid-item {
+    text-align: center; 
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.grid-item h3 {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.grid-item p {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--text-light-color);
+}
+
+.grid-item .price {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.price-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--primary-dark-color);
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 0 0 0 8px;
+}
+
+.btn1 {
+    border: none;
+    outline: none;
+    height: 46px;
+    width: 186px;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding:10px;
+    
+}
+
+.btn1:hover {
+    background-color: var(--primary-dark-color);
+    text-decoration: none;
+}
+
+#carouselExampleIndicators{
+    margin-top: 100px;
+}
+
+.carousel-item {
+    height: 100vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption {
+    text-align: center;   
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--background-color);
+    width: 90%;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-caption h5 {
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin-top: 25px;
+    font-weight: 600;
+}
+
+.carousel-caption p {
+    width: 60%;
+    margin: auto;
+    font-size: 20px;
+    line-height: 1.9;
+}
+
+.carousel-indicators {
+    bottom: 20px;
+}
+
+.carousel-indicators li {
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
+    border: none;
+}
+
+.carousel-indicators .active {
+    background-color: var(--primary-color);
+}
+
+.btn2 {
+    border: none;
+    outline: none;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding:25px;
+    margin-left: 60%;
+}
+
+.btn2:hover {
+    background-color: var(--primary-dark-color);
+    text-decoration: none;
+}
+
+.center-text2 {
+    text-align: center;
+    letter-spacing: 1px;
+    padding-left: 20%;
+    text-align: center;
+    padding: 0 var(--container-padding);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+    line-height: 1.7em;
+    font-weight: 500;
+    color: var(--text-light-color);
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.center-text2 h1 {
+    font-size: 40px;
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 80px;
+    color: var(--primary-color);
+}
+
+.center-text2 p {
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--text-light-color);
+    text-align: justify;
+}
+
+.center-text2 .btn3 {
+    border: none;
+    outline: none;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding:25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width:300px;
+}
+
+.center-text2 .btn3:hover {
+    background-color: var(--primary-dark-color);
+    text-decoration: none;
+}
+
+.center-text3 {
+    text-align: center;
+    letter-spacing: 1px;
+    padding-left: 20%;
+    text-align: left;
+    padding: 0 var(--container-padding);
+    margin-top: 80px;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+    line-height: 1.7em;
+    font-weight: 500;
+    color: var(--text-light-color);
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.center-text3 h1 {
+    font-size: 40px;
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 90px;
+    color: var(--primary-color);
+}
