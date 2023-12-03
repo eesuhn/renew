@@ -26,6 +26,11 @@ $rm->get(
     '/login',
     'UserController@loginView');
 
+// TEST: Add product
+$rm->get(
+    '/add-product',
+    'ArtistController@addProduct');
+
 // Add POST routes here
 $rm->post(
     '/register',
