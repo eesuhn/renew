@@ -58,7 +58,7 @@ HTML;
             
 $mainView .= <<<HTML
             <!-- Notification -->
-            <div class="notification">
+            <div class="notification" id="notification-div">
                 <div class="alert alert-info alert-dismissible fade notification-box" role="alert" id="notification">
                     <p id="notification-text">&nbsp;</p>
                     <button type="button" class="close notification-close" data-dismiss="alert">&times;</button>
