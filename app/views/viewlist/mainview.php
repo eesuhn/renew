@@ -11,7 +11,7 @@ $mainView = <<<HTML
         <head>
             <title>{$viewInfo['title']}</title>
 
-            <link rel="shortcut icon" type="image/png" href="$root/app/assets/public/light-icon.png" />
+            <link rel="shortcut icon" type="image/png" href="$root/app/assets/public/favicon.png" />
             
             <!-- Include Bootstrap CSS -->
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
