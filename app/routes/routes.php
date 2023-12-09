@@ -26,6 +26,10 @@ $rm->get(
     '/login',
     'UserController@loginView');
 
+$rm->get(
+    '/profile',
+    'UserController@profileView');
+
 // Add POST routes here
 $rm->post(
     '/register',
@@ -34,5 +38,9 @@ $rm->post(
 $rm->post(
     '/login',
     'UserController@login');
+
+$rm->post(
+    '/profile',
+    'UserController@profileView');
 
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
