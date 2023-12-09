@@ -28,6 +28,12 @@ $mainView = <<<HTML
             <!-- Include Font Awesome -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+            <!-- Include DataTable CSS -->
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+
+            <!-- Include DataTable JS -->
+            <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
             <link rel="stylesheet" href="$root/app/views/css/main.css" />
 
             <script src="$root/app/views/js/main.js"></script>
