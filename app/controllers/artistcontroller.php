@@ -13,6 +13,11 @@ use App\Models\ProductModel;
 
 class ArtistController
 {
+    public function addProductView()
+    {
+        return ViewManager::renderView('addproductview');
+    }
+
     public function addProduct()
     {
         $pm = new ProductModel;

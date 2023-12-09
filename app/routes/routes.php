@@ -29,7 +29,7 @@ $rm->get(
 // TEST: Add product
 $rm->get(
     '/add-product',
-    'ArtistController@addProduct');
+    'ArtistController@addProductView');
 
 // Add POST routes here
 $rm->post(

@@ -38,6 +38,12 @@ $vm->addView(
     ['loginview.css'],
     ['loginview.js']);
 
+$vm->addView(
+    'addproductview',
+    'Add Product',
+    ['addproductview.css'],
+    ['addproductview.js']);
+
 // Add segments here
 $vm->addSeg(
     'sample');
