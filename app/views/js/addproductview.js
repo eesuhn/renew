@@ -7,6 +7,16 @@ function listenAddProduct() {
         e.preventDefault();
         var formData = new FormData(this);
 
-        console.log(formData);
+        sendAjax(
+            "/renew/add-product",
+            formData,
+            function (response) {
+                console.log(response);
+            },
+            function (response) {
+                console.log(response);
+            },
+            "AJAX Error: Unable to add product."
+        );
     })
 }

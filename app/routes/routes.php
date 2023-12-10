@@ -40,4 +40,9 @@ $rm->post(
     '/login',
     'UserController@login');
 
+// TEST: Add product
+$rm->post(
+    '/add-product',
+    'ArtistController@addProduct');
+
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

@@ -6,7 +6,7 @@ if (!defined('ACCESS')) {
 }
 
 $body = <<<HTML
-    <form id="add-prod-form" method="POST">
+    <form id="add-prod-form" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="name">name</label>
             <input type="text" id="name" name="name">

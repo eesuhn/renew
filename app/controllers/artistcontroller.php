@@ -20,25 +20,12 @@ class ArtistController
 
     public function addProduct()
     {
-        $pm = new ProductModel;
+        $name = $_POST['name'];
+        $image = $_FILES['image'];
 
-        // TEST: Add product
-        $userId = 1;
-        $prodName = 'test';
-        $prodPrice = 100;
-        $quantity = 1;
-        $description = 'test';
-        $imgPath = 'test';
+        $flag = true;
+        $result = $image;
 
-        $flag = $pm->addProduct(
-            $userId, 
-            $prodName, 
-            $prodPrice, 
-            $quantity, 
-            $description, 
-            $imgPath
-        );
-
-        dd($flag);
+        AjaxUtil::sendAjax($flag, $result);
     }
 }
