@@ -39,10 +39,10 @@ $vm->addView(
     ['loginview.js']);
 
 $vm->addView(
-    'profileview',
+    'editprofileview',
     'Profile',
-    ['profileview.css'],
-    ['profileview.js']);
+    ['editprofileview.css'],
+    ['editprofileview.js']);
 
 // Add segments here
 $vm->addSeg(

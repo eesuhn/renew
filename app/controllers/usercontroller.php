@@ -50,6 +50,6 @@ class UserController
 
     public function editProfileView()
     {
-        return ViewManager::renderView('profileview');
+        return ViewManager::renderView('editprofileview');
     }
 }
