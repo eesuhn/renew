@@ -56,6 +56,12 @@ $vm->addView(
     ['editprofileview.css'],
     ['editprofileview.js']);
 
+$vm->addView(
+    'storeview',
+    'Store',
+    ['storeview.css'],
+    ['storeview.js']);
+
 // Add segments here
 $vm->addSeg(
     'sample');
