@@ -47,4 +47,9 @@ class UserController
 
         AjaxUtil::sendAjax($flag, $result);
     }
+
+    public function editProfileView()
+    {
+        return ViewManager::renderView('editprofileview');
+    }
 }
