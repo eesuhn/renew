@@ -14,4 +14,9 @@ class IndexController
     public function index(){
         return ViewManager::renderView('indexview');
     }
+
+    public function adminNavbarView()
+    {
+        return ViewManager::renderView('adminnavbarview');
+    }
 }

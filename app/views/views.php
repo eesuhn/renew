@@ -39,6 +39,12 @@ $vm->addView(
     ['loginview.js']);
 
 $vm->addView(
+    'adminnavbarview',
+    'Admin Navbar',
+    ['adminnavbarview.css'],
+    ['adminnavbarview.js']);
+
+$vm->addView(
     'editprofileview',
     'Profile',
     ['editprofileview.css'],
