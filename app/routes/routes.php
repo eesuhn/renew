@@ -27,6 +27,10 @@ $rm->get(
     'UserController@loginView');
 
 $rm->get(
+    '/admin-navbar',
+    'IndexController@adminNavbarView');
+
+$rm->get(
     '/edit-profile',
     'UserController@editProfileView');
 
