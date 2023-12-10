@@ -19,7 +19,7 @@ $body = <<<HTML
                     <p class="title-small">Earn rewards while saving the planet.</p>
 
                     <!-- Registration Form -->
-                    <form id="user-register" method="post" class="mt-2">
+                    <form id="user-register" method="POST" class="mt-2">
 
                         <div class="reg-input">
                             <label for="name" class="reg-label">How should we address you?</label>
@@ -40,7 +40,7 @@ $body = <<<HTML
                             <span id="passwordError" class="errorText"></span>
                         </div>
 
-                        <button type="submit" class="btn btn-success mt-3" style="border-radius: 90px;">Sign Up</button>
+                        <button type="submit" class="btn btn-success mt-3">Sign Up</button>
                         <p class="mt-3 text-center">Already have an account? <a href="$root/login" class="log-link">Log in here</a></p>
                     </form>
                 </div>

@@ -19,7 +19,7 @@ $body = <<<HTML
                     <p class="title-small">Get recycling today.</p>
 
                     <!-- Log In Form -->
-                    <form id="user-login" method="post" class="mt-2">
+                    <form id="user-login" method="POST" class="mt-2">
                         <div class="login-input">
                             <label for="email" class="login-label">Email</label>
                             <input type="email" id="email" name="email" placeholder="Type your e-mail" class="form-control mb-3">
@@ -32,7 +32,7 @@ $body = <<<HTML
                             <span id="passwordError" class="errorText"></span>
                         </div>
 
-                        <button type="submit" class="btn btn-success mt-3" style="border-radius: 90px;">Log In</button>
+                        <button type="submit" class="btn btn-success mt-3">Log In</button>
                         <p class="mt-3 text-center">Don't have an account? <a href="$root/register" class="log-link">Sign up here</a></p>
                     </form>
                 </div>

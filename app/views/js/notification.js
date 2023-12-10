@@ -14,6 +14,8 @@ function showNotification() {
     if (message) {
         $('#notification-text').text(message).parent().addClass('show');
         setTimeout(() => $('#notification').hide(), duration);
+    } else {
+        $('#notification-div').hide();
     }
     sessionStorage.removeItem("notification");
 }

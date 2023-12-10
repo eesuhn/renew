@@ -19,6 +19,7 @@
  * [Frontend]
  * - Bootstrap 4.5.2
  * - PopperJS v2.11.6
+ * - DataTables 1.13.7
  * - Font Awesome 5.15.3
  * - Google Fonts Roboto
  */

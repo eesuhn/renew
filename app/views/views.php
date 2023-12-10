@@ -39,6 +39,12 @@ $vm->addView(
     ['loginview.js']);
 
 $vm->addView(
+    'addproductview',
+    'Add Product',
+    ['addproductview.css'],
+    ['addproductview.js']);
+
+$vm->addView(
     'adminnavbarview',
     'Admin Navbar',
     ['adminnavbarview.css'],
