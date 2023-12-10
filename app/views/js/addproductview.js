@@ -14,7 +14,7 @@ function listenAddProduct() {
                 console.log(response.data);
             },
             function (response) {
-                console.log(response.data);
+                handleErrorText(response.data);
             },
             "AJAX Error: Unable to add product."
         );

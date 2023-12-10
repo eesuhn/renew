@@ -112,23 +112,23 @@ class ProductModel
         }
 
         if (empty($quantity)) {
-            $errors['quantity'] = '*Required';
+            $errors['prodQty'] = '*Required';
         }
 
         if (empty($description)) {
-            $errors['description'] = '*Required';
+            $errors['prodDesc'] = '*Required';
         }
 
         if (!is_numeric($prodPrice) && !isset($errors['prodPrice'])) {
             $errors['prodPrice'] = '*Must be a number';
         }
 
-        if (!is_numeric($quantity) && !isset($errors['quantity'])) {
-            $errors['quantity'] = '*Must be a number';
+        if (!is_numeric($quantity) && !isset($errors['prodQty'])) {
+            $errors['prodQty'] = '*Must be a number';
         }
 
         if (isset($image['error'])) {
-            $errors['image'] = $image['error'];
+            $errors['prodImg'] = $image['error'];
         }
 
         return $errors;

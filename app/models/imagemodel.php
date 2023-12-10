@@ -18,8 +18,8 @@ class ImageModel
      * @param string $dir
      * 
      * @return array Returns array of response
-     * - fileName: File name
-     * - error: Error message
+     * - fileName: File name, if upload is successful
+     * - error: Error message, if upload is failed
      */
     public static function uploadImage($imgFile, $dir)
     {
@@ -30,17 +30,6 @@ class ImageModel
         if ($imgFile['error'] == UPLOAD_ERR_INI_SIZE) {
             $result["error"] = "*File exceeds maximum size allowed";
         }
-
-        if ($result["error"]) {
-            return $result;
-        }
-        
-        $fileInfo = pathinfo($imgFile["name"]);
-        
-        /**
-         * TODO: Verify file name.
-         */
-        $result["fileName"] = getRand($fileInfo["filename"])  . "." . $fileInfo["extension"];
         
         /**
          * @var array $typeAllowed Allowed file types.
@@ -51,18 +40,25 @@ class ImageModel
             "image/png"
         ];
         
-        if ((!in_array($imgFile["type"], $typeAllowed)) 
-            && !isset($result["error"])) {
-            
-            $result["error"] = "Error: File type not allowed";
+        if (!isset($result["error"])) {
+            if ((!in_array($imgFile["type"], $typeAllowed))) {
+                $result["error"] = "Invalid file type. Only JPG, JPEG, PNG files are allowed";
+            }
         }
 
-        $fileDir = $dir . "/" . $result["fileName"];
+        if (!isset($result["error"])) {
+            $fileInfo = pathinfo($imgFile["name"]);
 
-        if (!move_uploaded_file($imgFile["tmp_name"], $fileDir) 
-            && !isset($result["error"])) {
+            /**
+             * TODO: Verify file name.
+             */
+            $result["fileName"] = getRand($fileInfo["filename"])  . "." . $fileInfo["extension"];
 
-            $result["error"] = "Error: File not uploaded";
+            $fileDir = $dir . "/" . $result["fileName"];
+
+            if (!move_uploaded_file($imgFile["tmp_name"], $fileDir)) {
+                $result["error"] = "Error: File not uploaded";
+            }
         }
 
         return $result;

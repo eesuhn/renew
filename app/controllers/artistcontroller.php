@@ -42,7 +42,8 @@ class ArtistController
             $description,
             $imgUploadInfo
         );
+        $flag = !is_array($result);
 
-        AjaxUtil::sendAjax(true, $result);
+        AjaxUtil::sendAjax($flag, $result);
     }
 }
