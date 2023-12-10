@@ -18,7 +18,9 @@ function sendAjax(
         url: url,
         type: "POST",
         data: formData,
-        dataType: "json",
+        contentType: false,
+        cache: false,
+        processData: false,
 
         success: function (response) {
             if (response.success && typeof sucFunc == "function") {
