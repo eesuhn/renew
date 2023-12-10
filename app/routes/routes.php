@@ -28,7 +28,7 @@ $rm->get(
 
 $rm->get(
     '/admin-navbar',
-    'UserController@adminNavbarView');
+    'IndexController@adminNavbarView');
 
 // Add POST routes here
 $rm->post(
@@ -38,10 +38,5 @@ $rm->post(
 $rm->post(
     '/login',
     'UserController@login');
-
-$rm->post(
-    '/admin-navbar',
-    'UserController@adminNavbarView');
-    
 
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

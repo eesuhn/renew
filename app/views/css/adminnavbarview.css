@@ -4,10 +4,10 @@ html {
 
 .btn {
     border-radius: 50px;
-    border-color: none;
-    margin-right:20px;
+    margin-right: 30px;
     background-color: var(--accent-color);
     color: white;
+    border: none !important;
 }
 
 .btn:hover {
@@ -23,22 +23,23 @@ html {
 }
 
 .navbar .navbar-brand img {
-    width:35px;
-    height:30px;
+    height: 40px;
+    margin-left: 20px;
 }
 
 .user-icon {
     color:grey;
+    font-size: 20px;
+    margin-left: 16px;
 }
 
 .user-icon:hover {
-    color:var(--accent-color);
+    color: var(--accent-color);
     cursor: pointer;
 }
 
 .sidebar {
     margin: 0;
-    padding: 20px;
     width: 250px;
     background-color: #fff;
     position: fixed;
@@ -46,17 +47,21 @@ html {
     overflow: auto;
     z-index: 1;
     text-align: left;
-
 }
 
 .sidebar a {
     display: block;
     color: black;
-    padding: 20px;
+    padding: 15px 25px;
     text-decoration: none;
     font-size: 16px;        
     font-weight: 500;
     line-height: 10px;
+    margin: 5px;
+}
+
+.sidebar a:first-child {
+    margin-top: 10px;
 }
 
 .sidebar a:hover{
@@ -66,12 +71,12 @@ html {
 }
 
 .sidebar i {
-    margin-right: 10px;
+    font-size: 16px;
 }
 
 .sidebar .logout {
     position: absolute;
-    top: 80%;
+    bottom: 130px;
 }
 
 .sidebar .logout:hover {
@@ -80,11 +85,46 @@ html {
     border-radius: 40px;
 }
 
+.form-inline {
+    margin-right: 26px;
+}
 
+.sidebar hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 0;
+    border-top: 2px solid #E5E7EB;
+}
+
+.fa-tree {
+    margin-right: 22px;
+}
+
+.fa-puzzle-piece {
+    margin-right: 17px;
+}
+
+.fa-chart-pie {
+    margin-right: 17px;
+}
+
+.fa-edit {
+    margin-right: 17px;
+}
+
+.fa-sign-out-alt {
+    margin-right: 22px;
+}
+
+.fa-users {
+    margin-right: 15px;
+
+}
+
+/* TEMP: Content */
 .content {
     margin-left: 250px;
     padding: 1px 16px;
     height: 1000px;
     background-color: #E5E7EB;
 }
-
