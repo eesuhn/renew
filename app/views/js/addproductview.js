@@ -11,10 +11,10 @@ function listenAddProduct() {
             "/renew/add-product",
             formData,
             function (response) {
-                console.log(response);
+                console.log(response.data);
             },
             function (response) {
-                console.log(response);
+                console.log(response.data);
             },
             "AJAX Error: Unable to add product."
         );

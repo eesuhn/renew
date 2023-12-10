@@ -23,6 +23,25 @@ class ImageModel
      */
     public static function uploadImage($imgFile, $dir)
     {
+        if (!isset($imgFile) || $imgFile['error'] == UPLOAD_ERR_NO_FILE) {
+            $result["error"] = "*File is required";
+        }
+
+        if ($imgFile['error'] == UPLOAD_ERR_INI_SIZE) {
+            $result["error"] = "*File exceeds maximum size allowed";
+        }
+
+        if ($result["error"]) {
+            return $result;
+        }
+        
+        $fileInfo = pathinfo($imgFile["name"]);
+        
+        /**
+         * TODO: Verify file name.
+         */
+        $result["fileName"] = getRand($fileInfo["filename"])  . "." . $fileInfo["extension"];
+        
         /**
          * @var array $typeAllowed Allowed file types.
          */
@@ -31,32 +50,21 @@ class ImageModel
             "image/jpg",
             "image/png"
         ];
-
-        $fileInfo = pathinfo($imgFile["name"]);
-
-        /**
-         * TODO: Verify file name.
-         */
-        $return["fileName"] = getRand($fileInfo["filename"])  . "." . $fileInfo["extension"];
         
-        $fileDir = $dir . "/" . $return["fileName"];
-
-        if (!isset($imgFile) && $imgFile["error"] != 0) {
-            $return["error"] = "Error: " . $imgFile["error"];
-        }
-
         if ((!in_array($imgFile["type"], $typeAllowed)) 
-            && !isset($return["error"])) {
-
-            $return["error"] = "Error: File type not allowed";
+            && !isset($result["error"])) {
+            
+            $result["error"] = "Error: File type not allowed";
         }
+
+        $fileDir = $dir . "/" . $result["fileName"];
 
         if (!move_uploaded_file($imgFile["tmp_name"], $fileDir) 
-            && !isset($return["error"])) {
+            && !isset($result["error"])) {
 
-            $return["error"] = "Error: File not uploaded";
+            $result["error"] = "Error: File not uploaded";
         }
 
-        return $return;
+        return $result;
     }
 }
