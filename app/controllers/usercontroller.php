@@ -47,4 +47,9 @@ class UserController
 
         AjaxUtil::sendAjax($flag, $result);
     }
+
+    public function adminNavbarView()
+    {
+        return ViewManager::renderView('adminnavbarview');
+    }
 }

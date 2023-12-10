@@ -1,0 +1,90 @@
+html {
+    background-color: #E5E7EB;
+}
+
+.btn {
+    border-radius: 50px;
+    border-color: none;
+    margin-right:20px;
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn:hover {
+    background-color: var(--accent-dark-color);
+    border-color: none;
+    color: white;
+}
+
+.navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #E5E7EB;
+    padding: 10px;
+}
+
+.navbar .navbar-brand img {
+    width:35px;
+    height:30px;
+}
+
+.user-icon {
+    color:grey;
+}
+
+.user-icon:hover {
+    color:var(--accent-color);
+    cursor: pointer;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 20px;
+    width: 250px;
+    background-color: #fff;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    z-index: 1;
+    text-align: left;
+
+}
+
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 20px;
+    text-decoration: none;
+    font-size: 16px;        
+    font-weight: 500;
+    line-height: 10px;
+}
+
+.sidebar a:hover{
+    background-color: #EDF2F7;
+    color: var(--accent-color);
+    border-radius: 40px;
+}
+
+.sidebar i {
+    margin-right: 10px;
+}
+
+.sidebar .logout {
+    position: absolute;
+    top: 80%;
+}
+
+.sidebar .logout:hover {
+    background-color: transparent;
+    color: red;
+    border-radius: 40px;
+}
+
+
+.content {
+    margin-left: 250px;
+    padding: 1px 16px;
+    height: 1000px;
+    background-color: #E5E7EB;
+}
+

@@ -38,6 +38,12 @@ $vm->addView(
     ['loginview.css'],
     ['loginview.js']);
 
+$vm->addView(
+    'adminnavbarview',
+    'Admin Navbar',
+    ['adminnavbarview.css'],
+    ['adminnavbarview.js']);
+
 // Add segments here
 $vm->addSeg(
     'sample');
