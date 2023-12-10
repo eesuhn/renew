@@ -366,4 +366,24 @@ class UserModel
         mkdir($path, 0755);
         return true;
     }
+
+    private static function getUserDir($userId)
+    {
+        /**
+         * @var string $rootDir Root directory.
+         */
+        $rootDir = ROOT . '/app/assets/user/';
+
+        $sql = <<<SQL
+            SELECT dir_name FROM user WHERE user_id = :userId
+        SQL;
+
+        $params = [
+            ':userId' => $userId
+        ];
+
+        $dirName = DatabaseModel::exec($sql, $params)->fetchColumn();
+
+        return $rootDir . $dirName;
+    }
 }

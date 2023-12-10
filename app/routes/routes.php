@@ -26,6 +26,11 @@ $rm->get(
     '/login',
     'UserController@loginView');
 
+// TEST: Add product
+$rm->get(
+    '/add-product',
+    'ArtistController@addProductView');
+
 $rm->get(
     '/admin-navbar',
     'IndexController@adminNavbarView');
@@ -42,5 +47,10 @@ $rm->post(
 $rm->post(
     '/login',
     'UserController@login');
+
+// TEST: Add product
+$rm->post(
+    '/add-product',
+    'ArtistController@addProduct');
 
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
