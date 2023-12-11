@@ -9,6 +9,17 @@ use App\Views\ViewManager;
 
 $vm = new ViewManager();
 
+// Add navbars here
+$vm->addNav(
+    'publicnav',
+    ['publicnav.css'], 
+    ['publicnav.js']);
+
+$vm->addNav(
+    'sidepublicnav',
+    ['sidepublicnav.css'], 
+    ['sidepublicnav.js']);
+
 // Add views here
 $vm->addView(
     'installerview', 

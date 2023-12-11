@@ -52,8 +52,14 @@ $mainView .= <<<HTML
         <body>
 HTML;
 
+        // Render navigation. [top]
+        $mainView .= $viewInfo['nav']['top'];
+
         // Render view body.
         $mainView .= $viewInfo['body'];
+
+        // Render navigation. [bottom]
+        $mainView .= $viewInfo['nav']['bottom'];
 
         // Include view-specific JS.
         foreach ($viewInfo['js'] as $js) :

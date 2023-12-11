@@ -31,6 +31,13 @@ class ViewManager
     private static $segRawInfo = [];
 
     /**
+     * Navigation information.
+     * 
+     * @var array $navRawInfo
+     */
+    private static $navRawInfo = [];
+
+    /**
      * Add view.
      * 
      * @param string $viewName
@@ -57,10 +64,14 @@ class ViewManager
      * 
      * @param string $viewName
      * @param array $params (Optional) For passing data to view.
+     * @param string $navName (Optional) For rendering navigation bar.
      * 
      * @return void|Exception Returns Exception if view not found.
      */
-    public static function renderView($viewName, $params = [])
+    public static function renderView(
+        $viewName, 
+        $params = [], 
+        $navName = [])
     {
         $root = self::$root;
 
@@ -76,7 +87,64 @@ class ViewManager
             'js' => $viewRawInfo['js'] ?? []
         ];
 
+        /**
+         * Render navigation bar.
+         */
+        $viewInfo['nav']['top'] = '';
+        $viewInfo['nav']['bottom'] = '';
+
+        $navIndex = 0;
+        while (count($navName) > $navIndex) {
+            $curNavName = $navName[$navIndex];
+
+            if (array_key_exists($curNavName, self::$navRawInfo)) {
+                $navBody = self::returnNavBody($curNavName, $params);
+                $viewInfo['nav']['top'] .= $navBody['top'];
+                $viewInfo['nav']['bottom'] .= $navBody['bottom'];
+                
+                $viewInfo['css'] = array_merge($viewInfo['css'], self::$navRawInfo[$curNavName]['css']);
+                $viewInfo['js'] = array_merge($viewInfo['js'], self::$navRawInfo[$curNavName]['js']);
+            }
+            $navIndex++;
+        }
+
         require_once ROOT . '/app/views/viewlist/mainview.php';
+    }
+
+    /**
+     * Add navigation bar.
+     * 
+     * @param string $navName
+     * @param array $navCss (Optional)
+     * @param array $navJs (Optional)
+     * 
+     * @return void|Exception Returns Exception if navigation bar exists.
+     */
+    public function addNav($navName, $navCss = [], $navJs = [])
+    {
+        if (array_key_exists($navName, self::$navRawInfo)) {
+            throw new \Exception('Navbar already exists');
+        }
+        self::$navRawInfo[$navName] = [
+            'css' => $navCss,
+            'js' => $navJs
+        ];
+    }
+
+    /**
+     * Return navigation bar body.
+     * 
+     * @param string $navName
+     * @param array $params (Optional) For passing data to navigation bar.
+     * 
+     * @return string
+     */
+    private static function returnNavBody($navName, $params)
+    {
+        $root = self::$root;
+
+        require_once ROOT . '/app/views/navlist/' . $navName . '.php';
+        return $nav;
     }
 
     /**
