@@ -55,6 +55,10 @@ $rm->get(
     '/product-focus',
     'StoreController@productFocusView');
 
+$rm->get(
+    '/orders',
+    'UserController@ordersView');
+
 // Add POST routes here
 $rm->post(
     '/register',

@@ -26,7 +26,7 @@ $(document).ready(function() {
         }
     ];
 
-    $('#point-history').DataTable( {
+    $('#point-history').DataTable({
         data: data,
         columns: [
             { data: 'recycled' },

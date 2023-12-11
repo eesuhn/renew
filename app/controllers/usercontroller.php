@@ -62,4 +62,9 @@ class UserController
     {
         return ViewManager::renderView('cartview');
     }
+
+    public function ordersView()
+    {
+        return ViewManager::renderView('ordersview');
+    }
 }

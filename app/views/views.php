@@ -80,6 +80,12 @@ $vm->addView(
     ['productfocusview.css'],
     ['productfocusview.js']);
 
+$vm->addView(
+    'ordersview',
+    'Orders',
+    ['ordersview.css'],
+    ['ordersview.js']);
+
 // Add segments here
 $vm->addSeg(
     'sample');
