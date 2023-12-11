@@ -39,6 +39,22 @@ $rm->get(
     '/edit-profile',
     'UserController@editProfileView');
 
+$rm->get(
+    '/points',
+    'UserController@pointsView');
+
+$rm->get(
+    '/store',
+    'StoreController@storeView');
+
+$rm->get(
+    '/cart',
+    'UserController@cartView');
+    
+$rm->get(
+    '/product-focus',
+    'StoreController@productFocusView');
+
 // Add POST routes here
 $rm->post(
     '/register',

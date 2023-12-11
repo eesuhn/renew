@@ -1,0 +1,366 @@
+/* Side Navbar */
+.sidebar {
+    display: flex;
+    width: 250px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    position: fixed;
+    height: 300px;
+    margin-top: 140px;
+    margin-left: 6%;
+    border: 1px solid #F4F5F6;
+    border-radius: 16px;
+    box-shadow: 0px 8px 16px rgba(15, 15, 15, 0.1);
+    overflow: hidden;
+}
+
+.nav-link {
+    text-align: left;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    color: var(--text-light-color);
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+}
+
+.nav-link i {
+    margin-right: 12px;
+}
+
+.nav-link:hover {
+    color: var(--text-color);
+}
+
+.logout {
+    color: red;
+}
+
+.logout:hover {
+    color: var(--lr-btn-primary);
+}
+
+.nav-item {
+    margin-top: 2px;
+}
+
+.edit-profile-title {
+    margin-bottom: -10px;
+    font-weight: 700;
+}
+
+.new-conf-pwd-row {
+    margin-top: -20px;
+}
+
+.address-row {
+    margin-top: -20px;
+}
+
+.fa-puzzle-piece {
+    margin-right: 8px !important;
+}
+
+.fa-sign-out-alt {
+    margin-right: 10px !important;
+}
+
+/* Content */
+.content {
+    margin-left: 180px;
+    padding: 20px;
+    margin-top: 116px;
+    margin-right: 6%;
+}
+
+.content h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: -0.96px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.profile {
+    border-radius: 90px;
+    border: 2px solid #E6E8EC;
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: var(--accent-color);
+    background-color: #fff;
+    font-weight: 600;
+}
+
+.profile:hover {
+    color: #fff;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+span h2 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 56px;
+    letter-spacing: -0.96px;
+    color: var(--text-color);
+}
+
+.form-horizontal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-horizontal label {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16px;
+    color: var(--text-light-color);
+}
+
+.form-horizontal input {
+    border: 2px solid #E6E8EC;
+    border-radius: 8px;
+    padding: 23px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    color: var(--text-color);
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-horizontal hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+.cancel-btn {
+    color: var(--text-light-color);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cancel-btn i {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 90px;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 15%;
+}
+
+input:disabled {
+    color: var(--text-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-dark-color);
+    transition: all 0.3s ease;
+}
+
+.box1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 20px 10px;
+    border-radius: 16px;
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: 0px 8px 16px rgba(15, 15, 15, 0.1);
+    width: 300px;
+    margin-bottom: -10px;
+}
+
+.box2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 20px 10px;
+    border-radius: 16px;
+    background-color: var(--accent-color);
+    color: #fff;
+    box-shadow: 0px 8px 16px rgba(15, 15, 15, 0.1);
+    width: 300px;
+    margin-bottom: -10px;
+}
+
+.bold-text {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+}
+
+.label-text {
+    font-size: 20px;
+    margin-top: -20px;
+}
+
+.point-title, 
+.history-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: var(--text-color);
+}
+
+.point-title {
+    margin-bottom: 16px;
+}
+
+.history-title {
+    margin-top: 60px;
+    margin-bottom: -26px;
+}
+
+/* Points DataTable */
+.badge {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 16px;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.badge-success {
+    background-color: #DEF7EC;
+    color: var(--green-800, #03543F);
+}
+
+.badge-danger {
+    background-color: #FCE7EC;
+    color: var(--red-800, #9B2C2C);
+}
+
+.badge-warning {
+    background-color: #E1EFFE;
+    color: #1E429F;
+}
+
+#point-history {
+    border: none;
+    width: 100%;
+}
+
+#point-history th,
+#point-history td {
+    border: none;
+}
+
+#point-history thead tr {
+    border-bottom: 2px solid #ccc;
+    font-size: 12px;
+    color: #888;
+    background-color: #F4F5F6;
+}
+
+#point-history thead th {
+    padding: 20px;
+}
+
+#point-history tbody td {
+    padding: 20px 20px 0px;
+    background-color: #fff;
+}
+
+#point-history tbody td:nth-child(2) {
+    color: #6B7280;
+    font-size: 14px;
+}
+
+#point-history tbody td:nth-child(3) {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+#point-history_filter input[type="search"] {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #333;
+    background-color: #F4F5F6;
+    margin-top: 0;
+}
+
+#point-history_filter input[type="search"]:focus {
+    outline: none;
+    border: 1px solid var(--accent-color);
+}
+
+#point-history_filter label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #6B7280;
+}
+
+#point-history_paginate {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    color: #fff;
+}
+
+#point-history_paginate span a {
+    padding: 10px 22px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-left: 5px;
+    background-color: var(--accent-color);
+}
+
+#point-history_paginate span a:hover {
+    background-color: var(--accent-dark-color);
+    transition: all 0.3s ease;
+}
+
+#point-history_paginate span a.paginate_button.current {
+    background-color: var(--accent-dark-color);
+    border: 1px solid var(--accent-dark-color);
+}
+
+#point-history_paginate .previous,
+#point-history_paginate .next {
+    display: none;
+}

@@ -56,6 +56,30 @@ $vm->addView(
     ['editprofileview.css'],
     ['editprofileview.js']);
 
+$vm->addView(
+    'pointsview',
+    'Points',
+    ['pointsview.css'],
+    ['pointsview.js']);
+
+$vm->addView(
+    'storeview',
+    'Store',
+    ['storeview.css'],
+    ['storeview.js']);
+
+$vm->addView(
+    'cartview',
+    'Cart',
+    ['cartview.css'],
+    ['cartview.js']);
+
+$vm->addView(
+    'productfocusview',
+    'Product Focus',
+    ['productfocusview.css'],
+    ['productfocusview.js']);
+
 // Add segments here
 $vm->addSeg(
     'sample');
