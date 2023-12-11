@@ -40,6 +40,10 @@ $rm->get(
     'UserController@editProfileView');
 
 $rm->get(
+    '/points',
+    'UserController@pointsView');
+
+$rm->get(
     '/store',
     'StoreController@storeView');
     

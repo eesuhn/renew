@@ -57,6 +57,12 @@ $vm->addView(
     ['editprofileview.js']);
 
 $vm->addView(
+    'pointsview',
+    'Points',
+    ['pointsview.css'],
+    ['pointsview.js']);
+
+$vm->addView(
     'storeview',
     'Store',
     ['storeview.css'],

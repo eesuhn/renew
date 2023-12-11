@@ -53,8 +53,8 @@ class UserController
         return ViewManager::renderView('editprofileview');
     }
 
-    public function storeView()
+    public function pointsView()
     {
-        return ViewManager::renderView('storeview');
+        return ViewManager::renderView('pointsview');
     }
 }
