@@ -16,4 +16,9 @@ class StoreController
     {
         return ViewManager::renderView('storeview');
     }
+
+    public function productFocusView()
+    {
+        return ViewManager::renderView('productfocusview');
+    }
 }
