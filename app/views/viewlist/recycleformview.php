@@ -22,13 +22,13 @@ $body = <<<HTML
                 <h5 class="mb-4">Item details</h5>
                 <form class="form-card">
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Item Name</label> <input type="text" id="iname" name="iname" placeholder="Enter item name"> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Estimated Weight (Kg)</label> <input type="text" id="weight" name="weight" placeholder="Enter weight in KG(s)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Item Name</label> <input type="text" id="iname" name="iname" placeholder="Enter item name"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Estimated Weight (Kg)</label> <input type="text" id="weight" name="weight" placeholder="Enter weight in KG(s)"> </div>
                     </div>
                     <div class="row justify-content-start">
                         <div class="col-12 col-6">
                             <div class="form-group">
-                                <label class="form-control-label px-3">Recycle Centre</label>
+                                <label class="form-control-label">Recycle Centre</label>
                                 <select class="form-control" id="itemtype" name="itemtype">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -38,13 +38,13 @@ $body = <<<HTML
                         </div>
                     </div>
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Date</label> <input type="date" id="date" name="date" placeholder=""> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Time</label> <input type="time" id="time" name="time" placeholder=""> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Date</label> <input type="date" id="date" name="date" placeholder=""> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label">Time</label> <input type="time" id="time" name="time" placeholder=""> </div>
                     </div>
 
                     <div class="row justify-content-start">
                         <div class="col-12 col-6">
-                            <label class="form-control-label px-3">Upload Image</label> 
+                            <label class="form-control-label">Upload Image</label> 
                             <div class="upload-container">
                                 <input type="file" name="file" class="upload-img" id="file-input">
                                 <label for="file-input" class="custom-file-upload">Choose File</label>
