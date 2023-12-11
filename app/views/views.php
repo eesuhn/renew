@@ -56,6 +56,12 @@ $vm->addView(
     ['editprofileview.css'],
     ['editprofileview.js']);
 
+$vm->addView(
+    'productfocusview',
+    'Product Focus',
+    ['productfocusview.css'],
+    ['productfocusview.js']);
+
 // Add segments here
 $vm->addSeg(
     'sample');
