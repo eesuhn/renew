@@ -52,7 +52,7 @@ $body = <<<HTML
                     <div class="container mt-5">
                         <div class="row">
                             <div class="col-12">
-                                <table id="point-history" class="table table-striped table-bordered" style="width:100%">
+                                <table id="point-history" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th>RECYCLED</th>

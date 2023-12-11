@@ -278,6 +278,7 @@ input:disabled {
 
 #point-history {
     border: none;
+    width: 100%;
 }
 
 #point-history th,
