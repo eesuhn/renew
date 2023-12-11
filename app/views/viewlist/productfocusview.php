@@ -71,7 +71,6 @@ $body = <<<HTML
                                 </button>
                             </span>
                         </div>
-                        <p></p>
                     </div>
                 </div>
                 <div class="row">
@@ -111,3 +110,7 @@ while ($sample > 0) :
     HTML;
     $sample--;
 endwhile;
+
+$body .= <<<HTML
+    </div>
+HTML;
