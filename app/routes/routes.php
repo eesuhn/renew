@@ -39,6 +39,10 @@ $rm->get(
     '/edit-profile',
     'UserController@editProfileView');
 
+$rm->get(
+    '/store',
+    'StoreController@storeView');
+    
 // Add POST routes here
 $rm->post(
     '/register',

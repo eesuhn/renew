@@ -55,7 +55,7 @@ while ($sample > 0) :
     $body .= <<<HTML
         <div class="sample-item col-12">
             <div class="card item-card">
-                <img src="$root/app/assets/public/sample.png" class="card-img-top" alt="...">
+                <img src="$root/app/assets/sample/product.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Upcycled Glass Vases</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
