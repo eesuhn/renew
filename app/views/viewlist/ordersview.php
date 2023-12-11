@@ -29,7 +29,6 @@ $body = <<<HTML
                                             <th>ORDER DATE</th>
                                             <th>STATUS</th>
                                             <th>TOTAL (RM)</th>
-                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody></tbody>

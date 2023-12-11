@@ -4,25 +4,19 @@ $(document).ready(function() {
             "recycled":         "Newspaper",
             "date&time":        "2023-12-11 10:30:00",
             "pointsworth":      "300",
-            "drop-off status":  "Completed",
-            "office":           "Edinburgh",
-            "extn":             "5421"
+            "drop-off status":  "Completed"
         },
         {
             "recycled":         "Plastic bottles",
             "date&time":        "2023-12-11 10:30:00",
             "pointsworth":      "20",
-            "drop-off status":  "In Progress",
-            "office":           "Edinburgh",
-            "extn":             "8422"
+            "drop-off status":  "In Progress"
         },
         {
             "recycled":         "Glass bottles",
             "date&time":        "2023-12-11 10:30:00",
             "pointsworth":      "0",
-            "drop-off status":  "Cancelled",
-            "office":           "London",
-            "extn":             "2323"
+            "drop-off status":  "Cancelled"
         }
     ];
 
