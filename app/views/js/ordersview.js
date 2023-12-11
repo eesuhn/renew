@@ -63,7 +63,6 @@ $(document).ready(function() {
                 data: 'null',
                 render: function (data, type, row) {
                     return '<span class="ellipsis" style="color: black !important;"><a href="#" style="color: black !important;"><i class="fas fa-ellipsis-h"></i></a></span>';
-
                 }
             }
 

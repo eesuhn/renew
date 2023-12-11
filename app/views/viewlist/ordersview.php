@@ -16,11 +16,9 @@ $body = <<<HTML
 
     <div class="container">
         <div class="row justify-content-center">
-
             <div class="col-md-10">
                 <div class="content">
                     <h2 class="table-title">My Orders</h2>
-
                     <h2 class="history-title">Order History</h2>
                     <div class="container mt-5">
                         <div class="row">
