@@ -46,4 +46,19 @@ class ArtistController
 
         AjaxUtil::sendAjax($flag, $result);
     }
+
+    public function artistProductsView()
+    {
+        return ViewManager::renderView('artistproductsview', [], ['artistnav']);
+    }
+
+    public function getProductByArtist()
+    {
+        $userId = UserModel::getCurUserId();
+
+        $pm = new ProductModel();
+        $result = $pm->getProdByUserId($userId);
+
+        AjaxUtil::sendAjax(true, $result);
+    }
 }
