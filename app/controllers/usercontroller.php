@@ -62,4 +62,9 @@ class UserController
     {
         return ViewManager::renderView('cartview');
     }
+
+    public function recycleFormView()
+    {
+        return ViewManager::renderView('recycleformview');
+    }
 }

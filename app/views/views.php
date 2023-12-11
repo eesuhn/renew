@@ -80,6 +80,12 @@ $vm->addView(
     ['productfocusview.css'],
     ['productfocusview.js']);
 
+$vm->addView(
+    'recycleformview',
+    'Recycle Form',
+    ['recycleformview.css'],
+    ['recycleformview.js']);
+
 // Add segments here
 $vm->addSeg(
     'sample');

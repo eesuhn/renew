@@ -55,6 +55,10 @@ $rm->get(
     '/product-focus',
     'StoreController@productFocusView');
 
+$rm->get(
+    '/recycle-form',
+    'UserController@recycleFormView');
+
 // Add POST routes here
 $rm->post(
     '/register',
