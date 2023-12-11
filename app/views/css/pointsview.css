@@ -46,6 +46,31 @@
     color: var(--lr-btn-primary);
 }
 
+.nav-item {
+    margin-top: 2px;
+}
+
+.edit-profile-title {
+    margin-bottom: -10px;
+    font-weight: 700;
+}
+
+.new-conf-pwd-row {
+    margin-top: -20px;
+}
+
+.address-row {
+    margin-top: -20px;
+}
+
+.fa-puzzle-piece {
+    margin-right: 8px !important;
+}
+
+.fa-sign-out-alt {
+    margin-right: 10px !important;
+}
+
 /* Content */
 .content {
     margin-left: 180px;
@@ -167,50 +192,18 @@ input:disabled {
     transition: all 0.3s ease;
 }
 
-.nav-item {
-    margin-top: 2px;
-}
-
-.edit-profile-title {
-    margin-bottom: -10px;
-    font-weight: 700;
-}
-
-.new-conf-pwd-row {
-    margin-top: -20px;
-}
-
-.address-row {
-    margin-top: -20px;
-}
-
-.fa-puzzle-piece {
-    margin-right: 8px !important;
-}
-
-.fa-sign-out-alt {
-    margin-right: 10px !important;
-}
-
-.header-text {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 40px;
-    margin-bottom: 20px;
-}
-
 .box1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 20px;
+    padding: 20px 20px 10px;
     border-radius: 16px;
     background-color: var(--primary-color);
     color: #fff;
     box-shadow: 0px 8px 16px rgba(15, 15, 15, 0.1);
     width: 300px;
-    margin-bottom: 30px;
+    margin-bottom: -10px;
 }
 
 .box2 {
@@ -218,13 +211,13 @@ input:disabled {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 20px;
+    padding: 20px 20px 10px;
     border-radius: 16px;
     background-color: var(--accent-color);
     color: #fff;
     box-shadow: 0px 8px 16px rgba(15, 15, 15, 0.1);
     width: 300px;
-    margin-bottom: 30px;
+    margin-bottom: -10px;
 }
 
 .bold-text {
@@ -235,9 +228,27 @@ input:disabled {
 
 .label-text {
     font-size: 20px;
+    margin-top: -20px;
 }
 
-/* datatables */
+.point-title, 
+.history-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: var(--text-color);
+}
+
+.point-title {
+    margin-bottom: 16px;
+}
+
+.history-title {
+    margin-top: 60px;
+    margin-bottom: -26px;
+}
+
+/* Points DataTable */
 .badge {
     font-size: 14px;
     font-weight: normal;
@@ -265,42 +276,42 @@ input:disabled {
     color: #1E429F;
 }
 
-#example {
+#point-history {
     border: none;
 }
 
-#example th,
-#example td {
+#point-history th,
+#point-history td {
     border: none;
 }
 
-#example thead tr {
+#point-history thead tr {
     border-bottom: 2px solid #ccc;
     font-size: 12px;
     color: #888;
     background-color: #F4F5F6;
 }
 
-#example thead th {
+#point-history thead th {
     padding: 20px;
 }
 
-#example tbody td {
-    padding: 20px;
+#point-history tbody td {
+    padding: 20px 20px 0px;
     background-color: #fff;
 }
 
-#example tbody td:nth-child(2) {
+#point-history tbody td:nth-child(2) {
     color: #6B7280;
     font-size: 14px;
 }
 
-#example tbody td:nth-child(3) {
+#point-history tbody td:nth-child(3) {
     font-weight: 500;
     font-size: 18px;
 }
 
-#example_filter input[type="search"] {
+#point-history_filter input[type="search"] {
     width: 250px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -308,28 +319,29 @@ input:disabled {
     margin-bottom: 10px;
     color: #333;
     background-color: #F4F5F6;
+    margin-top: 0;
 }
 
-#example_filter input[type="search"]:focus {
+#point-history_filter input[type="search"]:focus {
     outline: none;
     border: 1px solid var(--accent-color);
 }
 
-#example_filter label {
+#point-history_filter label {
     font-size: 14px;
     font-weight: 500;
     line-height: 16px;
     color: #6B7280;
 }
 
-#example_paginate {
+#point-history_paginate {
     font-size: 14px;
     font-weight: 600;
     line-height: 16px;
     color: #fff;
 }
 
-#example_paginate span a {
+#point-history_paginate span a {
     padding: 10px 22px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -337,17 +349,17 @@ input:disabled {
     background-color: var(--accent-color);
 }
 
-#example_paginate span a:hover {
+#point-history_paginate span a:hover {
     background-color: var(--accent-dark-color);
     transition: all 0.3s ease;
 }
 
-#example_paginate span a.paginate_button.current {
+#point-history_paginate span a.paginate_button.current {
     background-color: var(--accent-dark-color);
     border: 1px solid var(--accent-dark-color);
 }
 
-#example_paginate .previous,
-#example_paginate .next {
+#point-history_paginate .previous,
+#point-history_paginate .next {
     display: none;
 }
