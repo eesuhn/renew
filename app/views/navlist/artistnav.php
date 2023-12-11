@@ -19,11 +19,11 @@ $nav['top'] = <<<HTML
     </nav>
 
     <div class="sidebar">
-        <a class="active" href="#"><i class="fas fa-chart-pie"></i>Dashboard</a>
-        <a href="#"><i class="fas fa-tag"></i>Product</a>
+        <a class="active" href=""><i class="fas fa-chart-pie"></i>Dashboard</a>
+        <a href=""><i class="fas fa-tag"></i>Product</a>
         <hr>
-        <a href="#"><i class="fas fa-edit"></i>Profile</a>
-        <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        <a href=""><i class="fas fa-edit"></i>Profile</a>
+        <a href="" class="logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
     </div>
 
     <div class="content">

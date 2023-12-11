@@ -12,13 +12,13 @@ $nav['top'] = <<<HTML
                 <div class="sidebar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-user"></i>Profile and Account</a>
+                            <a class="nav-link" href="$root/edit-profile"><i class="fas fa-user"></i>Profile and Account</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-bell"></i>My Points</a>
+                            <a class="nav-link" href="$root/points"><i class="fas fa-bell"></i>My Points</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-puzzle-piece"></i>BECOME AN ARTIST</a>
+                            <a class="nav-link" href=""><i class="fas fa-puzzle-piece"></i>BECOME AN ARTIST</a>
                         </li>
                         <div class="logout">
                             <li class="nav-item">
