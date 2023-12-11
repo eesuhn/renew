@@ -20,7 +20,7 @@ class ProductModel
      * @param string $prodPrice
      * @param string $quantity
      * @param string $description
-     * @param string $imgPath
+     * @param string $image
      * 
      * @return bool|array Returns true if adding product is successful, array of errors otherwise
      */
@@ -30,13 +30,14 @@ class ProductModel
         $prodPrice, 
         $quantity, 
         $description, 
-        $imgPath)
+        $image)
     {
         $errors = $this->validateAddProd(
             $prodName, 
             $prodPrice, 
             $quantity, 
-            $description
+            $description,
+            $image
         );
         if (count($errors) > 0) {
             return $errors;
@@ -73,7 +74,7 @@ class ProductModel
         $params_lang = [
             ':prodId' => $prodId,
             ':description' => $description,
-            ':imgPath' => $imgPath
+            ':imgPath' => $image['fileName']
         ];
 
         DatabaseModel::exec($sql_lang, $params_lang);
@@ -89,6 +90,7 @@ class ProductModel
      * @param string $prodPrice
      * @param string $quantity
      * @param string $description
+     * @param string $image
      * 
      * @return array Returns array of errors
      */
@@ -96,7 +98,8 @@ class ProductModel
         $prodName, 
         $prodPrice, 
         $quantity, 
-        $description)
+        $description,
+        $image)
     {
         $errors = [];
 
@@ -109,70 +112,25 @@ class ProductModel
         }
 
         if (empty($quantity)) {
-            $errors['quantity'] = '*Required';
+            $errors['prodQty'] = '*Required';
         }
 
         if (empty($description)) {
-            $errors['description'] = '*Required';
+            $errors['prodDesc'] = '*Required';
         }
 
         if (!is_numeric($prodPrice) && !isset($errors['prodPrice'])) {
             $errors['prodPrice'] = '*Must be a number';
         }
 
-        if (!is_numeric($quantity) && !isset($errors['quantity'])) {
-            $errors['quantity'] = '*Must be a number';
+        if (!is_numeric($quantity) && !isset($errors['prodQty'])) {
+            $errors['prodQty'] = '*Must be a number';
+        }
+
+        if (isset($image['error'])) {
+            $errors['prodImg'] = $image['error'];
         }
 
         return $errors;
-    }
-
-    /**
-     * Upload image.
-     * Check if file type is allowed.
-     * Check if file exists.
-     * 
-     * @param array $imgFile
-     * @param string $dir
-     * 
-     * @return array Returns array of response
-     * - fileName: File name
-     * - error: Error message
-     */
-    public function uploadImage($imgFile, $dir)
-    {
-        /**
-         * @var array $typeAllowed Allowed file types.
-         */
-        $typeAllowed = [
-            "image/jpeg",
-            "image/jpg",
-            "image/png"
-        ];
-
-        /**
-         * TODO: Verify file name.
-         */
-        $return["fileName"] = getRand($imgFile["name"]);
-        
-        $fileDir = $dir . "/" . $return["fileName"];
-
-        if (!isset($imgFile) && $imgFile["error"] != 0) {
-            $return["error"] = "Error: " . $imgFile["error"];
-        }
-
-        if ((!in_array($imgFile["type"], $typeAllowed)) 
-            && !isset($return["error"])) {
-
-            $return["error"] = "Error: File type not allowed";
-        }
-
-        if (!move_uploaded_file($imgFile["tmp_name"], $fileDir) 
-            && !isset($return["error"])) {
-
-            $return["error"] = "Error: File not uploaded";
-        }
-
-        return $return;
     }
 }

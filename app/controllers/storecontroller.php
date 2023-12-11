@@ -14,11 +14,11 @@ class StoreController
 {
     public function storeView()
     {
-        return ViewManager::renderView('storeview');
+        return ViewManager::renderView('storeview', [], ['publicnav']);
     }
 
     public function productFocusView()
     {
-        return ViewManager::renderView('productfocusview');
+        return ViewManager::renderView('productfocusview', [], ['publicnav']);
     }
 }

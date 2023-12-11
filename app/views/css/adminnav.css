@@ -1,8 +1,4 @@
-html {
-    background-color: #E5E7EB;
-}
-
-.btn {
+.btn-view {
     border-radius: 50px;
     margin-right: 30px;
     background-color: var(--accent-color);
@@ -10,7 +6,7 @@ html {
     border: none !important;
 }
 
-.btn:hover {
+.btn-view:hover {
     background-color: var(--accent-dark-color);
     border-color: none;
     color: white;
@@ -85,7 +81,7 @@ html {
     border-radius: 40px;
 }
 
-.form-inline {
+.form-view {
     margin-right: 26px;
 }
 
@@ -121,7 +117,7 @@ html {
 
 }
 
-/* TEMP: Content */
+/* Content */
 .content {
     margin-left: 250px;
     padding: 1px 16px;

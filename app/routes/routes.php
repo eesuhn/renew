@@ -26,15 +26,6 @@ $rm->get(
     '/login',
     'UserController@loginView');
 
-// TEST: Add product
-$rm->get(
-    '/add-product',
-    'ArtistController@addProductView');
-
-$rm->get(
-    '/admin-navbar',
-    'IndexController@adminNavbarView');
-
 $rm->get(
     '/edit-profile',
     'UserController@editProfileView');
@@ -73,6 +64,10 @@ $rm->post(
     'UserController@login');
 
 // TEST: Add product
+$rm->get(
+    '/add-product',
+    'ArtistController@addProductView');
+
 $rm->post(
     '/add-product',
     'ArtistController@addProduct');

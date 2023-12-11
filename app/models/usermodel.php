@@ -367,7 +367,14 @@ class UserModel
         return true;
     }
 
-    private static function getUserDir($userId)
+    /**
+     * Get user directory.
+     * 
+     * @param int $userId
+     * 
+     * @return string Returns user directory
+     */
+    public static function getUserDir($userId)
     {
         /**
          * @var string $rootDir Root directory.
@@ -385,5 +392,15 @@ class UserModel
         $dirName = DatabaseModel::exec($sql, $params)->fetchColumn();
 
         return $rootDir . $dirName;
+    }
+
+    /**
+     * Get current user ID.
+     * 
+     * @return int
+     */
+    public static function getCurUserId()
+    {
+        return SessionModel::getSession('renew_user')['user_id'];
     }
 }

@@ -50,17 +50,23 @@ class UserController
 
     public function editProfileView()
     {
-        return ViewManager::renderView('editprofileview');
+        return ViewManager::renderView(
+            'editprofileview', 
+            [], 
+            ['publicnav', 'sidepublicnav']);
     }
 
     public function pointsView()
     {
-        return ViewManager::renderView('pointsview');
+        return ViewManager::renderView(
+            'pointsview', 
+            [], 
+            ['publicnav', 'sidepublicnav']);
     }
 
     public function cartView()
     {
-        return ViewManager::renderView('cartview');
+        return ViewManager::renderView('cartview', [], ['publicnav']);
     }
 
     public function ordersView()

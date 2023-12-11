@@ -9,7 +9,7 @@ $body = <<<HTML
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <a href="#" class="btn1"><i class="fas fa-chevron-left"></i>&nbsp;Back</a>
+                <a href="#" class="btn1"><i class="fas fa-chevron-left"></i>&nbsp&nbspBack</a>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@ $body = <<<HTML
                 <img src="$root/app/assets/sample/product.png" alt="sample" class="focus-image"/>
             </div>
             <div class="col-md-6 product-section">
-                <div class="row">
+                <div class="row product-title-box">
                     <div class="col-md-12">
                         <h1 class="product-title">Upcycled Glass Vases</h1>
                     </div>
@@ -31,7 +31,7 @@ $body = <<<HTML
                             <h2 class="product-price">RM 25</h2>
                         </span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 prod-rating">
                         <div class="d-flex justify-content-end align-items-center">
                             <p class="product-rating"><i class="fas fa-star"></i><strong>&nbsp4.5</strong>&nbsp(1000)</p>
                         </div>

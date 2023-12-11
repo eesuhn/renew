@@ -5,13 +5,13 @@ if (!defined('ACCESS')) {
     die();
 }
 
-$body = <<<HTML
+$nav['top'] = <<<HTML
     <nav class="navbar navbar-light justify-content-between">
         <a class="navbar-brand" href="# ">
             <img src="$root/app/assets/public/light-icon.png" class="d-inline-block align-top" alt="logo">
         </a>
-        <form class="form-inline">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-star"></i>&nbsp&nbsp&nbspVIEW AS PUBLIC</button>
+        <form class="form-inline form-view">
+            <button class="btn btn-outline-success my-2 my-sm-0 btn-view" type="submit"><i class="fas fa-star"></i>&nbsp&nbsp&nbspVIEW AS PUBLIC</button>
             <div class="user-icon">
                 <i class="fas fa-user"></i>
             </div>
@@ -29,6 +29,8 @@ $body = <<<HTML
     </div>
 
     <div class="content">
-        Dashboard
+HTML;
+
+$nav['bottom'] = <<<HTML
     </div>
 HTML;
