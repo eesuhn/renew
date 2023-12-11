@@ -1,0 +1,83 @@
+.btn1 {
+    background-color: #fff;
+    color: var(--text-light-color);
+    border: none;
+
+    text-decoration: none;
+}
+
+.btn1:hover {
+    color: #000;
+    border: none;
+    text-decoration: none;
+}
+
+.display-4 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #000;
+    margin-left:30px;
+    margin-bottom: -40px;
+}
+
+.badge-secondary {
+    background-color: white;
+    font-weight: lighter;
+    color:grey;
+}
+
+.badge-success {
+    padding: 6px;  
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.text-dark i {
+    color: var(--warning-background);
+}
+
+.text-dark i:hover {
+    color: red;
+}
+
+.section-up {
+    margin-bottom: -20px;
+}
+
+.btn-outline-secondary.js-btn-minus,
+.btn-outline-secondary.js-btn-plus {
+    font-size: 16px;
+    padding: 8px;
+    width: 32px;
+    border: none;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.btn-outline-secondary.js-btn-minus i,
+.btn-outline-secondary.js-btn-plus i {
+    font-size: 16px;
+}
+
+.form-control.text-center {
+    max-width: 60px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.input-group-prepend,
+.input-group-append {
+    margin: 0 5px;
+}
+
+.btn-outline-secondary.js-btn-minus:hover,
+.btn-outline-secondary.js-btn-plus:hover {
+    background-color: transparent;
+    color: #343a40;
+}
+
+.btn-outline-secondary.js-btn-minus:focus,
+.btn-outline-secondary.js-btn-plus:focus {
+    outline: none;
+}

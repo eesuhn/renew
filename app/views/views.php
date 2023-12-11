@@ -68,6 +68,12 @@ $vm->addView(
     ['storeview.css'],
     ['storeview.js']);
 
+$vm->addView(
+    'cartview',
+    'Cart',
+    ['cartview.css'],
+    ['cartview.js']);
+
 // Add segments here
 $vm->addSeg(
     'sample');

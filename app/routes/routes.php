@@ -46,6 +46,10 @@ $rm->get(
 $rm->get(
     '/store',
     'StoreController@storeView');
+
+$rm->get(
+    '/cart',
+    'UserController@cartView');
     
 // Add POST routes here
 $rm->post(

@@ -57,4 +57,9 @@ class UserController
     {
         return ViewManager::renderView('pointsview');
     }
+
+    public function cartView()
+    {
+        return ViewManager::renderView('cartview');
+    }
 }
