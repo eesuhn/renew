@@ -1,0 +1,214 @@
+.container {
+    margin-top: 30px;
+    align-items: center;
+}
+
+.container .row {
+    margin-top: 15px;
+    align-items: center;
+    margin-left: 0px;
+}
+
+.container .row .col-md-4 {
+    margin-top: 30px;
+    align-items: center;
+}
+
+.btn1 {
+    background-color: transparent;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0.9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin-left: -50px;
+
+}
+
+.btn1:hover {
+    color: #555;
+    text-decoration: none;
+}
+
+.focus-image {
+    width: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.product-desc {
+    color: #626264;
+    text-align: justify;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.product-price {
+    font-size: 24px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.32px;
+    margin-top: 20px;
+}
+
+.product-rating i {
+    color: grey;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center
+}
+
+.rating>input {
+    display: none
+}
+
+.rating>label {
+    position: relative;
+    width: 1em;
+    font-size: 30px;
+    font-weight: 300;
+    color: #B1B5C3;
+    cursor: pointer
+}
+
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+    opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4
+}
+
+.buttons {
+    top: 36px;
+    position: relative;
+}
+
+.rate-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.rating-submit {
+    border-radius: 15px;
+    color: #fff;
+    height: 49px;
+}
+
+.rating-submit:hover {
+    color: #fff;
+}
+    
+.input-group {
+    width: 120px;
+}
+
+.input-group .btn {
+    width: 30px;
+    border-radius: 20px;
+    background-color: #F1F4F3;
+    color: #000;
+    padding: 5px;
+}
+
+.input-group .input-number {
+    width: 60px;
+}
+
+.input-number {
+    border: 0;
+    outline: none;
+    border-color: transparent;
+    text-align: center;
+}
+
+.add-to-cart {
+    border-radius: 20px;
+    color: #fff;
+    width: 150px;
+    padding:10px;
+    background-color: #000;
+}
+
+.add-to-cart:hover {
+    background-color: var(--accent-dark-color);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 30px 140px;
+    grid-gap: 20px;
+}
+
+.text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 60px;
+    margin-left: 150px;
+}
+
+.price-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--primary-dark-color);
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 0 0 0 8px;
+}
+
+.item-card {
+    width: 300px;
+}
+
+.ratings {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #000;
+}
+
+.order-now {
+    background-color: var(--accent-dark-color);
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 50px;
+    margin-left: 210px;
+    outline: none;
+}
+
+.order-now:hover {
+    background-color: var(--primary-dark-color);
+    color: white;
+    text-decoration: none;
+}

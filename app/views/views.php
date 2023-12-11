@@ -68,6 +68,12 @@ $vm->addView(
     ['storeview.css'],
     ['storeview.js']);
 
+$vm->addView(
+    'productfocusview',
+    'Product Focus',
+    ['productfocusview.css'],
+    ['productfocusview.js']);
+
 // Add segments here
 $vm->addSeg(
     'sample');
