@@ -19,13 +19,13 @@
     color: #000;
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
     opacity: 0.9;
     text-decoration: none;
     transition: color 0.3s ease;
-    margin-left: -50px;
+    margin-left: -280px;
 
 }
 
@@ -211,4 +211,12 @@
     background-color: var(--primary-dark-color);
     color: white;
     text-decoration: none;
+}
+
+.product-title-box {
+    margin-bottom: -30px;
+}
+
+.prod-rating {
+    margin-top: 20px;
 }

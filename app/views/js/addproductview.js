@@ -11,7 +11,7 @@ function listenAddProduct() {
             "/renew/add-product",
             formData,
             function (response) {
-                console.log(response.data);
+                console.log(response.success);
             },
             function (response) {
                 handleErrorText(response.data);
