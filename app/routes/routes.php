@@ -54,10 +54,6 @@ $rm->get(
     '/orders',
     'UserController@ordersView');
 
-$rm->get(
-    '/artist-nav',
-    'ArtistController@artistNavView');
-
 // Add POST routes here
 $rm->post(
     '/register',

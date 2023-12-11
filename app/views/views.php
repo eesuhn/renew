@@ -22,6 +22,10 @@ $vm->addNav(
     'adminnav',
     ['adminnav.css']);
 
+$vm->addNav(
+    'artistnav',
+    ['artistnav.css']);
+
 // Add views here
 $vm->addView(
     'installerview', 
@@ -94,11 +98,6 @@ $vm->addView(
     'Orders',
     ['ordersview.css'],
     ['ordersview.js']);
-
-$vm->addView(
-    'artistnavview',
-    'Artist Nav',
-    ['artistnavview.css']);
 
 // Add segments here
 $vm->addSeg(

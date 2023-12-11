@@ -5,7 +5,7 @@ if (!defined('ACCESS')) {
     die();
 }
 
-$body = <<<HTML
+$nav['top'] = <<<HTML
     <nav class="navbar navbar-light justify-content-between">
         <a class="navbar-brand" href="# ">
             <img src="$root/app/assets/public/light-icon.png" class="d-inline-block align-top" alt="logo">
@@ -27,4 +27,8 @@ $body = <<<HTML
     </div>
 
     <div class="content">
+HTML;
+
+$nav['bottom'] = <<<HTML
+    </div>
 HTML;

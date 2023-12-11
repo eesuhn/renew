@@ -17,7 +17,7 @@ class ArtistController
 {
     public function addProductView()
     {
-        return ViewManager::renderView('addproductview', [], ['adminnav']);
+        return ViewManager::renderView('addproductview', [], ['artistnav']);
     }
 
     public function addProduct()
@@ -45,10 +45,5 @@ class ArtistController
         $flag = !is_array($result);
 
         AjaxUtil::sendAjax($flag, $result);
-    }
-
-    public function artistNavView()
-    {
-        return ViewManager::renderView('artistnavview', [], ['artistnav']);
     }
 }
