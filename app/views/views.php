@@ -22,6 +22,10 @@ $vm->addNav(
     'adminnav',
     ['adminnav.css']);
 
+$vm->addNav(
+    'artistnav',
+    ['artistnav.css']);
+
 // Add views here
 $vm->addView(
     'installerview', 

@@ -16,7 +16,7 @@ $body = <<<HTML
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="content">
                     <h2 class="table-title">My Orders</h2>
                     <div class="container mt-5">
