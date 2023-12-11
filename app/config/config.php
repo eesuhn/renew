@@ -11,7 +11,7 @@ if (!defined('ACCESS')) {
  * @var array $dbConfig
  */
 $dbConfig = [
-    'host' => 'localhost:3307',
+    'host' => 'localhost',
     'username' => 'root',
     'password' => '',
     'database' => 'renew'
