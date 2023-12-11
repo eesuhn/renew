@@ -1,0 +1,166 @@
+.container {
+    margin-top:30px;
+}
+.btn1 {
+    background-color: transparent;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0.9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.btn1:hover {
+    color: #555;
+    text-decoration: none;
+}
+
+.table-title {        
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.32px;
+}
+
+.label-text {
+    font-size: 20px;
+    margin-top: -20px;
+}
+
+.order-title,
+.history-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: var(--text-color);
+}
+
+.order-title {
+    margin-bottom: 16px;
+}
+
+.history-title {
+    margin-top: 60px;
+    margin-bottom: -26px;
+}
+
+/* Orders DataTable */
+.badge {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 16px;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.badge-success {
+    background-color: #DEF7EC;
+    color: var(--green-800, #03543F);
+}
+
+.badge-danger {
+    background-color: #FCE7EC;
+    color: var(--red-800, #9B2C2C);
+}
+
+.badge-warning {
+    background-color: #E1EFFE;
+    color: #1E429F;
+}
+
+#order-history {
+    border: none;
+    width: 100%;
+}
+
+#order-history th,
+#order-history td {
+    border: none;
+}
+
+#order-history thead tr {
+    border-bottom: 2px solid #ccc;
+    font-size: 12px;
+    color: #888;
+    background-color: #F4F5F6;
+}
+
+#order-history thead th {
+    padding: 20px;
+}
+
+#order-history tbody td {
+    padding: 20px 20px 0px;
+    background-color: #fff;
+}
+
+#order-history tbody td:nth-child(2) {
+    color: #6B7280;
+    font-size: 14px;
+}
+
+#order-history tbody td:nth-child(3) {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+#order-history_filter input[type="search"] {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #333;
+    background-color: #F4F5F6;
+    margin-top: 0;
+}
+
+#order-history_filter input[type="search"]:focus {
+    outline: none;
+    border: 1px solid var(--accent-color);
+}
+
+#order-history_filter label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #6B7280;
+}
+
+#order-history_paginate {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    color: #fff;
+}
+
+#order-history_paginate span a {
+    padding: 10px 22px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-left: 5px;
+    background-color: var(--accent-color);
+}
+
+#order-history_paginate span a:hover {
+    background-color: var(--accent-dark-color);
+    transition: all 0.3s ease;
+}
+
+#order-history_paginate span a.paginate_button.current {
+    background-color: var(--accent-dark-color);
+    border: 1px solid var(--accent-dark-color);
+}
+
+#order-history_paginate .previous,
+#order-history_paginate .next {
+    display: none;
+}
