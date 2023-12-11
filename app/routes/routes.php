@@ -48,7 +48,7 @@ $rm->get(
 
 $rm->get(
     '/recycle-form',
-    'UserController@recycleFormView');
+    'IndexController@recycleFormView');
 
 $rm->get(
     '/orders',

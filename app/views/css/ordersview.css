@@ -13,6 +13,7 @@
     opacity: 0.9;
     text-decoration: none;
     transition: color 0.3s ease;
+    margin-left: 20px;
 }
 
 .btn1:hover {
@@ -25,6 +26,7 @@
     font-weight: 700;
     line-height: 40px;
     letter-spacing: -0.32px;
+    margin-bottom: -20px;
 }
 
 .label-text {
@@ -41,7 +43,7 @@
 }
 
 .order-title {
-    margin-bottom: 16px;
+    margin-bottom: -20px;
 }
 
 .history-title {

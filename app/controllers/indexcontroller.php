@@ -17,6 +17,6 @@ class IndexController
 
     public function recycleFormView()
     {
-        return ViewManager::renderView('recycleformview');
+        return ViewManager::renderView('recycleformview', [], ['publicnav']);
     }
 }

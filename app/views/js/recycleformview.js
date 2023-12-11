@@ -1,5 +1,6 @@
-document.getElementById('file-input').addEventListener('change', function() {
-    var fileName = this.value.split('\\').pop();
-    document.getElementById('file-name').innerHTML = fileName ? fileName : 'No file chosen';
+$(document).ready(function() {
+    $('#file-input').on('change', function() {
+        var fileName = $(this).val().split('\\').pop();
+        $('#file-name').text(fileName || 'No file chosen');
+    });
 });
-

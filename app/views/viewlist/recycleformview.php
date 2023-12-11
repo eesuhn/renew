@@ -9,7 +9,7 @@ $body = <<<HTML
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <a href="#" class="btn1"><i class="fas fa-chevron-left"></i>&nbspBack</a>
+                <a href="#" class="btn1"><i class="fas fa-chevron-left"></i>&nbsp&nbspBack</a>
             </div>
         </div>
     </div>

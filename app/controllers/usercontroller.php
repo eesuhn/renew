@@ -71,6 +71,6 @@ class UserController
 
     public function ordersView()
     {
-        return ViewManager::renderView('ordersview');
+        return ViewManager::renderView('ordersview', [], ['publicnav']);
     }
 }

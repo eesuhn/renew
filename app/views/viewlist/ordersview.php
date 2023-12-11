@@ -9,7 +9,7 @@ $body = <<<HTML
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 mt-4">
-                <a href="#" class="btn1"><i class="fas fa-chevron-left"></i>&nbsp;Back</a>
+                <a href="#" class="btn1"><i class="fas fa-chevron-left"></i>&nbsp&nbspBack</a>
             </div>
         </div>
     </div>
@@ -19,7 +19,6 @@ $body = <<<HTML
             <div class="col-md-10">
                 <div class="content">
                     <h2 class="table-title">My Orders</h2>
-                    <h2 class="history-title">Order History</h2>
                     <div class="container mt-5">
                         <div class="row">
                             <div class="col-12">
@@ -29,7 +28,7 @@ $body = <<<HTML
                                             <th>ORDERS</th>
                                             <th>ORDER DATE</th>
                                             <th>STATUS</th>
-                                            <th>TOTAL</th>
+                                            <th>TOTAL (RM)</th>
                                             <th></th>
                                         </tr>
                                     </thead>
