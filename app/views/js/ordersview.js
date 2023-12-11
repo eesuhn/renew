@@ -58,14 +58,7 @@ $(document).ready(function() {
                     return '<span class="' + badgeClass + '">' + statusText + '</span>';
                 }
             },
-            { data: 'total' },
-            {
-                data: 'null',
-                render: function (data, type, row) {
-                    return '<span class="ellipsis" style="color: black !important;"><a href="#" style="color: black !important;"><i class="fas fa-ellipsis-h"></i></a></span>';
-                }
-            }
-
+            { data: 'total' }
         ]
     });
 });
