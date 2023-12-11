@@ -19,4 +19,9 @@ class IndexController
     {
         return ViewManager::renderView('adminnavbarview');
     }
+
+    public function recycleFormView()
+    {
+        return ViewManager::renderView('recycleformview');
+    }
 }

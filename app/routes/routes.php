@@ -56,6 +56,10 @@ $rm->get(
     'StoreController@productFocusView');
 
 $rm->get(
+    '/recycle-form',
+    'UserController@recycleFormView');
+
+$rm->get(
     '/orders',
     'UserController@ordersView');
 

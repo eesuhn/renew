@@ -81,6 +81,12 @@ $vm->addView(
     ['productfocusview.js']);
 
 $vm->addView(
+    'recycleformview',
+    'Recycle Form',
+    ['recycleformview.css'],
+    ['recycleformview.js']);
+
+$vm->addView(
     'ordersview',
     'Orders',
     ['ordersview.css'],
