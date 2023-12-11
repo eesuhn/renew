@@ -12,13 +12,15 @@ $vm = new ViewManager();
 // Add navbars here
 $vm->addNav(
     'publicnav',
-    ['publicnav.css'], 
-    ['publicnav.js']);
+    ['publicnav.css']);
 
 $vm->addNav(
     'sidepublicnav',
-    ['sidepublicnav.css'], 
-    ['sidepublicnav.js']);
+    ['sidepublicnav.css']);
+
+$vm->addNav(
+    'adminnav',
+    ['adminnav.css']);
 
 // Add views here
 $vm->addView(
@@ -34,8 +36,7 @@ $vm->addview(
 $vm->addView(
     'indexview', 
     'Home', 
-    ['indexview.css'],
-    ['indexview.js']);
+    ['indexview.css']);
 
 $vm->addView(
     'registerview',
@@ -52,20 +53,13 @@ $vm->addView(
 $vm->addView(
     'addproductview',
     'Add Product',
-    ['addproductview.css'],
+    [],
     ['addproductview.js']);
-
-$vm->addView(
-    'adminnavbarview',
-    'Admin Navbar',
-    ['adminnavbarview.css'],
-    ['adminnavbarview.js']);
 
 $vm->addView(
     'editprofileview',
     'Profile',
-    ['editprofileview.css'],
-    ['editprofileview.js']);
+    ['editprofileview.css']);
 
 $vm->addView(
     'pointsview',
@@ -76,14 +70,12 @@ $vm->addView(
 $vm->addView(
     'storeview',
     'Store',
-    ['storeview.css'],
-    ['storeview.js']);
+    ['storeview.css']);
 
 $vm->addView(
     'cartview',
     'Cart',
-    ['cartview.css'],
-    ['cartview.js']);
+    ['cartview.css']);
 
 $vm->addView(
     'productfocusview',

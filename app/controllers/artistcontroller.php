@@ -17,7 +17,7 @@ class ArtistController
 {
     public function addProductView()
     {
-        return ViewManager::renderView('addproductview');
+        return ViewManager::renderView('addproductview', [], ['adminnav']);
     }
 
     public function addProduct()
