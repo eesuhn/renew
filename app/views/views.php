@@ -69,6 +69,12 @@ $vm->addView(
     ['storeview.js']);
 
 $vm->addView(
+    'cartview',
+    'Cart',
+    ['cartview.css'],
+    ['cartview.js']);
+
+$vm->addView(
     'productfocusview',
     'Product Focus',
     ['productfocusview.css'],
