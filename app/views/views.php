@@ -56,6 +56,12 @@ $vm->addView(
     ['editprofileview.css'],
     ['editprofileview.js']);
 
+$vm->addView(
+    'pointsview',
+    'Points',
+    ['pointsview.css'],
+    ['pointsview.js']);
+
 // Add segments here
 $vm->addSeg(
     'sample');

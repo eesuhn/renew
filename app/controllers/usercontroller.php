@@ -52,4 +52,9 @@ class UserController
     {
         return ViewManager::renderView('editprofileview');
     }
+
+    public function pointsView()
+    {
+        return ViewManager::renderView('pointsview');
+    }
 }
