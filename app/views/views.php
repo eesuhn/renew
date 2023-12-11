@@ -95,6 +95,11 @@ $vm->addView(
     ['ordersview.css'],
     ['ordersview.js']);
 
+$vm->addView(
+    'artistnavview',
+    'Artist Nav',
+    ['artistnavview.css']);
+
 // Add segments here
 $vm->addSeg(
     'sample');
