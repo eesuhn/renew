@@ -1,8 +1,3 @@
-.container {
-    margin: auto;
-    padding: 0 20px;
-}
-
 .btn {
     border: none;
     outline: none;
@@ -29,7 +24,7 @@
 }
 
 .carousel-item {
-    height: 80vh;
+    height: 60vh;
     min-height: 350px;
     background: no-repeat center center scroll;
     -webkit-background-size: cover;
@@ -111,9 +106,7 @@
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin-top: 40px;
-    margin-left: 50px;
-    margin-bottom: 20px;
+    margin: 30px 140px;
     grid-gap: 20px;
 }
 
@@ -142,7 +135,8 @@
     font-size: 32px;
     font-weight: 600;
     margin-top: 50px;
-    margin-left: 70px;
+    margin-left: 120px;
+    margin-bottom: -10px;
 }
 
 .rating {
@@ -190,3 +184,17 @@
     text-decoration: none;
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.search-bar {
+    left: -26%;
+    margin-bottom: -20px;
+}
