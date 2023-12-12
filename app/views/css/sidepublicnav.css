@@ -58,9 +58,22 @@
 }
 
 .fa-puzzle-piece {
-    margin-right: 8px !important;
+    margin-right: 10px !important;
 }
 
 .fa-sign-out-alt {
-    margin-right: 10px !important;
+    margin-right: 12px !important;
+}
+
+.fa-recycle {
+    margin-right: 11px !important;
+}
+
+.fa-shopping-cart {
+    margin-right: 11px !important;
+    margin-left: -3px !important;
+}
+
+.artist-sidenav-btn {
+    font-weight: 700;
 }
