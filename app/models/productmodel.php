@@ -260,4 +260,32 @@ class ProductModel
 
         return $arr;
     }
+
+    /**
+     * Get product by directory name.
+     * 
+     * @param string $dirName
+     * 
+     * @return array Returns array of product
+     */
+    public function getProdByDirName($dirName)
+    {
+        $sql = <<<SQL
+            SELECT
+                prod_id
+            FROM
+                product
+            WHERE
+                dir_name = :dirName
+        SQL;
+
+        $params = [
+            ':dirName' => $dirName
+        ];
+
+        $prodId = DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_COLUMN);
+        $prodArr = $this->getProdById($prodId);
+
+        return $prodArr;
+    }
 }

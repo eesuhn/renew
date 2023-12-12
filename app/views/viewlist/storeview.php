@@ -74,7 +74,7 @@ HTML;
 
 if (isset($products)) :
     $body .= <<<HTML
-        <div class="grid-container">
+        <div class="grid-container product-grid">
     HTML;
 
     $count = 0;
@@ -84,6 +84,7 @@ if (isset($products)) :
         $prodImgPath = $products[$count]['img_path'];
         $prodDesc = $products[$count]['description'];
         $prodPrice = $products[$count]['price'];
+        $dirName = 'dirName=' . $products[$count]['dir_name'];
 
         $body .= <<<HTML
             <div class="sample-item col-12">
@@ -93,7 +94,7 @@ if (isset($products)) :
                         <h5 class="card-title prod-name">$prodName</h5>
                         <p class="card-text prod-desc">$prodDesc</p>
                         <span class="price-tag">RM $prodPrice</span>
-                        <a href="" class="order-now"><i class="fas fa-shopping-cart"></i>Add to cart</a>
+                        <a href="$root/product-focus?$dirName" class="order-now"><i class="fas fa-shopping-cart"></i>View More</a>
                     </div>
                 </div>
             </div>
