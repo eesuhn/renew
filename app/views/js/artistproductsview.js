@@ -46,7 +46,7 @@ function setArtistProdTable(data) {
     $('#artist-products').DataTable({
         data: data,
         columns: [
-            { data: 'name' },
+            { data: 'prod_name' },
             { data: 'description' },
             { data: 'price' },
             { data: 'quantity' },

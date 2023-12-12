@@ -152,7 +152,6 @@
     border-radius: 40px;
     outline: none;
     float: right;
-    margin-top: -10px;
 }
 
 .order-now i {
@@ -229,4 +228,15 @@
 .prod-name {
     font-weight: 700;
     margin-left: -2px;
+}
+
+.card-img-top {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.product-grid {
+    margin-top: 50px;
+    margin-bottom: 60px;
 }

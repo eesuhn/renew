@@ -34,6 +34,16 @@ class StoreController
 
     public function productFocusView()
     {
-        return ViewManager::renderView('productfocusview', [], ['publicnav']);
+        $dirName = $_GET['dirName'];
+
+        $pm = new ProductModel();
+        $product = $pm->getProdByDirName($dirName);
+
+        $userId = $product['user_id'];
+        $product['img_path'] = ImageModel::getImgDir($userId, $product['img_path']);
+
+        $params['product'] = $product;
+
+        return ViewManager::renderView('productfocusview', $params, ['publicnav']);
     }
 }

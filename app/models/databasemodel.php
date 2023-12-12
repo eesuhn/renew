@@ -32,7 +32,6 @@ class DatabaseModel
         'product',
         'prod_lang',
         'order_item',
-        'rating',
         'cart'
     ];
 

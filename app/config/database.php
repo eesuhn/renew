@@ -19,7 +19,7 @@ $sql = <<<SQL
 
     CREATE TABLE IF NOT EXISTS `user_lang` (
         `user_id` INT(11) NOT NULL,
-        `display_name` VARCHAR(255) NOT NULL,
+        `user_name` VARCHAR(255) NOT NULL,
         `real_name` VARCHAR(255) NOT NULL DEFAULT '',
         FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
     );
@@ -46,9 +46,11 @@ $sql = <<<SQL
     CREATE TABLE IF NOT EXISTS `recyclable` (
         `rec_id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         `user_id` INT(11) NOT NULL,
+        `dir_name` VARCHAR(255) NOT NULL,
         `center_id` INT(11) NOT NULL,
         `rec_status` VARCHAR(255) NOT NULL,
         `rec_point` INT(11) NOT NULL,
+        `rec_point_status` TINYINT(1) NOT NULL DEFAULT 0,
         `rec_time` TIMESTAMP NOT NULL,
         `time_create` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         `is_delete` TINYINT(1) NOT NULL DEFAULT 0,
@@ -58,7 +60,7 @@ $sql = <<<SQL
 
     CREATE TABLE IF NOT EXISTS `rec_lang` (
         `rec_id` INT(11) NOT NULL,
-        `name` VARCHAR(255) NOT NULL,
+        `rec_name` VARCHAR(255) NOT NULL,
         `weight` FLOAT NOT NULL,
         `img_path` VARCHAR(255) NOT NULL,
         FOREIGN KEY (`rec_id`) REFERENCES `recyclable`(`rec_id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -75,7 +77,7 @@ $sql = <<<SQL
     CREATE TABLE IF NOT EXISTS `product` (
         `prod_id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         `user_id` INT(11) NOT NULL,
-        `name` VARCHAR(255) NOT NULL,
+        `dir_name` VARCHAR(255) NOT NULL,
         `price` FLOAT NOT NULL,
         `quantity` INT(11) NOT NULL,
         `time_create` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -85,6 +87,7 @@ $sql = <<<SQL
 
     CREATE TABLE IF NOT EXISTS `prod_lang` (
         `prod_id` INT(11) NOT NULL,
+        `prod_name` VARCHAR(255) NOT NULL,
         `description` TEXT NOT NULL,
         `img_path` VARCHAR(255) NOT NULL,
         FOREIGN KEY (`prod_id`) REFERENCES `product`(`prod_id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -97,15 +100,6 @@ $sql = <<<SQL
         `quantity` INT(11) NOT NULL,
         FOREIGN KEY (`order_id`) REFERENCES `order`(`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
         FOREIGN KEY (`prod_id`) REFERENCES `product`(`prod_id`) ON DELETE CASCADE ON UPDATE CASCADE
-    );
-
-    CREATE TABLE IF NOT EXISTS `rating` (
-        `prod_id` INT(11) NOT NULL,
-        `user_id` INT(11) NOT NULL,
-        `rate` INT(11) NOT NULL,
-        `time_create` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (`prod_id`) REFERENCES `product`(`prod_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-        FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
     );
 
     CREATE TABLE IF NOT EXISTS `cart` (
