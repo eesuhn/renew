@@ -148,11 +148,20 @@
 .order-now {
     background-color: var(--accent-dark-color);
     color: white;
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 50px;
-    margin-left: 210px;
+    padding: 10px 20px;
+    border-radius: 40px;
     outline: none;
+    float: right;
+    margin-top: -10px;
+}
+
+.order-now i {
+    font-size: 16px !important;
+    margin-right: 12px;
+}
+
+.order-now a {
+    font-size: 12px;
 }
 
 .order-now:hover {
@@ -211,4 +220,13 @@
     font-size: 36px;
     font-weight: 700;
     color: var(--primary-color);
+}
+
+.prod-desc {
+    margin-top: -6px;
+}
+
+.prod-name {
+    font-weight: 700;
+    margin-left: -2px;
 }

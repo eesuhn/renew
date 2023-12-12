@@ -5,7 +5,10 @@ if (!defined('ACCESS')) {
     die();
 }
 
-if ($params['products'] > 0) :
+/**
+ * Check if products are available
+ */
+if (count($params['products']) > 0) :
     $products = $params['products'];
 endif;
 
@@ -67,72 +70,30 @@ $body .= <<<HTML
             </div>
         </div>
     </div>
-    <!-- 
-    <h2 class="text">Recommended</h2>
-    <div class="grid-container"> 
-    -->
 HTML;
-
-// $sample = 4;
-// while ($sample > 0) :
-//     $body .= <<<HTML
-//         <div class="sample-item col-12">
-//             <div class="card item-card">
-//                 <img src="$root/app/assets/sample/product.png" class="card-img-top" alt="...">
-//                 <div class="card-body">
-//                     <h5 class="card-title">Telephone Lamp</h5>
-//                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                    
-//                     <span class="price-tag">RM 32</span>
-//                     <div class="rating">
-//                         <span><i class="fas fa-star"></i></span>
-//                         <span><i class="fas fa-star"></i></span> 
-//                         <span><i class="fas fa-star"></i></span>
-//                         <span><i class="fas fa-star"></i></span> 
-//                         <span><i class="fas fa-star-half-alt"></i></span>
-//                         <span>(10)</span>
-//                         <span><a href="#" class="order-now"><i class="fas fa-shopping-cart"></i></a></span>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     HTML;
-//     $sample--;
-// endwhile;
 
 if (isset($products)) :
     $body .= <<<HTML
-        <!-- 
-        </div> 
-        -->
-        <h2 class="text">All Products</h2>
         <div class="grid-container">
     HTML;
 
-    $prodCount = count($products);
     $count = 0;
-    while ($prodCount > $count) :
+    while (count($products) > $count) :
 
         $prodName = $products[$count]['name'];
+        $prodImgPath = $products[$count]['img_path'];
         $prodDesc = $products[$count]['description'];
         $prodPrice = $products[$count]['price'];
 
         $body .= <<<HTML
             <div class="sample-item col-12">
                 <div class="card item-card">
-                    <img src="$root/app/assets/sample/product.png" class="card-img-top" alt="...">
+                    <img src="$root/$prodImgPath" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">$prodName</h5>
-                        <p class="card-text">$prodDesc</p>
+                        <h5 class="card-title prod-name">$prodName</h5>
+                        <p class="card-text prod-desc">$prodDesc</p>
                         <span class="price-tag">RM $prodPrice</span>
-                        <div class="rating">
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span> 
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span> 
-                            <span><i class="fas fa-star-half-alt"></i></span>
-                            <span>(10)</span>
-                            <span><a href="#" class="order-now"><i class="fas fa-shopping-cart"></i></a></span>
-                        </div>
+                        <a href="" class="order-now"><i class="fas fa-shopping-cart"></i>Add to cart</a>
                     </div>
                 </div>
             </div>
@@ -142,9 +103,6 @@ if (isset($products)) :
 
     $body .= <<<HTML
         </div>
-        <!-- <div class="text-center">
-            <button type="button" class="btn2 btn-outline-success">Load More Products</button>
-        </div> -->
     HTML;
 else :
     $body .= <<<HTML

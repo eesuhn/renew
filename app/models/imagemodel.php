@@ -7,6 +7,8 @@ if (!defined('ACCESS')) {
     die();
 }
 
+use App\Models\UserModel;
+
 class ImageModel
 {
     /**
@@ -62,5 +64,19 @@ class ImageModel
         }
 
         return $result;
+    }
+
+    /**
+     * Get image directory.
+     * 
+     * @param int $userId
+     * @param string $imgName
+     * 
+     * @return string
+     */
+    public static function getImgDir($userId, $imgName)
+    {
+        $userDir = UserModel::getUserDir($userId, false);
+        return $userDir . "/" . $imgName;
     }
 }
