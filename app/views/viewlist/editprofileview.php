@@ -8,7 +8,7 @@ if (!defined('ACCESS')) {
 $body = <<<HTML
     <div class="col-10">
         <div class="content">
-            <span><h2>Edit Account</h2><button class="profile">View profile</button></span>
+            <span class="edit-user-title"><h2>Edit Account</h2><button class="profile">View profile</button></span>
 
             <form class="form-horizontal">
                 <h5 class="edit-profile-title">Account Info</h5>
