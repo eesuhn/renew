@@ -62,6 +62,11 @@ $rm->get(
     '/get-artist-products',
     'ArtistController@getProductByArtist');
 
+$rm->get(
+    '/artist-profile',
+    'ArtistController@artistProfileView'
+);
+
 // Add POST routes here
 $rm->post(
     '/register',

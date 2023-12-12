@@ -8,20 +8,25 @@ if (!defined('ACCESS')) {
 $body = <<<HTML
     <div class="col-10">
         <div class="content">
-            <span class="edit-user-title"><h2>Edit Account</h2><button class="profile">View profile</button></span>
+            <span class="text-mt edit-artist-title"><h2>Edit Account</h2><button class="profile">View profile</button></span>
 
             <form class="form-horizontal">
                 <h5 class="edit-profile-title">Account Info</h5>
 
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label for="display-name">DISPLAY NAME</label>
                         <input type="text" class="form-control" id="display-name" placeholder="Display Name">
                     </div>
                     
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label for="real-name">REAL NAME</label>
                         <input type="text" class="form-control" id="real-name" placeholder="Real Name">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="dob">DOB</label>
+                        <input type="date" class="form-control" id="dob" placeholder="Date of Birth">
                     </div>
 
                     <div class="form-group col-md-6">
@@ -35,31 +40,25 @@ $body = <<<HTML
                     </div>
                 </div>
 
-                <div class="form-group address-row">
-                    <label for="address">YOUR ADDRESS</label>
-                    <input type="text" class="form-control" id="address" placeholder="Address">
-                </div>
-
-                <h5 class="edit-profile-title">Login Info</h5>
+                <h5 class="edit-profile-title">Displayed Info</h5>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="cur-pwd">CURRENT PASSWORD</label>
-                        <input type="password" class="form-control" id="cur-pwd" placeholder="Enter Password">
+                        <label for="desc">DESCRIPTION</label>
+                        <textarea class="form-control description" id="desc" name="desc" placeholder="Add description to be displayed"></textarea>
                     </div>
                 </div>
-
-                <div class="form-row new-conf-pwd-row">
-                    <div class="form-group col-md-6">
-                        <label for="new-pwd">NEW PASSWORD</label>
-                        <input type="password" class="form-control" id="new-pwd" placeholder="Enter New Password">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="confirm-pwd">CONFIRM PASSWORD</label>
-                        <input type="password" class="form-control" id="confirm-pwd" placeholder="Confirm New Password">
+                
+                <div class="row justify-content-start">
+                    <div class="col-12 col-6">
+                        <label class="form-control-label">UPLOAD IMAGE</label> 
+                        <div class="upload-container">
+                            <input type="file" name="file" class="upload-img" id="file-input">
+                            <label for="file-input" class="custom-file-upload">Choose File</label>
+                            <div class="file-name" id="file-name">No file chosen</div>
+                        </div>
                     </div>
                 </div>
-
                 <hr>
                 <div class="button-group">
                     <button type="submit" class="btn btn-primary">Update Profile</button>
