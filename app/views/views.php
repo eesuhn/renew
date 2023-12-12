@@ -55,12 +55,6 @@ $vm->addView(
     ['loginview.js']);
 
 $vm->addView(
-    'addproductview',
-    'Add Product',
-    [],
-    ['addproductview.js']);
-
-$vm->addView(
     'editprofileview',
     'Profile',
     ['editprofileview.css']);

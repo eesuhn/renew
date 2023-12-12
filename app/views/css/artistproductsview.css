@@ -15,10 +15,46 @@
 
 .artist-prods-title {
     margin-top: 4px;
+    margin-left: -14px;
 }
 
 .artist-prods-title p {
     font-size: 32px;
+    font-weight: 700;
+}
+
+.prod-img-grp {
+    margin-top: 20px;
+}
+
+.add-prod-input label {
+    margin-bottom: -10px;
+}
+
+.close { 
+    font-size: 30px;
+}
+
+.add-prod-btn {
+    float: right;
+    margin-top: -26px;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+}
+
+.add-prod-btn:hover {
+    background-color: var(--accent-dark-color);
+    color: #fff;
+}
+
+.add-prod-modal-header {
+    border-bottom: none;
+    margin-bottom: -26px;
+}
+
+.add-prod-modal-header h5 {
+    margin-top: 2px;
     font-weight: 700;
 }
 

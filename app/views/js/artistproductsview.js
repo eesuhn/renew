@@ -51,11 +51,18 @@ function setArtistProdTable(data) {
             { data: 'price' },
             { data: 'quantity' },
             {
-                data: 'null',
+                data: null,
                 render: function (data, type, row) {
                     return '<a href="#" style="color: black !important;"><i class="fas fa-ellipsis-h"></i></a>';
                 }
+            },
+            { 
+                data: 'time_create', 
+                visible: false
             }
-        ]
+        ],
+        order: [
+            [5, 'desc']
+        ],
     })
 }

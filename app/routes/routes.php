@@ -71,11 +71,6 @@ $rm->post(
     '/login',
     'UserController@login');
 
-// TEST: Add product
-$rm->get(
-    '/add-product',
-    'ArtistController@addProductView');
-
 $rm->post(
     '/add-product',
     'ArtistController@addProduct');

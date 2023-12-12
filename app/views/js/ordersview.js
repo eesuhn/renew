@@ -33,9 +33,6 @@ $(document).ready(function() {
             {
                 data: 'status',
                 render: function (data, type, row) {
-                    var badgeClass = "";
-                    var statusText = "";
-
                     if (data === "Cancelled") {
                         badgeClass = "badge badge-danger";
                         statusText = "Cancelled";

@@ -15,11 +15,6 @@ use App\Models\ImageModel;
 
 class ArtistController
 {
-    public function addProductView()
-    {
-        return ViewManager::renderView('addproductview', [], ['artistnav']);
-    }
-
     public function addProduct()
     {
         $userId = UserModel::getCurUserId();
