@@ -65,6 +65,33 @@ function getSeg(
 }
 
 /**
+ * Get AJAX data.
+ * 
+ * @param {string} url 
+ * @param {function} sucFunc 
+ * @param {string} ajaxError 
+ */
+function getData(
+    url, 
+    sucFunc, 
+    ajaxError = "AJAX Error: Unable to get data.") {
+    
+    $.ajax({
+        url: url,
+        type: "GET",
+        dataType: "json",
+
+        success: function (response) {
+            sucFunc(response);
+        },
+        error: function (xhr) {
+            console.log(xhr.responseText);
+            throw new Error(ajaxError);
+        }
+    })
+}
+
+/**
  * Redirect to another page.
  * 
  * @param {string} url 

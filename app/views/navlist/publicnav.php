@@ -17,15 +17,15 @@ $nav['top'] = <<<HTML
             <div class="vl"></div>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="$root/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Store</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Artists</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">My Orders</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Recycle</a></li>
+                <li class="nav-item"><a class="nav-link" href="$root/store">Store</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Artists</a></li>
+                <li class="nav-item"><a class="nav-link" href="$root/orders">My Orders</a></li>
+                <li class="nav-item"><a class="nav-link" href="$root/recycle-form">Recycle</a></li>
             </ul>
             <div class="my-2 my-lg-0">
                 <button class="btn btn-outline-success my-2 my-sm-0 nav-btn" type="submit"><i class="fas fa-star"></i>&nbspRECYCLE NOW</button>
-                <a href=""><i class="nav-right-icon cart fas fa-shopping-cart"></i></a>
-                <a href=""><i class="nav-right-icon user fas fa-user"></i></a>
+                <a href="$root/cart"><i class="nav-right-icon cart fas fa-shopping-cart"></i></a>
+                <a href="$root/edit-profile"><i class="nav-right-icon user fas fa-user"></i></a>
             </div>
         </div>
     </nav>

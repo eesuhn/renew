@@ -4,25 +4,19 @@ $(document).ready(function() {
             "recycled": "Bird House, Upcycled Glass Vases,...",
             "date&time": "2023-12-11 10:30:00",
             "total": "300",
-            "status": "Completed",
-            "office": "Edinburgh",
-            "extn": "5421"
+            "status": "Completed"
         },
         {
             "recycled": "Bird House, Upcycled Glass Vases,...",
             "date&time": "2023-12-11 10:30:00",
             "total": "20",
-            "status": "Processing",
-            "office": "Edinburgh",
-            "extn": "8422"
+            "status": "Processing"
         },
         {
             "recycled": "Bird House, Upcycled Glass Vases,...",
             "date&time": "2023-12-11 10:30:00",
             "total": "0",
-            "status": "Cancelled",
-            "office": "London",
-            "extn": "2323"
+            "status": "Cancelled"
         }
     ];
 

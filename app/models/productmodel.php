@@ -133,4 +133,58 @@ class ProductModel
 
         return $errors;
     }
+
+    /**
+     * Get product by product id.
+     * 
+     * @param string $prodId
+     * 
+     * @return array|bool Returns array of product if product exists, false otherwise
+     */
+    public function getProdById($prodId)
+    {
+        $sql = <<<SQL
+            SELECT
+                p.*, pl.*
+            FROM
+                product p
+            INNER JOIN
+                prod_lang pl ON p.prod_id = pl.prod_id
+            WHERE
+                p.prod_id = :prodId
+        SQL;
+
+        $params = [
+            ':prodId' => $prodId
+        ];
+
+        return DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Get product by user id.
+     * 
+     * @param string $userId
+     * 
+     * @return array Returns array of product
+     */
+    public function getProdByUserId($userId)
+    {
+        $sql = <<<SQL
+            SELECT
+                p.*, pl.*
+            FROM
+                product p
+            INNER JOIN
+                prod_lang pl ON p.prod_id = pl.prod_id
+            WHERE
+                p.user_id = :userId
+        SQL;
+
+        $params = [
+            ':userId' => $userId
+        ];
+
+        return DatabaseModel::exec($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
