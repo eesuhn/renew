@@ -25,11 +25,11 @@ class ArtistController
         $userId = UserModel::getCurUserId();
         $userDir = UserModel::getUserDir($userId);
 
-        $name = $_POST['name'];
-        $price = $_POST['price'];
-        $quantity = $_POST['quantity'];
-        $description = $_POST['description'];
-        $image = $_FILES['image'];
+        $name = $_POST['prod-name'];
+        $price = $_POST['prod-price'];
+        $quantity = $_POST['prod-qty'];
+        $description = $_POST['prod-desc'];
+        $image = $_FILES['prod-img'];
 
         $imgUploadInfo = ImageModel::uploadImage($image, $userDir);
         
