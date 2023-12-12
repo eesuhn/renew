@@ -68,6 +68,10 @@ $rm->get(
     '/get-artist-products',
     'ArtistController@getProductByArtist');
 
+$rm->get(
+    '/footer',
+    'IndexController@footerView');
+
 // Add POST routes here
 $rm->post(
     '/register',

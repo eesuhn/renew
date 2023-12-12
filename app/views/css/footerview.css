@@ -1,0 +1,33 @@
+.small-text {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+.small-text i {
+    font-size: 15px;
+    position: relative;
+    top: -10px;
+}
+
+.copyright-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.footer-bg {
+    background-color: var(--accent-dark-color);
+}
+
+.copyright-text a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-bg a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}

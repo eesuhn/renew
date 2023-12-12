@@ -105,6 +105,11 @@ $vm->addView(
     ['artistprofileview.css'],
     ['artistprofileview.js']);
 
+$vm->addView(
+    'footerview',
+    'Footer',
+    ['footerview.css']);
+
 // Add segments here
 $vm->addSeg(
     'sample');

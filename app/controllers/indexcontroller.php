@@ -19,4 +19,9 @@ class IndexController
     {
         return ViewManager::renderView('recycleformview', [], ['publicnav']);
     }
+
+    public function footerView()
+    {
+        return ViewManager::renderView('footerview', [], []);
+    }
 }
