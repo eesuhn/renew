@@ -61,4 +61,9 @@ class ArtistController
 
         AjaxUtil::sendAjax(true, $result);
     }
+
+    public function artistProfileView()
+    {
+        return ViewManager::renderView('artistprofileview', [], ['artistnav']);
+    }
 }
