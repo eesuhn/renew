@@ -10,7 +10,7 @@ $body = <<<HTML
     <div class="container-fluid">
         <div class="row">
             <div class="col text-right mt-2">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="">Add Product</button>
+                <button type="button" class="btn btn-accent" data-toggle="modal" data-target="#exampleModal" data-whatever="">Add Product</button>
             </div>
         </div>
     </div>

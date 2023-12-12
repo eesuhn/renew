@@ -102,7 +102,6 @@ $vm->addView(
 $vm->addView(
     'productmodalview',
     'Product Modal',
-    [],
     ['productmodalview.css']);
 
 // Add segments here

@@ -1,0 +1,9 @@
+.btn-accent {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.btn-accent:hover {
+    background-color: var(--accent-dark-color);
+    color: #fff;
+}
