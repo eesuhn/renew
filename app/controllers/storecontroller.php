@@ -9,12 +9,18 @@ if (!defined('ACCESS')) {
 
 use App\Views\ViewManager;
 use App\Utils\AjaxUtil;
+use App\Models\ProductModel;
 
 class StoreController
 {
     public function storeView()
     {
-        return ViewManager::renderView('storeview', [], ['publicnav']);
+        $pm = new ProductModel();
+        $products = $pm->getAllProdDesc();
+
+        $params['products'] = $products;
+
+        return ViewManager::renderView('storeview', $params, ['publicnav']);
     }
 
     public function productFocusView()

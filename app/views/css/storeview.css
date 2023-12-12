@@ -198,3 +198,17 @@
     left: -26%;
     margin-bottom: -20px;
 }
+
+.search-box-bar {
+    margin-top: -16px;
+}
+
+.no-prod-text {
+    margin: 100px auto;
+}
+
+.no-prod-text p {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
