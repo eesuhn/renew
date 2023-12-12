@@ -13,11 +13,25 @@ use App\Models\RecycleModel;
 use App\Models\UserModel;
 use DateTime;
 use App\Models\ImageModel;
+use App\Models\ProductModel;
 
 class IndexController
 {
     public function index(){
-        return ViewManager::renderView('indexview', [], ['publicnav']);
+        $pm = new ProductModel();
+        $products = $pm->getRecProd();
+
+        /**
+         * Replace img_path with the actual path
+         */
+        foreach ($products as $key => $product) {
+            $userId = $product['user_id'];
+            $products[$key]['img_path'] = ImageModel::getImgDir($userId, $product['img_path']);
+        }
+
+        $params['products'] = $products;
+
+        return ViewManager::renderView('indexview', $params, ['publicnav']);
     }
 
     public function recycleFormView()

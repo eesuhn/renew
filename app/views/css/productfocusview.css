@@ -168,7 +168,6 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     margin: 30px 140px;
-    grid-gap: 20px;
 }
 
 .text {
@@ -204,11 +203,19 @@
 .order-now {
     background-color: var(--accent-dark-color);
     color: white;
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 50px;
-    margin-left: 210px;
+    padding: 10px 20px;
+    border-radius: 40px;
     outline: none;
+    float: right;
+}
+
+.order-now i {
+    font-size: 16px !important;
+    margin-right: 12px;
+}
+
+.order-now a {
+    font-size: 12px;
 }
 
 .order-now:hover {
@@ -217,14 +224,32 @@
     text-decoration: none;
 }
 
-.product-title-box {
-    margin-bottom: -30px;
+.card-img-top {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
 }
 
-.prod-rating {
-    margin-top: 20px;
+.rec-prod-title-text {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
 }
 
-.product-section {
-    margin-top: -10px;
+.rec-prod-title-box {
+    margin-top: 80px;
+}
+
+.prod-desc {
+    margin-top: -6px;
+}
+
+.prod-name {
+    font-weight: 700;
+    margin-left: -2px;
+}
+
+.rec-prod-text {
+    margin-bottom: -10px;
 }

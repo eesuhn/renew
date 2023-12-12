@@ -127,7 +127,15 @@ class DatabaseModel
 
         if (count($params) > 0) {
             foreach ($params as $key => &$value) {
-                $stmt->bindParam($key, $value);
+                /**
+                 * Check if value is integer.
+                 */
+                if (is_integer($value)) {
+                    $stmt->bindParam($key, $value, PDO::PARAM_INT);
+
+                } else {
+                    $stmt->bindParam($key, $value, PDO::PARAM_STR);
+                }
             }
         }
         $stmt->execute();

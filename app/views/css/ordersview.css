@@ -1,5 +1,5 @@
 .container {
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .btn1 {
@@ -49,6 +49,13 @@
 .history-title {
     margin-top: 60px;
     margin-bottom: -26px;
+}
+
+.order-title {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 56px;
+    letter-spacing: -0.96px;
 }
 
 /* Orders DataTable */
