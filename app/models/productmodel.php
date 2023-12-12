@@ -187,4 +187,30 @@ class ProductModel
 
         return DatabaseModel::exec($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    /**
+     * Get all product in descending order.
+     * 
+     * @return array Returns array of product
+     */
+    public function getAllProdDesc()
+    {
+        $sql = <<<SQL
+            SELECT
+                prod_id
+            FROM
+                product
+            ORDER BY
+                time_create DESC
+        SQL;
+
+        $arrId = DatabaseModel::exec($sql)->fetchAll(PDO::FETCH_COLUMN);
+
+        $arr = [];
+        foreach ($arrId as $prodId) {
+            $arr[] = $this->getProdById($prodId);
+        }
+
+        return $arr;
+    }
 }

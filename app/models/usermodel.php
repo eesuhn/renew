@@ -371,15 +371,20 @@ class UserModel
      * Get user directory.
      * 
      * @param int $userId
+     * @param bool $withRoot (Optional) Default includes root directory
      * 
      * @return string Returns user directory
      */
-    public static function getUserDir($userId)
+    public static function getUserDir($userId, $withRoot = true)
     {
         /**
          * @var string $rootDir Root directory.
          */
         $rootDir = ROOT . '/app/assets/user/';
+
+        if (!$withRoot) {
+            $rootDir = 'app/assets/user/';
+        }
 
         $sql = <<<SQL
             SELECT dir_name FROM user WHERE user_id = :userId

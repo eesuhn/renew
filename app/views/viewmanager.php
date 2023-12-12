@@ -108,7 +108,7 @@ class ViewManager
             $navIndex++;
         }
 
-        require_once ROOT . '/app/views/viewlist/mainview.php';
+        require_once ROOT . '/app/views/mainview.php';
     }
 
     /**
