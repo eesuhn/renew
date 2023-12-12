@@ -80,7 +80,7 @@ if (isset($products)) :
     $count = 0;
     while (count($products) > $count) :
 
-        $prodName = $products[$count]['name'];
+        $prodName = $products[$count]['prod_name'];
         $prodImgPath = $products[$count]['img_path'];
         $prodDesc = $products[$count]['description'];
         $prodPrice = $products[$count]['price'];

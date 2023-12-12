@@ -43,16 +43,18 @@ class ProductModel
             return $errors;
         }
 
+        $dirName = $this->getUniqueDirName($prodName);
+
         $sql = <<<SQL
             INSERT INTO 
-                product (user_id, name, price, quantity)
+                product (user_id, dir_name, price, quantity)
             VALUES 
-                (:userId, :prodName, :prodPrice, :quantity)
+                (:userId, :dirName, :prodPrice, :quantity)
         SQL;
 
         $params = [
             ':userId' => $userId,
-            ':prodName' => $prodName,
+            ':dirName' => $dirName,
             ':prodPrice' => $prodPrice,
             ':quantity' => $quantity
         ];
@@ -66,13 +68,14 @@ class ProductModel
          */
         $sql_lang = <<<SQL
             INSERT INTO 
-                prod_lang (prod_id, description, img_path)
+                prod_lang (prod_id, prod_name, description, img_path)
             VALUES 
-                (:prodId, :description, :imgPath)
+                (:prodId, :prodName, :description, :imgPath)
         SQL;
 
         $params_lang = [
             ':prodId' => $prodId,
+            ':prodName' => $prodName,
             ':description' => $description,
             ':imgPath' => $image['fileName']
         ];
@@ -80,6 +83,50 @@ class ProductModel
         DatabaseModel::exec($sql_lang, $params_lang);
 
         return true;
+    }
+
+    /**
+     * Get unique directory name for product.
+     * 
+     * @param string $prodName
+     * 
+     * @return string Returns unique directory name
+     */
+    private function getUniqueDirName($prodName)
+    {
+        $prodName = preg_replace('/\s+/', '_', $prodName);
+        $randName = getRand($prodName);
+
+        while ($this->verifyUniqueDirName($randName)) {
+            $randName = getRand($prodName);
+        }
+
+        return $randName;
+    }
+
+    /**
+     * Verify if directory name is unique.
+     * 
+     * @param string $dirName
+     * 
+     * @return bool Returns true if directory name is unique, false otherwise
+     */
+    private function verifyUniqueDirName($dirName)
+    {
+        $sql = <<<SQL
+            SELECT
+                dir_name
+            FROM
+                product
+            WHERE
+                dir_name = :dirName
+        SQL;
+
+        $params = [
+            ':dirName' => $dirName
+        ];
+
+        return DatabaseModel::exec($sql, $params)->rowCount() > 0;
     }
 
     /**
