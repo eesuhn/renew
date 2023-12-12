@@ -10,6 +10,7 @@ if (!defined('ACCESS')) {
 use App\Views\ViewManager;
 use App\Models\UserModel;
 use App\Utils\AjaxUtil;
+use App\Models\RecycleModel;
 
 class UserController
 {
@@ -72,5 +73,20 @@ class UserController
     public function ordersView()
     {
         return ViewManager::renderView('ordersview', [], ['publicnav', 'sidepublicnav']);
+    }
+
+    public function userRecycleView()
+    {
+        return ViewManager::renderView('userrecycleview', [], ['publicnav', 'sidepublicnav']);
+    }
+
+    public function getUserRecycle()
+    {
+        $userId = UserModel::getCurUserId();
+
+        $rm = new RecycleModel();
+        $result = $rm->getRecByUserId($userId);
+
+        AjaxUtil::sendAjax(true, $result);
     }
 }

@@ -247,4 +247,33 @@ class RecycleModel
 
         return DatabaseModel::exec($sql, $params)->rowCount() > 0;
     }
+
+    /**
+     * Get recyclable by user id.
+     * 
+     * @param int $userId
+     * 
+     * @return array|bool Returns array of recyclables if found, false otherwise.
+     */
+    public function getRecByUserId($userId)
+    {
+        $sql = <<<SQL
+            SELECT
+                r.*, rl.*, rc.*
+            FROM
+                recyclable r
+            INNER JOIN
+                rec_lang rl ON r.rec_id = rl.rec_id
+            INNER JOIN
+                rec_center rc ON r.center_id = rc.center_id
+            WHERE
+                r.user_id = :userId
+        SQL;
+
+        $params = [
+            ':userId' => $userId
+        ];
+
+        return DatabaseModel::exec($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

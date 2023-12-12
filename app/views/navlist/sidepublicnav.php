@@ -21,7 +21,7 @@ $nav['top'] = <<<HTML
                             <a class="nav-link" href="$root/orders"><i class="fas fa-shopping-cart"></i>Orders</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href=""><i class="fas fa-recycle"></i>Recycles</a>
+                            <a class="nav-link" href="$root/user-recycle"><i class="fas fa-recycle"></i>Recycles</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link artist-sidenav-btn" href=""><i class="fas fa-puzzle-piece"></i>BECOME AN ARTIST</a>

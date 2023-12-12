@@ -17,7 +17,7 @@ function listenRecycle() {
             formData,
             function (response) {
                 setNotification('Recycle request sent.');
-                redirect('/renew');
+                redirect('/renew/user-recycle');
             },
             function (response) {
                 handleErrorText(response.data);

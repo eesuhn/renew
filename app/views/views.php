@@ -105,6 +105,12 @@ $vm->addView(
     ['artistprofileview.css'],
     ['artistprofileview.js']);
 
+$vm->addView(
+    'userrecycleview',
+    'My Recycle',
+    ['userrecycleview.css'],
+    ['userrecycleview.js']);
+
 // Add segments here
 $vm->addSeg(
     'sample');
