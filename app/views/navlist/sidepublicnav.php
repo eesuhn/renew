@@ -18,6 +18,12 @@ $nav['top'] = <<<HTML
                             <a class="nav-link" href="$root/points"><i class="fas fa-bell"></i>My Points</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="$root/orders"><i class="fas fa-shopping-cart"></i>My Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><i class="fas fa-recycle"></i>My Recycles</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href=""><i class="fas fa-puzzle-piece"></i>BECOME AN ARTIST</a>
                         </li>
                         <div class="logout">

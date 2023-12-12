@@ -52,6 +52,7 @@
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
+    padding: 12px;
 }
 
 .nav-btn:hover {

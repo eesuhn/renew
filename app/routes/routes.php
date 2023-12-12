@@ -81,4 +81,8 @@ $rm->post(
     '/add-product',
     'ArtistController@addProduct');
 
+$rm->post(
+    '/recycle',
+    'IndexController@recycle');
+
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
