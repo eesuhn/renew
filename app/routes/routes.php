@@ -72,4 +72,8 @@ $rm->post(
     '/add-product',
     'ArtistController@addProduct');
 
+$rm->get(
+    '/product-modal',
+    'ArtistController@productModalView');
+
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

@@ -99,6 +99,12 @@ $vm->addView(
     ['ordersview.css'],
     ['ordersview.js']);
 
+$vm->addView(
+    'productmodalview',
+    'Product Modal',
+    [],
+    ['productmodalview.css']);
+
 // Add segments here
 $vm->addSeg(
     'sample');
