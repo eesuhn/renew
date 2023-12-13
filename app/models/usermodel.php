@@ -291,7 +291,7 @@ class UserModel
      * 
      * @return array|bool Returns array if valid, false otherwise
      */
-    private function getUserInfo($id)
+    public function getUserById($id)
     {
         $sql = <<<SQL
             SELECT * FROM user WHERE user_id = :id
@@ -332,7 +332,7 @@ class UserModel
             return false;
         }
 
-        $userInfo = $this->getUserInfo($userId);
+        $userInfo = $this->getUserById($userId);
         SessionModel::setSession($userInfo, $localCookie, 'renew_user');
 
         return true;

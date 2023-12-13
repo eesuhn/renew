@@ -101,7 +101,7 @@ class RecycleModel
          * 
          * @var string $defaultRecStatus
          */
-        $defaultRecStatus = 'Pending';
+        $defaultRecStatus = 'pending';
 
         $sql = <<<SQL
             INSERT INTO
@@ -275,5 +275,129 @@ class RecycleModel
         ];
 
         return DatabaseModel::exec($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Get all recyclables.
+     * 
+     * @return array Returns array of recyclables.
+     */
+    public function getAllRec()
+    {
+        $sql = <<<SQL
+            SELECT
+                r.*, rl.*, rc.*
+            FROM
+                recyclable r
+            INNER JOIN
+                rec_lang rl ON r.rec_id = rl.rec_id
+            INNER JOIN
+                rec_center rc ON r.center_id = rc.center_id
+            WHERE
+                r.is_delete = 0
+        SQL;
+
+        return DatabaseModel::exec($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Update recyclable.
+     * 
+     * @param int $recId
+     * @param float $recPoint
+     * @param string $recStatus
+     * 
+     * @return bool Returns true if successful.
+     */
+    public function updateRec($recId, $recPoint, $recStatus)
+    {
+        $sql = <<<SQL
+            UPDATE
+                recyclable
+            SET
+                rec_point = :recPoint,
+                rec_status = :recStatus
+            WHERE
+                rec_id = :recId
+        SQL;
+
+        $params = [
+            ':recPoint' => $recPoint,
+            ':recStatus' => $recStatus,
+            ':recId' => $recId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+        return true;
+    }
+
+    /**
+     * Soft delete recyclable.
+     * 
+     * @param int $recId
+     * 
+     * @return bool Returns true if successful.
+     */
+    public function deleteRec($recId)
+    {
+        $sql = <<<SQL
+            UPDATE
+                recyclable
+            SET
+                is_delete = 1
+            WHERE
+                rec_id = :recId
+        SQL;
+
+        $params = [
+            ':recId' => $recId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+        return true;
+    }
+
+    /**
+     * Get recycle points by user id.
+     * 
+     * @param int $userId
+     * 
+     * @return array|bool Returns array of recycle points if found, false otherwise.
+     */
+    public function getTotalRecPointByUserId($userId)
+    {
+        $sql = <<<SQL
+            SELECT
+                SUM(rec_point) AS total_rec_point
+            FROM
+                recyclable
+            WHERE
+                user_id = :userId
+        SQL;
+    
+        $params = [
+            ':userId' => $userId
+        ];
+    
+        return DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Convert recycle points to currency.
+     * Round to 2 decimal places.
+     * 
+     * @param float $recPoint
+     * 
+     * @return float Returns currency.
+     */
+    public function recPointToCurrency($recPoint)
+    {
+        /**
+         * @var float $factor Conversion factor.
+         */
+        $factor = 0.1;
+        
+        // Round to 2 decimal places.
+        return round($recPoint * $factor, 2);
     }
 }

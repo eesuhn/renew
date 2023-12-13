@@ -1,55 +1,50 @@
 $(document).ready(function() {
-    var data = [
-        {
-            "recycled":         "Newspaper",
-            "date&time":        "2023-12-11 10:30:00",
-            "pointsworth":      "300",
-            "drop-off status":  "Completed"
-        },
-        {
-            "recycled":         "Plastic bottles",
-            "date&time":        "2023-12-11 10:30:00",
-            "pointsworth":      "20",
-            "drop-off status":  "In Progress"
-        },
-        {
-            "recycled":         "Glass bottles",
-            "date&time":        "2023-12-11 10:30:00",
-            "pointsworth":      "0",
-            "drop-off status":  "Cancelled"
-        }
-    ];
+    getUserRecPoint();
+});
 
+function getUserRecPoint() {
+    getData(
+        '/renew/get-user-rec-point',
+        function (response) {
+            setUserRecPointTable(response.data);
+        }, 
+        "AJAX Error: Unable to get user recycle point."
+    )
+}
+
+/**
+ * Sets the user recycle point table.
+ * 
+ * @param {Array} data 
+ */
+function setUserRecPointTable(data) {
     $('#point-history').DataTable({
         data: data,
         columns: [
-            { data: 'recycled' },
-            {
-                data: 'date&time',
+            { data: 'rec_id' },
+            { data: 'rec_name' },
+            { 
+                data: 'rec_time', 
                 render: function (data, type, row) {
-                    return '<span>' + data + '</span>'; 
+                    return formatdate(data);
                 }
             },
-            { data: 'pointsworth' },
-            {
-                data: 'drop-off status',
+            { 
+                data: 'rec_point',
                 render: function (data, type, row) {
-                    if (data === "Cancelled") {
-                        badgeClass = "badge badge-danger";
-                        statusText = "Cancelled";
-
-                    } else if (data === "Completed") {
-                        badgeClass = "badge badge-success";
-                        statusText = "Completed";
-
-                    } else if (data === "In Progress") {
-                        badgeClass = "badge badge-warning";
-                        statusText = "In Progress";
+                    if (data == 0) {
+                        return '<span class="badge badge-completed">In Progress</span>';
                     }
-
-                    return '<span class="' + badgeClass + '">' + statusText + '</span>';
-                }
+                    return data;
+                } 
+            },
+            { 
+                data: 'time_create', 
+                visible: false
             }
+        ],
+        order: [
+            [4, 'desc']
         ]
-    });
-});
+    })
+}

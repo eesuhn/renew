@@ -51,9 +51,9 @@ function setArtistProdTable(data) {
             { data: 'price' },
             { data: 'quantity' },
             {
-                data: null,
+                data: 'prod_id',
                 render: function (data, type, row) {
-                    return '<a href="#" style="color: black !important;"><i class="fas fa-ellipsis-h"></i></a>';
+                    return ellipsisMenuArtist(data);
                 }
             },
             { 
@@ -64,5 +64,30 @@ function setArtistProdTable(data) {
         order: [
             [5, 'desc']
         ],
+        columnDefs: [
+            { 
+                targets: [4], 
+                orderable: false 
+            }
+        ]
     })
+}
+
+function ellipsisMenuArtist(prodId) {
+    var html = 
+        `<div class="dropdown">
+            <button class="btn dropdown-btn" type="button" id="ellipsisDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="ellipsisDropdown">
+                <a class="dropdown-item">
+                    <button class="ellipsis-btn">Edit</button>
+                </a>
+                <a class="dropdown-item">
+                    <button class="ellipsis-btn">Delete</button>
+                </a>
+            </div>
+        </div>`;
+
+    return html;
 }

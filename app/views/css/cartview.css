@@ -26,10 +26,13 @@
     color: grey;
 }
 
-.badge-success {
+.badge-price {
     padding: 6px 12px;  
     margin-left: 10px;
     font-size: 15px;
+    color: #DEF7EC;
+    background-color: var(--green-800, #03543F);
+    margin-top: 8px;
 }
 
 .text-dark i {
@@ -102,4 +105,13 @@
 
 .cart-table-box {
     padding: 48px 48px 10px;
+}
+
+.points-worth-text {
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.points-worth {
+    padding-top: 5px;
 }

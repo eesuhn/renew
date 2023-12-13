@@ -19,9 +19,9 @@ $body = <<<HTML
                                         <table id="recycle-history" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
+                                                    <th>ID</th>
                                                     <th>NAME</th>
                                                     <th>DATE</th>
-                                                    <th>POINTS</th>
                                                     <th>RECYCLING CENTER</th>
                                                     <th>DROP OFF STATUS</th>
                                                     <th></th>
