@@ -111,6 +111,12 @@ $vm->addView(
     ['userrecycleview.css'],
     ['userrecycleview.js']);
 
+$vm->addView(
+    'adminrecycleview',
+    'Admin Recycle',
+    ['adminrecycleview.css'],
+    ['adminrecycleview.js']);
+
 // Add segments here
 $vm->addSeg(
     'sample');

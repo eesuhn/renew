@@ -67,6 +67,10 @@ $rm->get(
     '/user-recycle',
     'UserController@userRecycleView');
 
+$rm->get(
+    '/admin-recycle',
+    'AdminController@adminRecycleView');
+
 // Add GET routes for AJAX here
 $rm->get(
     '/get-artist-products',
@@ -75,6 +79,10 @@ $rm->get(
 $rm->get(
     '/get-user-recycle',
     'UserController@getUserRecycle');
+
+$rm->get(
+    '/get-admin-recycle',
+    'AdminController@getAdminRecycle');
 
 // Add POST routes here
 $rm->post(

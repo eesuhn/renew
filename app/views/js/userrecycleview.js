@@ -43,6 +43,6 @@ function setUserRecTable(data) {
         ],
         order: [
             [5, 'desc']
-        ],
+        ]
     })
 }

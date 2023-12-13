@@ -107,3 +107,26 @@ body {
     background-color: #FFF3E0;
     color: #e28800;
 }
+
+/* Ellipsis Dropdown */
+.dropdown-btn {
+    margin-top: -8px;
+    margin-bottom: -6px;
+}
+
+.dropdown-menu {
+    left: -50px !important;
+    min-width: 140px !important;
+}
+
+.dropdown-item {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 10px 20px;
+}
+
+.dropdown-item:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}

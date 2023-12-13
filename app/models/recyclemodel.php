@@ -276,4 +276,25 @@ class RecycleModel
 
         return DatabaseModel::exec($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    /**
+     * Get all recyclables.
+     * 
+     * @return array Returns array of recyclables.
+     */
+    public function getAllRec()
+    {
+        $sql = <<<SQL
+            SELECT
+                r.*, rl.*, rc.*
+            FROM
+                recyclable r
+            INNER JOIN
+                rec_lang rl ON r.rec_id = rl.rec_id
+            INNER JOIN
+                rec_center rc ON r.center_id = rc.center_id
+        SQL;
+
+        return DatabaseModel::exec($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
