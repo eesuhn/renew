@@ -7,6 +7,17 @@ if (!defined('ACCESS')) {
 
 $sql = <<<SQL
     INSERT INTO 
+        `rec_center` (
+            `center_name`
+        )
+    VALUES
+        ( "Subang Jaya" ),
+        ( "Bukit Bintang" ),
+        ( "Shah Alam" ),
+        ( "Cyber Jaya" ),
+        ( "Kepong" );
+
+    INSERT INTO 
         `user` (
             `dir_name`,
             `email`,
