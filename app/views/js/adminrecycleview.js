@@ -17,6 +17,7 @@ function setAdminRecTable(data) {
     $('#admin-recycle').DataTable({
         data: data,
         columns: [
+            { data: 'user_name' },
             { data: 'rec_name' },
             { 
                 data: 'rec_time', 
@@ -35,10 +36,11 @@ function setAdminRecTable(data) {
             {
                 data: {
                     'rec_id': 'rec_id',
-                    'rec_status': 'rec_status'
+                    'rec_status': 'rec_status',
+                    'rec_point': 'rec_point'
                 },
                 render: function (data, type, row) {
-                    return ellipsisMenuAdminRec(data['rec_id'], data['rec_status']);
+                    return ellipsisMenuAdminRec(data['rec_id'], data['rec_status'], data['rec_point']);
                 }
             },
             { 
@@ -58,7 +60,7 @@ function setAdminRecTable(data) {
     })
 }
 
-function ellipsisMenuAdminRec(recId, recStatus) {
+function ellipsisMenuAdminRec(recId, recStatus, recPoint) {
     
     var pending = '';
     var processing = '';
@@ -108,7 +110,7 @@ function ellipsisMenuAdminRec(recId, recStatus) {
                         <div class="modal-body edit-rec-input">
                             <div class="form-group">
                                 <label for="rec-point" class="col-form-label">Point:</label>
-                                <input type="number" class="form-control" id="rec-point" name="rec-point" step="1">
+                                <input type="number" class="form-control" id="rec-point" name="rec-point" step="1" value="${recPoint}">
                                 <span id="prodPriceError" class="errorText"></span>
                             </div>
                             <div class="form-group">

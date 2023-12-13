@@ -10,6 +10,7 @@ if (!defined('ACCESS')) {
 use App\Views\ViewManager;
 use App\Utils\AjaxUtil;
 use App\Models\RecycleModel;
+use App\Models\UserModel;
 
 class AdminController
 {
@@ -22,6 +23,14 @@ class AdminController
     {
         $rm = new RecycleModel;
         $result = $rm->getAllRec();
+
+        // Add user name to result
+        $um = new UserModel;
+
+        foreach ($result as &$res) {
+            $user = $um->getUserById($res['user_id']);
+            $res['user_name'] = $user['user_name'];
+        }
 
         AjaxUtil::sendAjax(true, $result);
     }

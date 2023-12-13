@@ -9,7 +9,8 @@ $body = <<<HTML
     <table id="admin-recycle" class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>NAME</th>
+                <th>USER</th>
+                <th>ITEM</th>
                 <th>DATE</th>
                 <th>POINTS</th>
                 <th>RECYCLING CENTER</th>

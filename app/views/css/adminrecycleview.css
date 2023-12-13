@@ -24,13 +24,13 @@
     background-color: #fff;
 }
 
-#admin-recycle tbody td:nth-child(2) {
+#admin-recycle tbody td:nth-child(3) {
     color: #6B7280;
     font-size: 14px;
 }
 
-#admin-recycle tbody td:nth-child(3) {
-    font-weight: 500;
+#admin-recycle tbody td:nth-child(1) {
+    font-weight: 600;
     font-size: 15px;
 }
 
