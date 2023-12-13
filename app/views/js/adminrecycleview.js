@@ -1,5 +1,6 @@
 $(document).ready(function() {
     getAdminRecLog();
+    listenEditRecForm();
 });
 
 function getAdminRecLog() {
@@ -32,9 +33,12 @@ function setAdminRecTable(data) {
                 }
             },
             {
-                data: 'rec_id',
+                data: {
+                    'rec_id': 'rec_id',
+                    'rec_status': 'rec_status'
+                },
                 render: function (data, type, row) {
-                    return ellipsisMenuAdminRec(data);
+                    return ellipsisMenuAdminRec(data['rec_id'], data['rec_status']);
                 }
             },
             { 
@@ -54,17 +58,98 @@ function setAdminRecTable(data) {
     })
 }
 
-function ellipsisMenuAdminRec(recId) {
+function ellipsisMenuAdminRec(recId, recStatus) {
+    
+    var pending = '';
+    var processing = '';
+    var completed = '';
+    var cancelled = '';
+
+    switch (recStatus) {
+        case 'pending':
+            pending = 'selected';
+            break;
+        case 'processing':
+            processing = 'selected';
+            break;
+        case 'completed':
+            completed = 'selected';
+            break;
+        case 'cancelled':
+            cancelled = 'selected';
+            break;
+    }
+
     var html = 
         `<div class="dropdown">
             <button class="btn dropdown-btn" type="button" id="ellipsisDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-ellipsis-v"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="ellipsisDropdown">
-                <a class="dropdown-item" href="${recId}">Edit</a>
-                <a class="dropdown-item" href="${recId}">Delete</a>
+                <a class="dropdown-item">
+                    <button type="button" class="ellipsis-btn" data-toggle="modal" data-target="#edit-rec-modal-${recId}">Edit</button>
+                </a>
+                <a class="dropdown-item">
+                    <button class="ellipsis-btn">Delete</button>
+                </a>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="edit-rec-modal-${recId}" tabindex="-1" role="dialog" aria-labelledby="edit-rec-modal-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header edit-rec-modal-header">
+                        <h5 class="modal-title" id="edit-rec-modal-label">Edit Recycle</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="edit-rec-form-${recId}" method="POST">
+                        <div class="modal-body edit-rec-input">
+                            <div class="form-group">
+                                <label for="rec-point" class="col-form-label">Point:</label>
+                                <input type="number" class="form-control" id="rec-point" name="rec-point" step="1">
+                                <span id="prodPriceError" class="errorText"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="rec-status" class="col-form-label">Status:</label>
+                                <select class="form-control" id="rec-status" name="rec-status">
+                                    <option ${pending} value="pending">Pending</option>
+                                    <option ${processing} value="processing">Processing</option>
+                                    <option ${completed} value="completed">Completed</option>
+                                    <option ${cancelled} value="cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                            <div class="form-group edit-rec-submit">
+                                <button type="submit" data-rec-id="${recId}" data-dismiss="modal" class="btn btn-primary edit-rec-btn">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>`;
 
     return html;
+}
+
+function listenEditRecForm() {
+    $(document).on('click', '.edit-rec-btn', function (e) {
+        e.preventDefault();
+        var recId = $(this).data('rec-id');
+
+        var formData = new FormData($('#edit-rec-form-' + recId)[0]);
+
+        sendAjax(
+            '/renew/update-recycle?rec-id=' + recId,
+            formData,
+            function (response) {
+                setNotification('Recycle updated');
+                redirect('/renew/admin-recycle');
+            },
+            function (response) {
+                console.log(response);
+            },
+            "AJAX Error: Unable to edit recycle."
+        );
+    });
 }

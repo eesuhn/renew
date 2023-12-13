@@ -297,4 +297,35 @@ class RecycleModel
 
         return DatabaseModel::exec($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    /**
+     * Update recyclable.
+     * 
+     * @param int $recId
+     * @param float $recPoint
+     * @param string $recStatus
+     * 
+     * @return bool Returns true if successful.
+     */
+    public function updateRec($recId, $recPoint, $recStatus)
+    {
+        $sql = <<<SQL
+            UPDATE
+                recyclable
+            SET
+                rec_point = :recPoint,
+                rec_status = :recStatus
+            WHERE
+                rec_id = :recId
+        SQL;
+
+        $params = [
+            ':recPoint' => $recPoint,
+            ':recStatus' => $recStatus,
+            ':recId' => $recId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+        return true;
+    }
 }

@@ -101,4 +101,8 @@ $rm->post(
     '/recycle',
     'IndexController@recycle');
 
+$rm->post(
+    '/update-recycle',
+    'AdminController@updateRecycle');
+
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

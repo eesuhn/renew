@@ -86,3 +86,35 @@
 #admin-recycle_paginate .next {
     display: none;
 }
+
+.edit-rec-input label {
+    margin-bottom: -10px;
+}
+
+.close { 
+    font-size: 30px;
+}
+
+.edit-rec-btn {
+    float: right;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+}
+
+.edit-rec-btn:hover {
+    background-color: var(--accent-dark-color);
+    color: #fff;
+}
+
+.edit-rec-modal-header {
+    border-bottom: none;
+    margin-bottom: -26px;
+}
+
+.edit-rec-modal-header h5 {
+    margin-top: 2px;
+    font-weight: 700;
+}

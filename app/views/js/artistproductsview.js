@@ -80,8 +80,12 @@ function ellipsisMenuArtist(prodId) {
                 <i class="fas fa-ellipsis-v"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="ellipsisDropdown">
-                <a class="dropdown-item" href="${prodId}">Edit</a>
-                <a class="dropdown-item" href="${prodId}">Delete</a>
+                <a class="dropdown-item">
+                    <button class="ellipsis-btn">Edit</button>
+                </a>
+                <a class="dropdown-item">
+                    <button class="ellipsis-btn">Delete</button>
+                </a>
             </div>
         </div>`;
 

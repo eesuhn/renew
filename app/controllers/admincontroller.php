@@ -25,4 +25,16 @@ class AdminController
 
         AjaxUtil::sendAjax(true, $result);
     }
+
+    public function updateRecycle()
+    {
+        $recId = $_GET['rec-id'];
+        $recPoint = $_POST['rec-point'];
+        $recStatus = $_POST['rec-status'];
+
+        $rm = new RecycleModel;
+        $result = $rm->updateRec($recId, $recPoint, $recStatus);
+
+        AjaxUtil::sendAjax($result);
+    }
 }

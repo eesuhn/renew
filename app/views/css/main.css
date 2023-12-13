@@ -123,10 +123,23 @@ body {
     font-size: 14px;
     font-weight: 500;
     line-height: 16px;
-    padding: 10px 20px;
+    padding: 0;
 }
 
 .dropdown-item:hover {
     background-color: var(--accent-color);
     color: #fff;
+}
+
+.ellipsis-btn {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    height: 100%;
+    padding: 10px 6px;
+}
+
+.ellipsis-btn:hover {
+    color: white;
 }
