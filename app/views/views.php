@@ -9,6 +9,23 @@ use App\Views\ViewManager;
 
 $vm = new ViewManager();
 
+// Add navbars here
+$vm->addNav(
+    'publicnav',
+    ['publicnav.css']);
+
+$vm->addNav(
+    'sidepublicnav',
+    ['sidepublicnav.css']);
+
+$vm->addNav(
+    'adminnav',
+    ['adminnav.css']);
+
+$vm->addNav(
+    'artistnav',
+    ['artistnav.css']);
+
 // Add views here
 $vm->addView(
     'installerview', 
@@ -23,8 +40,7 @@ $vm->addview(
 $vm->addView(
     'indexview', 
     'Home', 
-    ['indexview.css'],
-    ['indexview.js']);
+    ['indexview.css']);
 
 $vm->addView(
     'registerview',
@@ -37,6 +53,63 @@ $vm->addView(
     'Login',
     ['loginview.css'],
     ['loginview.js']);
+
+$vm->addView(
+    'editprofileview',
+    'Profile',
+    ['editprofileview.css']);
+
+$vm->addView(
+    'pointsview',
+    'Points',
+    ['pointsview.css'],
+    ['pointsview.js']);
+
+$vm->addView(
+    'storeview',
+    'Store',
+    ['storeview.css']);
+
+$vm->addView(
+    'cartview',
+    'Cart',
+    ['cartview.css']);
+
+$vm->addView(
+    'productfocusview',
+    'Product Focus',
+    ['productfocusview.css'],
+    ['productfocusview.js']);
+
+$vm->addView(
+    'recycleformview',
+    'Recycle Form',
+    ['recycleformview.css'],
+    ['recycleformview.js']);
+
+$vm->addView(
+    'ordersview',
+    'Orders',
+    ['ordersview.css'],
+    ['ordersview.js']);
+
+$vm->addView(
+    'artistproductsview',
+    'Artist Products',
+    ['artistproductsview.css'],
+    ['artistproductsview.js']);
+
+$vm->addView(
+    'artistprofileview',
+    'Artist Profile',
+    ['artistprofileview.css'],
+    ['artistprofileview.js']);
+
+$vm->addView(
+    'userrecycleview',
+    'My Recycle',
+    ['userrecycleview.css'],
+    ['userrecycleview.js']);
 
 // Add segments here
 $vm->addSeg(

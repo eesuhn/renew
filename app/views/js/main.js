@@ -1,3 +1,7 @@
+$(document).ready(function () {
+    listenBackBtn();
+});
+
 /**
  * Send AJAX POST request.
  * 
@@ -18,7 +22,9 @@ function sendAjax(
         url: url,
         type: "POST",
         data: formData,
-        dataType: "json",
+        contentType: false,
+        cache: false,
+        processData: false,
 
         success: function (response) {
             if (response.success && typeof sucFunc == "function") {
@@ -51,6 +57,33 @@ function getSeg(
         url: url,
         type: "GET",
         dataType: "html",
+
+        success: function (response) {
+            sucFunc(response);
+        },
+        error: function (xhr) {
+            console.log(xhr.responseText);
+            throw new Error(ajaxError);
+        }
+    })
+}
+
+/**
+ * Get AJAX data.
+ * 
+ * @param {string} url 
+ * @param {function} sucFunc 
+ * @param {string} ajaxError 
+ */
+function getData(
+    url, 
+    sucFunc, 
+    ajaxError = "AJAX Error: Unable to get data.") {
+    
+    $.ajax({
+        url: url,
+        type: "GET",
+        dataType: "json",
 
         success: function (response) {
             sucFunc(response);
@@ -132,5 +165,14 @@ function focusModal(
         if (typeof hidFunc == "function") {
             hidFunc();
         }
+    });
+}
+
+/**
+ * Go back to previous page when back button is clicked.
+ */
+function listenBackBtn() {
+    $('#goBackBtn').on('click', function () {
+        window.history.back();
     });
 }

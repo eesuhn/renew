@@ -14,20 +14,17 @@ class AjaxUtil
      * 
      * @param bool $success
      * @param array $data (Optional)
-     * @param array $params (Optional)
      * 
      * @return void
      */
     public static function sendAjax(
         $success, 
-        $data = null, 
-        $params = [])
+        $data = [])
     {
         header('Content-Type: application/json');
         echo json_encode([
             'success' => $success, 
-            'data' => $data, 
-            'params' => $params]);
+            'data' => $data]);
         exit();
     }
 }

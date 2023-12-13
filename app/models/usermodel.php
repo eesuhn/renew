@@ -19,15 +19,15 @@ class UserModel
      * Register user.
      * Validate email and password.
      * 
-     * @param string $displayName
+     * @param string $userName
      * @param string $email
      * @param string $password
      * 
      * @return bool|array Returns true if registration is successful, array of errors otherwise
      */
-    public function register($displayName, $email, $password)
+    public function register($userName, $email, $password)
     {
-        $errors = $this->validateRegister($displayName, $email, $password);
+        $errors = $this->validateRegister($userName, $email, $password);
         if (count($errors) > 0) {
             return $errors;
         }
@@ -45,7 +45,10 @@ class UserModel
          * @var string $sql Insert to user table.
          */
         $sql = <<<SQL
-            INSERT INTO user (dir_name, email, pwd, role) VALUES (:dirName, :email, :password, :role)
+            INSERT INTO 
+                user (dir_name, email, pwd, role) 
+            VALUES 
+                (:dirName, :email, :password, :role)
         SQL;
 
         $params = [
@@ -63,12 +66,12 @@ class UserModel
          * @var string $sql_lang Insert to user_lang table.
          */
         $sql_lang = <<<SQL
-            INSERT INTO user_lang (user_id, display_name) VALUES (:userId, :displayName)
+            INSERT INTO user_lang (user_id, user_name) VALUES (:userId, :userName)
         SQL;
 
         $params_lang = [
             ':userId' => $userId,
-            ':displayName' => $displayName
+            ':userName' => $userName
         ];
 
         DatabaseModel::exec($sql_lang, $params_lang);
@@ -365,5 +368,47 @@ class UserModel
 
         mkdir($path, 0755);
         return true;
+    }
+
+    /**
+     * Get user directory.
+     * 
+     * @param int $userId
+     * @param bool $withRoot (Optional) Default includes root directory
+     * 
+     * @return string Returns user directory
+     */
+    public static function getUserDir($userId, $withRoot = true)
+    {
+        /**
+         * @var string $rootDir Root directory.
+         */
+        $rootDir = ROOT . '/app/assets/user/';
+
+        if (!$withRoot) {
+            $rootDir = '/app/assets/user/';
+        }
+
+        $sql = <<<SQL
+            SELECT dir_name FROM user WHERE user_id = :userId
+        SQL;
+
+        $params = [
+            ':userId' => $userId
+        ];
+
+        $dirName = DatabaseModel::exec($sql, $params)->fetchColumn();
+
+        return $rootDir . $dirName;
+    }
+
+    /**
+     * Get current user ID.
+     * 
+     * @return int
+     */
+    public static function getCurUserId()
+    {
+        return SessionModel::getSession('renew_user')['user_id'];
     }
 }

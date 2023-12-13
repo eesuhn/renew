@@ -5,7 +5,7 @@ $(document).ready(function () {
 function listenLogin() {
     $("#user-login").on("submit", function (e) {
         e.preventDefault();
-        var formData = $(this).serialize();
+        var formData = new FormData(this);
 
         sendAjax(
             "/renew/login",

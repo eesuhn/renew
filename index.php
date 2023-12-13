@@ -17,8 +17,10 @@
  * - jQuery 3.5.1
  * 
  * [Frontend]
- * - Bootstrap 4.5.2
- * - PopperJS v2.11.6
+ * - Bootstrap CSS 4.5.2
+ * - Bootstrap JS 4.3.1
+ * - PopperJS 1.14.7
+ * - DataTables 1.13.7
  * - Font Awesome 5.15.3
  * - Google Fonts Roboto
  */
@@ -26,6 +28,8 @@
  define('ROOT', __DIR__);
  define('ROOT_URI', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/renew');
  define('ACCESS', true);
+
+ date_default_timezone_set('Asia/Kuala_Lumpur');
  
  require_once ROOT . '/app/config/debug.php';
  require_once ROOT . '/app/utils/mainutil.php';

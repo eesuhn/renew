@@ -5,7 +5,7 @@ $(document).ready(function () {
 function listenRegister() {
     $("#user-register").on("submit", function (e) {
         e.preventDefault();
-        var formData = $(this).serialize();
+        var formData = new FormData(this);
 
         sendAjax(
             "/renew/register",

@@ -1,3 +1,10 @@
 # Ignore content from user folder, but not the folder itself
 app/assets/user/*
 !app/assets/user/.gitkeep
+
+# Include content from sample_user folder
+!app/assets/user/sample_user/
+
+# Ignore content from recyclable folder, but not the folder itself
+app/assets/recyclable/*
+!app/assets/recyclable/.gitkeep
