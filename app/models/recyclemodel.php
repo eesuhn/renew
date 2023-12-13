@@ -293,6 +293,8 @@ class RecycleModel
                 rec_lang rl ON r.rec_id = rl.rec_id
             INNER JOIN
                 rec_center rc ON r.center_id = rc.center_id
+            WHERE
+                r.is_delete = 0
         SQL;
 
         return DatabaseModel::exec($sql)->fetchAll(PDO::FETCH_ASSOC);
@@ -322,6 +324,32 @@ class RecycleModel
         $params = [
             ':recPoint' => $recPoint,
             ':recStatus' => $recStatus,
+            ':recId' => $recId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+        return true;
+    }
+
+    /**
+     * Soft delete recyclable.
+     * 
+     * @param int $recId
+     * 
+     * @return bool Returns true if successful.
+     */
+    public function deleteRec($recId)
+    {
+        $sql = <<<SQL
+            UPDATE
+                recyclable
+            SET
+                is_delete = 1
+            WHERE
+                rec_id = :recId
+        SQL;
+
+        $params = [
             ':recId' => $recId
         ];
 

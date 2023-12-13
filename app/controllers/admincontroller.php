@@ -46,4 +46,14 @@ class AdminController
 
         AjaxUtil::sendAjax($result);
     }
+
+    public function deleteRecycle()
+    {
+        $recId = $_GET['rec-id'];
+
+        $rm = new RecycleModel;
+        $result = $rm->deleteRec($recId);
+
+        AjaxUtil::sendAjax($result);
+    }
 }

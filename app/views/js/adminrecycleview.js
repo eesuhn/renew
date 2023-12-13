@@ -49,11 +49,11 @@ function setAdminRecTable(data) {
             }
         ],
         order: [
-            [6, 'desc']
+            [7, 'desc']
         ],
         columnDefs: [
             { 
-                targets: [5], 
+                targets: [6], 
                 orderable: false 
             }
         ]
@@ -92,7 +92,7 @@ function ellipsisMenuAdminRec(recId, recStatus, recPoint) {
                     <button type="button" class="ellipsis-btn" data-toggle="modal" data-target="#edit-rec-modal-${recId}">Edit</button>
                 </a>
                 <a class="dropdown-item">
-                    <button class="ellipsis-btn">Delete</button>
+                    <button class="ellipsis-btn" data-toggle="modal" data-target="#delete-rec-modal-${recId}">Delete</button>
                 </a>
             </div>
         </div>
@@ -129,7 +129,26 @@ function ellipsisMenuAdminRec(recId, recStatus, recPoint) {
                     </form>
                 </div>
             </div>
-        </div>`;
+        </div>
+        
+        <div class="modal fade" id="delete-rec-modal-${recId}" tabindex="-1" role="dialog" aria-labelledby="edit-rec-modal-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header edit-rec-modal-header">
+                        <h5 class="modal-title" id="edit-rec-modal-label">Delete Recycle</h5>
+                    </div>
+                    <form id="delete-rec-form-${recId}" method="POST">
+                        <div class="modal-body edit-rec-input">
+                            <div class="form-group edit-rec-submit">
+                                <button type="submit" data-rec-id="${recId}" data-dismiss="modal" class="btn btn-primary delete-rec-btn">Confirm</button>
+                                <button type="button" class="btn btn-secondary delete-close-btn" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        `;
 
     return html;
 }
@@ -153,5 +172,25 @@ function listenEditRecForm() {
             },
             "AJAX Error: Unable to edit recycle."
         );
+    });
+}
+
+function listenEditRecForm() {
+    $(document).on('click', '.delete-rec-btn', function (e) {
+        e.preventDefault();
+        var recId = $(this).data('rec-id');
+
+        sendAjax(
+            '/renew/delete-recycle?rec-id=' + recId,
+            null,
+            function (response) {
+                setNotification('Recycle deleted');
+                redirect('/renew/admin-recycle');
+            },
+            function (response) {
+                console.log(response);
+            },
+            "AJAX Error: Unable to delete recycle."
+        )
     });
 }
