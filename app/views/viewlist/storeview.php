@@ -84,7 +84,7 @@ if (isset($products)) :
         $prodImgPath = $products[$count]['img_path'];
         $prodDesc = $products[$count]['description'];
         $prodPrice = $products[$count]['price'];
-        $dirName = 'dirName=' . $products[$count]['dir_name'];
+        $dirName = 'product-name=' . $products[$count]['dir_name'];
 
         $body .= <<<HTML
             <div class="sample-item col-12">

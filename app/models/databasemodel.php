@@ -36,6 +36,28 @@ class DatabaseModel
     ];
 
     /**
+     * @var array $sampleUsers Sample users.
+     */
+    private static $sampleUsers = [
+        'jason_delulu@mail.com',
+        'elizabeth_josh@mail.com'
+    ];
+
+    /**
+     * @var array $sampleProds Sample products.
+     */
+    private static $sampleProd = [
+        'carton_flower_pots',
+        'cloth_travel_bag',
+        'crocheted_flower_buds',
+        'flower_glass_vase',
+        'handpainted_plates',
+        'hanging_heart_chimes',
+        'indoor_plastic_flowerpots',
+        'reusable_coffee_mugs'
+    ];
+
+    /**
      * Connect to database and return connection.
      * 
      * @return PDO|bool Returns PDO object if connection is successful, false otherwise.
@@ -127,7 +149,15 @@ class DatabaseModel
 
         if (count($params) > 0) {
             foreach ($params as $key => &$value) {
-                $stmt->bindParam($key, $value);
+                /**
+                 * Check if value is integer.
+                 */
+                if (is_integer($value)) {
+                    $stmt->bindParam($key, $value, PDO::PARAM_INT);
+
+                } else {
+                    $stmt->bindParam($key, $value, PDO::PARAM_STR);
+                }
             }
         }
         $stmt->execute();
@@ -151,5 +181,86 @@ class DatabaseModel
         } catch (PDOException $e) {
             return false;
         }
+    }
+
+    /**
+     * Check if sample users exist.
+     * 
+     * @return bool Returns true if sample users exist, false otherwise.
+     */
+    private static function checkSampleUsers()
+    {
+        $sql = <<<SQL
+            SELECT
+                `email`
+            FROM
+                `user`
+            WHERE
+                `email` = :email;
+        SQL;
+
+        foreach (self::$sampleUsers as $email) {
+            $stmt = self::exec($sql, [':email' => $email]);
+            $result = $stmt->fetchColumn();
+
+            if (!$result) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Check if sample products exist.
+     * 
+     * @return bool Returns true if sample products exist, false otherwise.
+     */
+    private static function checkSampleProds()
+    {
+        $sql = <<<SQL
+            SELECT
+                `dir_name`
+            FROM
+                `product`
+            WHERE
+                `dir_name` = :dir_name;
+        SQL;
+
+        foreach (self::$sampleProd as $dirName) {
+            $stmt = self::exec($sql, [':dir_name' => $dirName]);
+            $result = $stmt->fetchColumn();
+
+            if (!$result) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Install sample users and products.
+     * 
+     * @return void
+     */
+    private static function installSamples()
+    {
+        require_once ROOT . '/app/config/sample.php';
+
+        self::$connection->prepare($sql)->execute();
+    }
+
+    /**
+     * Validate if sample users and products are setup.
+     * Setup sample users and products if they are not setup.
+     * 
+     * @return bool Returns true if sample setup is valid (users and products exist), false otherwise.
+     */
+    public static function validateSampleSetup()
+    {
+        if (!self::checkSampleUsers() || !self::checkSampleProds()) {
+            self::installSamples();
+            return false;
+        }
+        return true;
     }
 }

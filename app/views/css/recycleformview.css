@@ -81,7 +81,7 @@ textarea:focus {
     width: 100px;
     cursor: pointer;
     margin-left: auto;
-    background-color: var(--primary-color);
+    background-color: var(--primary-dark-color);
 }
 
 .btn-block:hover {
@@ -132,6 +132,7 @@ textarea:focus {
     font-weight: 500;
     line-height: 24px;
     color: grey;
+    margin-top: -8px;
 }
 
 .upload-container {

@@ -63,10 +63,18 @@ $rm->get(
     'ArtistController@artistProfileView'
 );
 
+$rm->get(
+    '/user-recycle',
+    'UserController@userRecycleView');
+
 // Add GET routes for AJAX here
 $rm->get(
     '/get-artist-products',
     'ArtistController@getProductByArtist');
+
+$rm->get(
+    '/get-user-recycle',
+    'UserController@getUserRecycle');
 
 // Add POST routes here
 $rm->post(
@@ -80,5 +88,9 @@ $rm->post(
 $rm->post(
     '/add-product',
     'ArtistController@addProduct');
+
+$rm->post(
+    '/recycle',
+    'IndexController@recycle');
 
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

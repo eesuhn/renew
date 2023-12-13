@@ -64,9 +64,8 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 20px; 
-    margin-left: 10%;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 30px 140px;
 }
 
 .grid-item {
@@ -302,7 +301,7 @@ body {
 }
 
 .item-card {
-    width: 70%;
+    width: 300px;
 }
 
 .hero-img {
@@ -334,4 +333,54 @@ body {
 
 .rec-btn-row {
     margin-bottom: 20px;
+}
+
+.order-now {
+    background-color: var(--accent-dark-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 40px;
+    outline: none;
+    float: right;
+}
+
+.order-now i {
+    font-size: 16px !important;
+    margin-right: 12px;
+}
+
+.order-now a {
+    font-size: 12px;
+}
+
+.order-now:hover {
+    background-color: var(--primary-dark-color);
+    color: white;
+    text-decoration: none;
+}
+
+.card-img-top {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.rec-prod-title-text {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.rec-prod-title-box {
+    margin-top: 80px;
+}
+
+.prod-desc {
+    margin-top: -6px;
+}
+
+.prod-name {
+    font-weight: 700;
+    margin-left: -2px;
 }

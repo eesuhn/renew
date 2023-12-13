@@ -386,7 +386,7 @@ class UserModel
         $rootDir = ROOT . '/app/assets/user/';
 
         if (!$withRoot) {
-            $rootDir = 'app/assets/user/';
+            $rootDir = '/app/assets/user/';
         }
 
         $sql = <<<SQL

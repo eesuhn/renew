@@ -1,3 +1,7 @@
+$(document).ready(function () {
+    listenBackBtn();
+});
+
 /**
  * Send AJAX POST request.
  * 
@@ -161,5 +165,14 @@ function focusModal(
         if (typeof hidFunc == "function") {
             hidFunc();
         }
+    });
+}
+
+/**
+ * Go back to previous page when back button is clicked.
+ */
+function listenBackBtn() {
+    $('#goBackBtn').on('click', function () {
+        window.history.back();
     });
 }

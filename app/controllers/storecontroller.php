@@ -34,7 +34,20 @@ class StoreController
 
     public function productFocusView()
     {
-        $dirName = $_GET['dirName'];
+        $pm = new ProductModel();
+        $products = $pm->getRecProd();
+
+        /**
+         * Replace img_path with the actual path
+         */
+        foreach ($products as $key => $product) {
+            $userId = $product['user_id'];
+            $products[$key]['img_path'] = ImageModel::getImgDir($userId, $product['img_path']);
+        }
+
+        $params['products'] = $products;
+
+        $dirName = $_GET['product-name'];
 
         $pm = new ProductModel();
         $product = $pm->getProdByDirName($dirName);

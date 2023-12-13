@@ -12,17 +12,19 @@ $body = <<<HTML
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="content">
-                            <h2 class="table-title order-title">My Orders</h2>
+                            <h2 class="table-title recycle-title">My Recycles</h2>
                             <div class="container mt-5">
                                 <div class="row">
                                     <div class="col-12">
-                                        <table id="order-history" class="table table-striped table-bordered">
+                                        <table id="recycle-history" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>ORDERS</th>
-                                                    <th>ORDER DATE</th>
-                                                    <th>STATUS</th>
-                                                    <th>TOTAL (RM)</th>
+                                                    <th>NAME</th>
+                                                    <th>DATE</th>
+                                                    <th>POINTS</th>
+                                                    <th>RECYCLING CENTER</th>
+                                                    <th>DROP OFF STATUS</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody></tbody>

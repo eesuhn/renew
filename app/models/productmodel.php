@@ -262,6 +262,40 @@ class ProductModel
     }
 
     /**
+     * Get random product.
+     * 
+     * @param int $count (Optional) Default is 4
+     * 
+     * @return array Returns array of product
+     */
+    public function getRecProd($count = 4)
+    {
+        $sql = <<<SQL
+            SELECT
+                prod_id
+            FROM
+                product
+            ORDER BY
+                RAND()
+            LIMIT
+                :count
+        SQL;
+
+        $params = [
+            ':count' => $count
+        ];
+
+        $arrId = DatabaseModel::exec($sql, $params)->fetchAll(PDO::FETCH_COLUMN);
+
+        $arr = [];
+        foreach ($arrId as $prodId) {
+            $arr[] = $this->getProdById($prodId);
+        }
+
+        return $arr;
+    }
+
+    /**
      * Get product by directory name.
      * 
      * @param string $dirName

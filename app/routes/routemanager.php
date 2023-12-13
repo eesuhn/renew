@@ -137,6 +137,8 @@ class RouteManager
         if (!DatabaseModel::validateDbSetup()) {
             ViewManager::renderView('installerview');
             exit();
+        } else {
+            DatabaseModel::validateSampleSetup();
         }
         
         // Check if user is logged in.

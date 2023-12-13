@@ -28,6 +28,8 @@
  define('ROOT', __DIR__);
  define('ROOT_URI', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/renew');
  define('ACCESS', true);
+
+ date_default_timezone_set('Asia/Kuala_Lumpur');
  
  require_once ROOT . '/app/config/debug.php';
  require_once ROOT . '/app/utils/mainutil.php';

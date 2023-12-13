@@ -5,6 +5,17 @@ if (!defined('ACCESS')) {
     die();
 }
 
+/**
+ * Number of recommended products to display.
+ * 
+ * @var int $numRecProds
+ */
+$numRecProds = 4;
+
+if (count($params['products']) == $numRecProds) :
+    $products = $params['products'];
+endif;
+
 $body = <<<HTML
     <div class="hero-image">
         <img src="$root/app/assets/public/hero.png" alt="Hero Image" class="hero-img">
@@ -12,38 +23,58 @@ $body = <<<HTML
         <div class="carousel-caption1">
             <h3>Reaching for global sustainability</h3>
             <p>ReNew, is a pioneering eco-conscious company on a mission to redefine sustainability and foster community engagement in recycling.</p>
-            <button class="btn4 btn-primary">Go to Store</button>
+            <a href="$root/store"><button class="btn4 btn-primary">Go to Store</button></a>
         </div>
     </div>
-    <div class="center-text">
-        <p>Most Popular</p>
-        <h2 class="hero-title">Our Exclusive Upcycled Products</h2>
-    </div>
-    <div class="grid-container">
 HTML;
 
-// SAMPLE: Popular products
-$sample = 3;
-while ($sample > 0) :
+if (isset($products)) :
     $body .= <<<HTML
-        <div class="sample-item col-12">
-            <div class="card item-card">
-                <img src="$root/app/assets/sample/product.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Upcycled Glass Vases</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn1 btn-primary">Order Now</a>
-                    <span class="price-tag">RM 25</span>
-                </div>
-            </div>
+        <div class="center-text rec-prod-title-box">
+            <p class="rec-prod-title-text">Most Popular</p>
+            <h2 class="hero-title">Our Exclusive Upcycled Products</h2>
         </div>
+        <div class="grid-container product-grid">
     HTML;
 
-    $sample--;
-endwhile;
+    $count = 0;
+    while (count($products) > $count) :
+
+        $prodName = $products[$count]['prod_name'];
+        $prodImgPath = $products[$count]['img_path'];
+        $prodDesc = $products[$count]['description'];
+        $prodPrice = $products[$count]['price'];
+        $dirName = 'product-name=' . $products[$count]['dir_name'];
+
+        $body .= <<<HTML
+            <div class="sample-item col-12">
+                <div class="card item-card">
+                    <img src="$root/$prodImgPath" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title prod-name">$prodName</h5>
+                        <p class="card-text prod-desc">$prodDesc</p>
+                        <span class="price-tag">RM $prodPrice</span>
+                        <a href="$root/product-focus?$dirName" class="order-now"><i class="fas fa-shopping-cart"></i>View More</a>
+                    </div>
+                </div>
+            </div>
+        HTML;
+        $count++;
+    endwhile;
+
+    $body .= <<<HTML
+        </div>
+    HTML;
+else :
+    $body .= <<<HTML
+        <div class="center-text rec-prod-title-box">
+            <h2 class="hero-title">Stay tune for more!</h2>
+            <p class="rec-prod-title-text">Our Exclusive Upcycled Products</p>
+        </div>
+    HTML;
+endif;
 
 $body .= <<<HTML
-    </div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">  
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -86,7 +117,9 @@ $body .= <<<HTML
         </div>
         <div class="col">
             <div class="center-text2">
-                <button class="btn3 btn-primary"><i class="fas fa-star"></i>&nbspRECYCLE NOW</button>
+                <a href="$root/recycle-form">
+                    <button class="btn3 btn-primary"><i class="fas fa-star"></i>&nbspRECYCLE NOW</button>
+                </a>
                 <p>Our mission is to create a sustainable marketplace that promotes the circular economy, reduces waste, and showcases the potential of repurposed materials.</p>
             </div>        
         </div>
