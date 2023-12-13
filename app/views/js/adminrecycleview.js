@@ -155,9 +155,7 @@ function ellipsisMenuAdminRec(recId, recStatus, recPoint) {
 }
 
 function listenEditRecForm() {
-    console.log('edit-rec-btn');
     $(document).on('click', '.edit-rec-btn', function (e) {
-        console.log('edit-rec-btn');
         e.preventDefault();
         var recId = $(this).data('rec-id');
 

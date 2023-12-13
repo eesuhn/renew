@@ -113,4 +113,8 @@ $rm->post(
     '/delete-recycle',
     'AdminController@deleteRecycle');
 
+$rm->post(
+    '/add-to-cart',
+    'UserController@addToCart');
+
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

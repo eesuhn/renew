@@ -7,6 +7,7 @@ if (!defined('ACCESS')) {
     die();
 }
 
+use App\Models\CartModel;
 use App\Views\ViewManager;
 use App\Models\UserModel;
 use App\Utils\AjaxUtil;
@@ -108,6 +109,18 @@ class UserController
 
         $rm = new RecycleModel();
         $result = $rm->getRecByUserId($userId);
+
+        AjaxUtil::sendAjax(true, $result);
+    }
+
+    public function addToCart()
+    {
+        $userId = UserModel::getCurUserId();
+        $prodDirName = $_GET['prod-dir-name'];
+        $prodCount = $_GET['prod-count'];
+
+        $cm = new CartModel();
+        $result = $cm->addToCart($userId, $prodDirName, $prodCount);
 
         AjaxUtil::sendAjax(true, $result);
     }
