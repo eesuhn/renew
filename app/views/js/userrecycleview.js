@@ -21,6 +21,7 @@ function setUserRecTable(data) {
     $('#recycle-history').DataTable({
         data: data,
         columns: [
+            { data: 'rec_id' },
             { data: 'rec_name' },
             { 
                 data: 'rec_time', 
@@ -28,7 +29,6 @@ function setUserRecTable(data) {
                     return formatdate(data);
                 }
             },
-            { data: 'rec_point' },
             { data: 'center_name' },
             {
                 data: 'rec_status',
