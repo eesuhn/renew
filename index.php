@@ -5,7 +5,7 @@
  * artists to showcase and sell their unique creations made from recycled materials.
  * 
  * @package ReNew
- * @version 0.1.0
+ * @version 0.5.0
  * @author 
  * - github.com/eesuhn
  * - github.com/shai-mohan
