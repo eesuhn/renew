@@ -50,7 +50,6 @@ $sql = <<<SQL
         `center_id` INT(11) NOT NULL,
         `rec_status` VARCHAR(255) NOT NULL,
         `rec_point` INT(11) NOT NULL DEFAULT 0,
-        `rec_point_status` TINYINT(1) NOT NULL DEFAULT 0,
         `rec_time` TIMESTAMP NOT NULL,
         `time_create` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         `is_delete` TINYINT(1) NOT NULL DEFAULT 0,
@@ -70,6 +69,7 @@ $sql = <<<SQL
         `order_id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         `user_id` INT(11) NOT NULL,
         `order_status` VARCHAR(255) NOT NULL,
+        `rec_point_used` INT(11) NOT NULL DEFAULT 0,
         `time_create` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
     );
