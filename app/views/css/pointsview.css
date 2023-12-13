@@ -204,14 +204,20 @@ input:disabled {
     background-color: #fff;
 }
 
-#point-history tbody td:nth-child(2) {
+#point-history tbody td:nth-child(3) {
     color: #6B7280;
     font-size: 14px;
 }
 
-#point-history tbody td:nth-child(3) {
-    font-weight: 500;
-    font-size: 16px;
+#point-history tbody td:nth-child(1) {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+#point-history tbody td:nth-child(4) {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--primary-dark-color)
 }
 
 #point-history_filter input[type="search"] {

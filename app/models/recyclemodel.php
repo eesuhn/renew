@@ -356,4 +356,48 @@ class RecycleModel
         DatabaseModel::exec($sql, $params);
         return true;
     }
+
+    /**
+     * Get recycle points by user id.
+     * 
+     * @param int $userId
+     * 
+     * @return array|bool Returns array of recycle points if found, false otherwise.
+     */
+    public function getTotalRecPointByUserId($userId)
+    {
+        $sql = <<<SQL
+            SELECT
+                SUM(rec_point) AS total_rec_point
+            FROM
+                recyclable
+            WHERE
+                user_id = :userId
+        SQL;
+    
+        $params = [
+            ':userId' => $userId
+        ];
+    
+        return DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Convert recycle points to currency.
+     * Round to 2 decimal places.
+     * 
+     * @param float $recPoint
+     * 
+     * @return float Returns currency.
+     */
+    public function recPointToCurrency($recPoint)
+    {
+        /**
+         * @var float $factor Conversion factor.
+         */
+        $factor = 0.1;
+        
+        // Round to 2 decimal places.
+        return round($recPoint * $factor, 2);
+    }
 }

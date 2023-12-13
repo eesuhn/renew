@@ -59,9 +59,21 @@ class UserController
 
     public function pointsView()
     {
+        $userId = UserModel::getCurUserId();
+
+        $rm = new RecycleModel();
+
+        // SAMPLE
+        $totalRecPointUnused = 100;
+
+        $totalCurrency = $rm->recPointToCurrency($totalRecPointUnused);
+        
+        $params['totalRecPointUnused'] = $totalRecPointUnused;
+        $params['totalCurrency'] = $totalCurrency;
+
         return ViewManager::renderView(
             'pointsview', 
-            [], 
+            $params, 
             ['publicnav', 'sidepublicnav']);
     }
 
@@ -81,6 +93,16 @@ class UserController
     }
 
     public function getUserRecycle()
+    {
+        $userId = UserModel::getCurUserId();
+
+        $rm = new RecycleModel();
+        $result = $rm->getRecByUserId($userId);
+
+        AjaxUtil::sendAjax(true, $result);
+    }
+
+    public function getUserRecPoint()
     {
         $userId = UserModel::getCurUserId();
 

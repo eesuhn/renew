@@ -5,6 +5,9 @@ if (!defined('ACCESS')) {
     die();
 }
 
+$totalRecPointUnused = $params['totalRecPointUnused'];
+$totalCurrency = $params['totalCurrency'];
+
 $body = <<<HTML
     <div class="col-10">
         <div class="content">
@@ -13,14 +16,14 @@ $body = <<<HTML
             <div class="row">
                 <div class="col-md-4">
                     <div class="box1">
-                        <h2 class="bold-text">320</h2>
-                        <p class="label-text">Points collected</p>
+                        <h2 class="bold-text">$totalRecPointUnused</h2>
+                        <p class="label-text">Points Accumulated</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="box2">
-                        <h2 class="bold-text">RM 32</h2>
-                        <p class="label-text">Worth discount</p>
+                        <h2 class="bold-text">RM $totalCurrency</h2>
+                        <p class="label-text">Worth Discount</p>
                     </div>
                 </div>
             </div>
@@ -32,10 +35,11 @@ $body = <<<HTML
                         <table id="point-history" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>RECYCLED</th>
+                                    <th>ID</th>
+                                    <th>RECYCLED ITEM</th>
                                     <th>DATE & TIME</th>
                                     <th>POINTS WORTH</th>
-                                    <th>DROP-OFF STATUS</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody></tbody>

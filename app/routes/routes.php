@@ -84,6 +84,10 @@ $rm->get(
     '/get-admin-recycle',
     'AdminController@getAdminRecycle');
 
+$rm->get(
+    '/get-user-rec-point',
+    'UserController@getUserRecPoint');
+
 // Add POST routes here
 $rm->post(
     '/register',
