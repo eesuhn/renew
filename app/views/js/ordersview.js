@@ -33,20 +33,7 @@ $(document).ready(function() {
             {
                 data: 'status',
                 render: function (data, type, row) {
-                    if (data === "Cancelled") {
-                        badgeClass = "badge badge-danger";
-                        statusText = "Cancelled";
-
-                    } else if (data === "Completed") {
-                        badgeClass = "badge badge-success";
-                        statusText = "Completed";
-
-                    } else if (data === "Processing") {
-                        badgeClass = "badge badge-warning";
-                        statusText = "Processing";
-                    }
-
-                    return '<span class="' + badgeClass + '">' + statusText + '</span>';
+                    return badgeStatus(data);
                 }
             },
             { data: 'total' }

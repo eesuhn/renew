@@ -74,3 +74,36 @@ body {
     display: block;
     margin-bottom: -6px;
 }
+
+/* Badges */
+.badge {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 16px;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.badge-completed {
+    background-color: #DEF7EC;
+    color: var(--green-800, #03543F);
+}
+
+.badge-cancelled {
+    background-color: #FCE7EC;
+    color: var(--red-800, #9B2C2C);
+}
+
+.badge-processing {
+    background-color: #E1EFFE;
+    color: #1E429F;
+}
+
+.badge-pending {
+    background-color: #FFF3E0;
+    color: #e28800;
+}

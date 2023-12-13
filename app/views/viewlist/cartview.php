@@ -83,8 +83,11 @@ $body .= <<<HTML
             <div class="section-up">
                 <div class="row py-5 p-4 bg-white rounded shadow-sm">
                     <div class="col-lg-6">
-                        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Points Worth :
-                            <span class="badge badge-pill badge-success">RM 32</span>
+                        <div class="bg-light rounded-pill px-4 py-1 text-uppercase font-weight-bold points-worth">
+                            <div class="points-worth">
+                                <p class="points-worth-text">Points Worth :</p>
+                                <span class="badge badge-pill badge-price">RM 32</span>
+                            </div>
                         </div>
                         <div class="p-4">
                             <p class="font-italic mb-4">Use your points to get a discount!</p>

@@ -101,7 +101,7 @@ class RecycleModel
          * 
          * @var string $defaultRecStatus
          */
-        $defaultRecStatus = 'Pending';
+        $defaultRecStatus = 'pending';
 
         $sql = <<<SQL
             INSERT INTO

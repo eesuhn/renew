@@ -34,20 +34,7 @@ $(document).ready(function() {
             {
                 data: 'drop-off status',
                 render: function (data, type, row) {
-                    if (data === "Cancelled") {
-                        badgeClass = "badge badge-danger";
-                        statusText = "Cancelled";
-
-                    } else if (data === "Completed") {
-                        badgeClass = "badge badge-success";
-                        statusText = "Completed";
-
-                    } else if (data === "In Progress") {
-                        badgeClass = "badge badge-warning";
-                        statusText = "In Progress";
-                    }
-
-                    return '<span class="' + badgeClass + '">' + statusText + '</span>';
+                    return badgeStatus(data);
                 }
             }
         ]
