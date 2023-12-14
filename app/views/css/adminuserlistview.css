@@ -1,0 +1,130 @@
+#admin-user-list {
+    border: none;
+    width: 100%;
+}
+
+#admin-user-list th,
+#admin-user-list td {
+    border: none;
+}
+
+#admin-user-list thead tr {
+    border-bottom: 2px solid #ccc;
+    font-size: 12px;
+    color: #888;
+    background-color: #F4F5F6;
+}
+
+#admin-user-list thead th {
+    padding: 20px;
+}
+
+#admin-user-list tbody td {
+    padding: 15px 20px;
+    background-color: #fff;
+}
+
+#admin-user-list tbody td:nth-child(3),
+#admin-user-list tbody td:nth-child(4) {
+    color: #6B7280;
+    font-size: 14px;
+}
+
+#admin-user-list tbody td:nth-child(1) {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+#admin-user-list_filter input[type="search"] {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #333;
+    background-color: #F4F5F6;
+    margin-top: 0;
+}
+
+#admin-user-list_filter input[type="search"]:focus {
+    outline: none;
+    border: 1px solid var(--accent-color);
+}
+
+#admin-user-list_filter label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #6B7280;
+}
+
+#admin-user-list_paginate {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    color: #fff;
+}
+
+#admin-user-list_paginate span a {
+    padding: 10px 22px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-left: 5px;
+    background-color: var(--accent-color);
+}
+
+#admin-user-list_paginate span a:hover {
+    background-color: var(--accent-dark-color);
+    transition: all 0.3s ease;
+}
+
+#admin-user-list_paginate span a.paginate_button.current {
+    background-color: var(--accent-dark-color);
+    border: 1px solid var(--accent-dark-color);
+}
+
+#admin-user-list_paginate .previous,
+#admin-user-list_paginate .next {
+    display: none;
+}
+
+.edit-user-input label {
+    margin-bottom: -10px;
+}
+
+.close { 
+    font-size: 30px;
+}
+
+.edit-user-btn,
+.delete-user-btn {
+    float: right;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+}
+
+.edit-user-btn:hover, 
+.delete-user-btn:hover {
+    background-color: var(--accent-dark-color);
+    color: #fff;
+}
+
+.edit-user-modal-header {
+    border-bottom: none;
+    margin-bottom: -26px;
+}
+
+.edit-user-modal-header h5 {
+    margin-top: 2px;
+    font-weight: 700;
+}
+
+.delete-close-btn {
+    float: right;
+    margin-top: 6px;
+    margin-right: 12px;
+    border: none; 
+}

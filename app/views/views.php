@@ -145,6 +145,14 @@ $vm->addView(
     ['admin'],
     true);
 
+$vm->addView(
+    'adminuserlistview',
+    'Admin User List',
+    ['adminuserlistview.css'],
+    ['adminuserlistview.js'],
+    ['admin'],
+    true);
+
 // Add segments here
 $vm->addSeg(
     'sample');

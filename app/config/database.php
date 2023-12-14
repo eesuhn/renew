@@ -13,7 +13,7 @@ $sql = <<<SQL
         `pwd` VARCHAR(255) NOT NULL,
         `role` VARCHAR(255) NOT NULL,
         `cookie` VARCHAR(255) NOT NULL DEFAULT '',
-        `time_created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        `time_create` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         `is_delete` TINYINT(1) NOT NULL DEFAULT 0
     );
 
