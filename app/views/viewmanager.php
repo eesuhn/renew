@@ -7,6 +7,9 @@ if (!defined('ACCESS')) {
     die();
 }
 
+use App\Models\UserModel;
+use App\Models\ValidateModel;
+
 class ViewManager
 {
     /**
@@ -44,10 +47,18 @@ class ViewManager
      * @param string $viewTitle
      * @param array $viewCss (Optional)
      * @param array $viewJs (Optional)
+     * @param array $permission (Optional) For permission checking.
+     * @param bool $login (Optional) For login checking.
      * 
      * @return void|Exception Returns Exception if view exists.
      */
-    public function addView($viewName, $viewTitle, $viewCss = [], $viewJs = [])
+    public function addView(
+        $viewName, 
+        $viewTitle, 
+        $viewCss = [], 
+        $viewJs = [],
+        $permission = [],
+        $login = false)
     {
         if (array_key_exists($viewName, self::$viewRawInfo)) {
             throw new \Exception('View already exists');
@@ -55,7 +66,9 @@ class ViewManager
         self::$viewRawInfo[$viewName] = [
             'title' => $viewTitle,
             'css' => $viewCss,
-            'js' => $viewJs
+            'js' => $viewJs,
+            'permission' => $permission,
+            'login' => $login
         ];
     }
 
@@ -74,6 +87,8 @@ class ViewManager
         $navName = [])
     {
         $root = self::$root;
+
+        self::hookBeforeRenderView($viewName);
 
         if (!array_key_exists($viewName, self::$viewRawInfo)) {
             throw new \Exception('View not found');
@@ -109,6 +124,58 @@ class ViewManager
         }
 
         require_once ROOT . '/app/views/mainview.php';
+    }
+
+    /**
+     * Hook before rendering view.
+     * 
+     * @param string $viewName
+     * 
+     * @return void
+     */
+    private static function hookBeforeRenderView($viewName)
+    {
+        self::loginCheck($viewName);
+        self::permissionCheck($viewName);
+    }
+
+    /**
+     * Login checking.
+     * 
+     * @param string $viewName
+     * 
+     * @return void
+     */
+    private static function loginCheck($viewName)
+    {
+        if ((self::$viewRawInfo[$viewName]['login']) == true) {
+
+            if (!ValidateModel::validateLogin()) {
+                header('Location: /renew/login');
+                die();
+            }
+        }
+    }
+
+    /**
+     * Permission checking.
+     * 
+     * @param string $viewName
+     * 
+     * @return void
+     */
+    private static function permissionCheck($viewName)
+    {
+        if (!empty(self::$viewRawInfo[$viewName]['permission'])) {
+            $perArr = self::$viewRawInfo[$viewName]['permission'];
+
+            $curRole = UserModel::getCurUserRole();
+
+            if (!in_array($curRole, $perArr)) {
+                header('Location: /renew/');
+                die();
+            }
+        }
     }
 
     /**

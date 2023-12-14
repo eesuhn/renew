@@ -52,6 +52,10 @@ class SessionModel
     {
         self::startSession();
 
+        if (!isset($_COOKIE[$name])) {
+            return false;
+        }
+
         $cookie = $_COOKIE[$name];
 
         if (!isset($cookie) || empty($cookie)) {

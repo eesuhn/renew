@@ -57,13 +57,18 @@ $vm->addView(
 $vm->addView(
     'editprofileview',
     'Profile',
-    ['editprofileview.css']);
+    ['editprofileview.css'],
+    [],
+    ['public'],
+    true);
 
 $vm->addView(
     'pointsview',
     'Points',
     ['pointsview.css'],
-    ['pointsview.js']);
+    ['pointsview.js'],
+    ['public'],
+    true);
 
 $vm->addView(
     'storeview',
@@ -74,7 +79,13 @@ $vm->addView(
     'cartview',
     'Cart',
     ['cartview.css'],
-    ['cartview.js']);
+    ['cartview.js'],
+    [
+        'public',
+        'artist',
+        'admin'
+    ],
+    true);
 
 $vm->addView(
     'productfocusview',
@@ -86,37 +97,49 @@ $vm->addView(
     'recycleformview',
     'Recycle Form',
     ['recycleformview.css'],
-    ['recycleformview.js']);
+    ['recycleformview.js'],
+    ['public'],
+    true);
 
 $vm->addView(
     'ordersview',
     'Orders',
     ['ordersview.css'],
-    ['ordersview.js']);
+    ['ordersview.js'],
+    ['public'],
+    true);
 
 $vm->addView(
     'artistproductsview',
     'Artist Products',
     ['artistproductsview.css'],
-    ['artistproductsview.js']);
+    ['artistproductsview.js'],
+    ['artist'],
+    true);
 
 $vm->addView(
     'artistprofileview',
     'Artist Profile',
     ['artistprofileview.css'],
-    ['artistprofileview.js']);
+    ['artistprofileview.js'],
+    ['artist'],
+    true);
 
 $vm->addView(
     'userrecycleview',
     'My Recycle',
     ['userrecycleview.css'],
-    ['userrecycleview.js']);
+    ['userrecycleview.js'],
+    ['public'],
+    true);
 
 $vm->addView(
     'adminrecycleview',
     'Admin Recycle',
     ['adminrecycleview.css'],
-    ['adminrecycleview.js']);
+    ['adminrecycleview.js'],
+    ['admin'],
+    true);
 
 // Add segments here
 $vm->addSeg(

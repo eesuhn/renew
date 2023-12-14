@@ -86,7 +86,8 @@ function listenProductFocusToCart() {
                 redirect('/renew/cart');
             },
             function (response) {
-                console.log(response);
+                // Redirect to login page if not logged in.
+                redirect('/renew/login');
             },
             "AJAX Error: Unable to add product to cart."
         )

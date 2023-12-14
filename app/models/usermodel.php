@@ -411,4 +411,40 @@ class UserModel
     {
         return SessionModel::getSession('renew_user')['user_id'];
     }
+
+    /**
+     * Get user role by ID.
+     * 
+     * @param int $userId
+     * 
+     * @return string|bool Returns role if valid, false otherwise
+     */
+    public static function getRoleById($userId)
+    {
+        $sql = <<<SQL
+            SELECT role FROM user WHERE user_id = :userId
+        SQL;
+
+        $params = [
+            ':userId' => $userId
+        ];
+
+        return DatabaseModel::exec($sql, $params)->fetchColumn();
+    }
+
+    /**
+     * Get current user role.
+     * 
+     * @return string Returns 'guest' if not logged in
+     */
+    public static function getCurUserRole()
+    {
+        if (!isset(SessionModel::getSession('renew_user')['role'])) {
+            return 'guest';
+        }
+
+        $role = SessionModel::getSession('renew_user')['role'];
+
+        return $role;
+    }
 }
