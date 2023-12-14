@@ -18,7 +18,6 @@ $nav['top'] = <<<HTML
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="$root/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="$root/store">Store</a></li>
-                <li class="nav-item"><a class="nav-link" href="">Artists</a></li>
             </ul>
             <div class="my-2 my-lg-0">
                 <a href="$root/recycle-form" class="btn btn-outline-success my-2 my-sm-0 nav-btn" type="submit"><i class="fas fa-star"></i>&nbspRECYCLE NOW</a>

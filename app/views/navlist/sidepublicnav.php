@@ -23,12 +23,9 @@ $nav['top'] = <<<HTML
                         <li class="nav-item">
                             <a class="nav-link" href="$root/user-recycle"><i class="fas fa-recycle"></i>Recycles</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link artist-sidenav-btn" href=""><i class="fas fa-puzzle-piece"></i>BECOME AN ARTIST</a>
-                        </li>
                         <div class="logout">
                             <li class="nav-item">
-                                <a class="nav-link logout" href="#"><i class="fas fa-sign-out-alt"></i>Log out</a>
+                                <a class="nav-link logout" href="#"><i class="fas fa-sign-out-alt"></i>Log out&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
                             </li>
                         </div>
                     </ul>

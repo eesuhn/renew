@@ -11,7 +11,7 @@ $nav['top'] = <<<HTML
             <img src="$root/app/assets/public/light-icon.png" class="d-inline-block align-top" alt="logo">
         </a>
         <form class="form-inline form-view">
-            
+            <a href="$root/" class="btn btn-outline-success my-2 my-sm-0 btn-view" type="submit"><i class="fas fa-star"></i>&nbsp&nbsp&nbspVIEW AS PUBLIC</a>
             <div class="user-icon">
                 <i class="fas fa-user"></i>
             </div>
@@ -19,7 +19,6 @@ $nav['top'] = <<<HTML
     </nav>
 
     <div class="sidebar">
-        <a class="active" href=""><i class="fas fa-chart-pie"></i>Dashboard</a>
         <a href="$root/artist-products"><i class="fas fa-tag"></i>Product</a>
         <hr>
         <a href=""><i class="fas fa-edit"></i>Profile</a>
