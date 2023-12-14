@@ -211,4 +211,18 @@ class UserController
 
         AjaxUtil::sendAjax($flag, $result);
     }
+
+    public function updatePassword()
+    {
+        $userId = UserModel::getCurUserId();
+        $curPwd = $_POST['cur-pwd'];
+        $newPwd = $_POST['new-pwd'];
+        $confirmPwd = $_POST['confirm-pwd'];
+
+        $um = new UserModel();
+        $result = $um->updateUserPwd($userId, $curPwd, $newPwd, $confirmPwd);
+        $flag = !is_array($result);
+
+        AjaxUtil::sendAjax($flag, $result);
+    }
 }

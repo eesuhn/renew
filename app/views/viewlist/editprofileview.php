@@ -49,24 +49,28 @@ $body = <<<HTML
                 </div>
             </form>
 
-            <form class="form-horizontal" method="POST">
+            <form class="form-horizontal" method="POST" id="update-pwd-form">
                 <h5 class="edit-profile-title">Login Info</h5>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="cur-pwd">CURRENT PASSWORD</label>
-                        <input type="password" class="form-control" id="cur-pwd" placeholder="Enter Password">
+                        <input type="password" class="form-control" id="cur-pwd" name="cur-pwd" placeholder="Enter Password">
+                        <span id="curPwdError" class="errorText"></span>
                     </div>
                 </div>
 
                 <div class="form-row new-conf-pwd-row">
+                    
                     <div class="form-group col-md-6">
                         <label for="new-pwd">NEW PASSWORD</label>
-                        <input type="password" class="form-control" id="new-pwd" placeholder="Enter New Password">
+                        <input type="password" class="form-control" id="new-pwd" name="new-pwd" placeholder="Enter New Password">
+                        <span id="newPwdError" class="errorText"></span>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="confirm-pwd">CONFIRM PASSWORD</label>
-                        <input type="password" class="form-control" id="confirm-pwd" placeholder="Confirm New Password">
+                        <input type="password" class="form-control" id="confirm-pwd" name="confirm-pwd" placeholder="Confirm New Password">
+                        <span id="confPwdError" class="errorText"></span>
                     </div>
                 </div>
 

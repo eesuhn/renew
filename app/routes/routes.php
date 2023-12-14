@@ -168,4 +168,8 @@ $rm->post(
     '/update-profile',
     'UserController@updateProfile');
 
+$rm->post(
+    '/update-pwd',
+    'UserController@updatePassword');
+
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

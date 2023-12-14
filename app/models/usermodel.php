@@ -518,4 +518,104 @@ class UserModel
 
         return $errors;
     }
+
+    /**
+     * Update user password.
+     * 
+     * @param int $userId
+     * @param string $curPwd
+     * @param string $newPwd
+     * @param string $confPwd
+     * 
+     * @return bool|array Returns true if successful, array of errors otherwise
+     */
+    public function updateUserPwd($userId, $curPwd, $newPwd, $confPwd)
+    {
+        $curEmail = $this->getCurUserEmail();
+        $errors = $this->validateUpdateUserPwd($curEmail, $curPwd, $newPwd, $confPwd);
+
+        if (count($errors) > 0) {
+            return $errors;
+        }
+
+        $newPwd = $this->encryptPwd($newPwd);
+
+        $sql = <<<SQL
+            UPDATE 
+                user
+            SET
+                pwd = :newPwd
+            WHERE
+                user_id = :userId
+        SQL;
+
+        $params = [
+            ':newPwd' => $newPwd,
+            ':userId' => $userId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+        return true;
+    }
+
+    /**
+     * Validate update user password.
+     * 
+     * @param string $email
+     * @param string $curPwd
+     * @param string $newPwd
+     * @param string $confPwd
+     * 
+     * @return array Returns array of errors
+     */
+    public function validateUpdateUserPwd($email, $curPwd, $newPwd, $confPwd)
+    {
+        $errors = [];
+
+        if (empty($curPwd)) {
+            $errors['curPwd'] = '*Required';
+        }
+
+        if (empty($newPwd)) {
+            $errors['newPwd'] = '*Required';
+        }
+
+        if (empty($confPwd)) {
+            $errors['confPwd'] = '*Required';
+        }
+
+        if (!ValidateModel::validatePassword($newPwd) && !isset($errors['newPwd'])) {
+            $errors['newPwd'] = '*Invalid password format';
+        }
+
+        if ($newPwd != $confPwd && !isset($errors['confPwd'])) {
+            $errors['confPwd'] = '*Password does not match';
+        }
+
+        if (!$this->verifyPwd($email, $curPwd) && !isset($errors['curPwd'])) {
+            $errors['curPwd'] = '*Incorrect password';
+        }
+
+        return $errors;
+    }
+
+    /**
+     * Get current user email.
+     * 
+     * @return string
+     */
+    public function getCurUserEmail()
+    {
+        $userId = UserModel::getCurUserId();
+
+        $sql = <<<SQL
+            SELECT email FROM user WHERE user_id = :userId
+        SQL;
+
+        $params = [
+            ':userId' => $userId
+        ];
+
+        return DatabaseModel::exec($sql, $params)->fetchColumn();
+    }
 }
