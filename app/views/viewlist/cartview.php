@@ -122,6 +122,7 @@ $body .= <<<HTML
                             <div class="points-worth">
                                 <p class="points-worth-text">Points Worth :</p>
                                 <span class="badge badge-pill badge-price">RM $totalCurrency</span>
+                                <input type="hidden" id="points-available-hidden" value="$totalCurrency">
                             </div>
                         </div>
                         <div class="p-4">

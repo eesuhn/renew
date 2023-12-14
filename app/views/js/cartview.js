@@ -93,6 +93,17 @@ function getCartTotal() {
 function listenRedeemPoint() {
     $('#redeem-point-btn').click(function () {
         var point = $('#redeem-point').val();
+        var pointsAvailable = $('#points-available-hidden').val();
+
+        if (point == '') {
+            point = 0;
+        }
+
+        if (point > pointsAvailable) {
+            alert('You do not have enough points.');
+            return;
+        }
+
         setDiscountTotal(point);
         calcTotal();
     });
