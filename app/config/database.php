@@ -24,20 +24,6 @@ $sql = <<<SQL
         FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
     );
 
-    CREATE TABLE IF NOT EXISTS `public_lang` (
-        `user_id` INT(11) NOT NULL,
-        `address` VARCHAR(255) NOT NULL DEFAULT '',
-        FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-    );
-
-    CREATE TABLE IF NOT EXISTS `artist_lang` (
-        `user_id` INT(11) NOT NULL,
-        `approve` TINYINT(1) NOT NULL DEFAULT 0,
-        `description` TEXT NOT NULL DEFAULT '',
-        `img_path` VARCHAR(255) NOT NULL DEFAULT '',
-        FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-    );
-
     CREATE TABLE IF NOT EXISTS `rec_center` (
         `center_id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         `center_name` VARCHAR(255) NOT NULL
