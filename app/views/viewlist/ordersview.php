@@ -19,10 +19,11 @@ $body = <<<HTML
                                         <table id="order-history" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>ORDERS</th>
+                                                    <th>ID</th>
                                                     <th>ORDER DATE</th>
-                                                    <th>STATUS</th>
                                                     <th>TOTAL (RM)</th>
+                                                    <th>STATUS</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody></tbody>

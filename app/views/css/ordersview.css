@@ -92,9 +92,9 @@
     font-size: 14px;
 }
 
-#order-history tbody td:nth-child(3) {
-    font-weight: 500;
-    font-size: 18px;
+#order-history tbody td:nth-child(1) {
+    font-weight: 700;
+    font-size: 15px;
 }
 
 #order-history_filter input[type="search"] {

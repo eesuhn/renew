@@ -89,6 +89,10 @@ $rm->get(
     'UserController@getUserRecPoint');
 
 $rm->get(
+    '/get-all-orders',
+    'UserController@getAllOrders');
+
+$rm->get(
     '/get-cart-total',
     'UserController@getCartTotal');
 

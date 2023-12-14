@@ -162,4 +162,14 @@ class UserController
 
         AjaxUtil::sendAjax(true, $total);
     }
+
+    public function getAllOrders()
+    {
+        $userId = UserModel::getCurUserId();
+
+        $om = new OrderModel();
+        $orders = $om->getAllOrderByUserId($userId);
+
+        AjaxUtil::sendAjax(true, $orders);
+    }
 }

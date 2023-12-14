@@ -166,4 +166,46 @@ class OrderModel
 
         return $total;
     }
+
+    /**
+     * Get all orders by user id.
+     * 
+     * @param int $userId
+     * 
+     * @return array Returns an array of orders
+     */
+    public function getAllOrderByUserId($userId)
+    {
+        $sql = <<<SQL
+            SELECT
+                o.order_id,
+                o.order_status,
+                o.rec_point_used,
+                o.time_create,
+                p.prod_id,
+                SUM(p.price * oi.quantity) as total
+            FROM
+                orders o
+            INNER JOIN
+                order_item oi
+            ON
+                o.order_id = oi.order_id
+            INNER JOIN
+                product p
+            ON
+                oi.prod_id = p.prod_id
+            WHERE
+                o.user_id = :userId
+            GROUP BY
+                o.order_id
+        SQL;
+
+        $params = [
+            ':userId' => $userId
+        ];
+
+        $orders = DatabaseModel::exec($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
+
+        return $orders;
+    }
 }

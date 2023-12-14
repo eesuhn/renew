@@ -1,6 +1,6 @@
 $(document).ready(function () {
     getCartTotal();
-    calcTotal();
+    setDiscountTotal();
     listenCartCheckout();
     listenRedeemPoint();
 });
@@ -23,6 +23,9 @@ function setSubtotal(amount = 0) {
  * @param {number} amount 
  */
 function setDiscountTotal(amount = 0) {
+    if (amount == '') {
+        amount = 0;
+    }
     const html = `- RM ${amount}`
 
     $('#discount-total').html(html);
@@ -47,6 +50,11 @@ function setTotalRm(amount) {
 function calcTotal() {
     const subTotal = $('#sub-total-hidden').val();
     const discountTotal = $('#discount-total-hidden').val();
+
+    if (discountTotal == '') {
+        discountTotal = 0;
+    }
+
     const total = subTotal - discountTotal;
 
     setTotalRm(total);
@@ -76,6 +84,7 @@ function getCartTotal() {
         '/renew/get-cart-total',
         function (response) {
             setSubtotal(response.data);
+            calcTotal();
         },
         "AJAX Error: Unable to get cart total."
     )
@@ -85,5 +94,6 @@ function listenRedeemPoint() {
     $('#redeem-point-btn').click(function () {
         var point = $('#redeem-point').val();
         setDiscountTotal(point);
+        calcTotal();
     });
 }
