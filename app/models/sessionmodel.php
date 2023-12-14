@@ -52,6 +52,10 @@ class SessionModel
     {
         self::startSession();
 
+        if (!isset($_COOKIE[$name])) {
+            return false;
+        }
+
         $cookie = $_COOKIE[$name];
 
         if (!isset($cookie) || empty($cookie)) {
@@ -116,5 +120,18 @@ class SessionModel
             $decryptedData = json_decode($decryptedData, true);
         }
         return $decryptedData;
+    }
+
+    /**
+     * Unset session data.
+     * 
+     * @param string $name
+     * 
+     * @return void
+     */
+    public static function unsetSession($name)
+    {
+        self::startSession();
+        unset($_SESSION[$name]);
     }
 }

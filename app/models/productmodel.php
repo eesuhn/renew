@@ -322,4 +322,59 @@ class ProductModel
 
         return $prodArr;
     }
+
+    /**
+     * Reduce product quantity.
+     * 
+     * @param string $prodId
+     * @param string $qtySold
+     * 
+     * @return void
+     */
+    public function redProdQty($prodId, $qtySold)
+    {
+        $sql = <<<SQL
+            UPDATE
+                product
+            SET
+                quantity = quantity - :qtySold
+            WHERE
+                prod_id = :prodId
+        SQL;
+
+        $params = [
+            ':qtySold' => $qtySold,
+            ':prodId' => $prodId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+    }
+
+    /**
+     * Get product price multiplied by quantity.
+     * 
+     * @param string $prodId
+     * @param string $qty
+     * 
+     * @return int
+     */
+    public function getProdPriceQty($prodId, $qty)
+    {
+        $sql = <<<SQL
+            SELECT
+                price
+            FROM
+                product
+            WHERE
+                prod_id = :prodId
+        SQL;
+
+        $params = [
+            ':prodId' => $prodId
+        ];
+
+        $price = DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_ASSOC)['price'];
+
+        return $price * $qty;
+    }
 }

@@ -1,42 +1,43 @@
 $(document).ready(function() {
-    var data = [
-        {
-            "recycled": "Bird House, Upcycled Glass Vases,...",
-            "date&time": "2023-12-11 10:30:00",
-            "total": "300",
-            "status": "Completed"
-        },
-        {
-            "recycled": "Bird House, Upcycled Glass Vases,...",
-            "date&time": "2023-12-11 10:30:00",
-            "total": "20",
-            "status": "Processing"
-        },
-        {
-            "recycled": "Bird House, Upcycled Glass Vases,...",
-            "date&time": "2023-12-11 10:30:00",
-            "total": "0",
-            "status": "Cancelled"
-        }
-    ];
+    getUserOrdersTable();
+});
 
+function getUserOrdersTable() {
+    getData(
+        '/renew/get-all-orders',
+        function (response) {
+            setUserOrdersTable(response.data);
+        }, 
+        "AJAX Error: Unable to get user orders."
+    )
+}
+
+/**
+ * Sets the user orders table.
+ * 
+ * @param {Array} data 
+ */
+function setUserOrdersTable(data) {
     $('#order-history').DataTable({
         data: data,
         columns: [
-            { data: 'recycled' },
-            {
-                data: 'date&time',
+            { data: 'order_id' },
+            { 
+                data: 'time_create', 
                 render: function (data, type, row) {
-                    return '<span>' + data + '</span>';
+                    return formatdate(data);
                 }
             },
+            { data: 'total' },
             {
-                data: 'status',
+                data: 'order_status',
                 render: function (data, type, row) {
                     return badgeStatus(data);
                 }
             },
-            { data: 'total' }
+        ],
+        order: [
+            [1, 'desc']
         ]
-    });
-});
+    })
+}

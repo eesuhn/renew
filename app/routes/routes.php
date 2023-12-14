@@ -60,8 +60,7 @@ $rm->get(
 
 $rm->get(
     '/artist-profile',
-    'ArtistController@artistProfileView'
-);
+    'ArtistController@artistProfileView');
 
 $rm->get(
     '/user-recycle',
@@ -70,6 +69,26 @@ $rm->get(
 $rm->get(
     '/admin-recycle',
     'AdminController@adminRecycleView');
+
+$rm->get(
+    '/logout',
+    'UserController@logout');
+
+$rm->get(
+    '/admin-order',
+    'AdminController@adminOrderView');
+
+$rm->get(
+    '/admin-user-list',
+    'AdminController@adminUserListView');
+
+$rm->get(
+    '/delete-cart-item',
+    'UserController@deleteCartItem');
+
+$rm->get(
+    '/edit-artist-profile',
+    'ArtistController@editArtistProfileView');
 
 // Add GET routes for AJAX here
 $rm->get(
@@ -87,6 +106,22 @@ $rm->get(
 $rm->get(
     '/get-user-rec-point',
     'UserController@getUserRecPoint');
+
+$rm->get(
+    '/get-all-orders',
+    'UserController@getAllOrders');
+
+$rm->get(
+    '/get-cart-total',
+    'UserController@getCartTotal');
+
+$rm->get(
+    '/get-admin-orders',
+    'AdminController@getAdminOrders');
+
+$rm->get(
+    '/get-user-list',
+    'AdminController@getUserList');
 
 // Add POST routes here
 $rm->post(
@@ -110,7 +145,35 @@ $rm->post(
     'AdminController@updateRecycle');
 
 $rm->post(
+    '/update-order',
+    'AdminController@updateOrder');
+
+$rm->post(
     '/delete-recycle',
     'AdminController@deleteRecycle');
+
+$rm->post(
+    '/add-to-cart',
+    'UserController@addToCart');
+
+$rm->post(
+    '/checkout',
+    'UserController@checkout');
+
+$rm->post(
+    '/update-user',
+    'AdminController@updateUser');
+
+$rm->post(
+    '/delete-user',
+    'AdminController@deleteUser');
+
+$rm->post(
+    '/update-profile',
+    'UserController@updateProfile');
+
+$rm->post(
+    '/update-pwd',
+    'UserController@updatePassword');
 
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

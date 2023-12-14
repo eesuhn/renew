@@ -1,12 +1,13 @@
 .btn1 {
     background-color: #fff;
-    color: var(--text-light-color);
+    color: black;
     border: none;
     text-decoration: none;
+    margin-left: -20px;
 }
 
 .btn1:hover {
-    color: #000;
+    color: var(--primary-dark-color);
     border: none;
     text-decoration: none;
 }
@@ -86,6 +87,7 @@
 
 .qty-input {
     max-width: 120px;
+    padding-top: 4px;
 }
 
 .cart-table {
@@ -114,4 +116,15 @@
 
 .points-worth {
     padding-top: 5px;
+}
+
+.empty-cart {
+    margin: 100px auto;
+}
+
+.cart-prod-qty {
+    background-color: transparent !important;
+    border: none !important;
+    font-weight: 700 !important;
+    color: black !important;
 }

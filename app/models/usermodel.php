@@ -411,4 +411,211 @@ class UserModel
     {
         return SessionModel::getSession('renew_user')['user_id'];
     }
+
+    /**
+     * Get user role by ID.
+     * 
+     * @param int $userId
+     * 
+     * @return string|bool Returns role if valid, false otherwise
+     */
+    public static function getRoleById($userId)
+    {
+        $sql = <<<SQL
+            SELECT role FROM user WHERE user_id = :userId
+        SQL;
+
+        $params = [
+            ':userId' => $userId
+        ];
+
+        return DatabaseModel::exec($sql, $params)->fetchColumn();
+    }
+
+    /**
+     * Get current user role.
+     * 
+     * @return string Returns 'guest' if not logged in
+     */
+    public static function getCurUserRole()
+    {
+        if (!isset(SessionModel::getSession('renew_user')['role'])) {
+            return 'guest';
+        }
+
+        $role = SessionModel::getSession('renew_user')['role'];
+
+        return $role;
+    }
+
+    /**
+     * Logout user.
+     * 
+     * @return void
+     */
+    public function logout()
+    {
+        SessionModel::unsetSession('renew_user');
+        CookieModel::unsetLocalCookie();
+    }
+
+    /**
+     * Update user profile.
+     * 
+     * @param int $userId
+     * @param string $userName
+     * @param string $realName
+     * 
+     * @return bool|array Returns true if successful, array of errors otherwise
+     */
+    public function updateProfile($userId, $userName, $realName)
+    {
+        $errors = $this->validateUpdateProfile($userName, $realName);
+
+        if (count($errors) > 0) {
+            return $errors;
+        }
+
+        $sql = <<<SQL
+            UPDATE 
+                user_lang
+            SET
+                user_name = :userName, 
+                real_name = :realName
+            WHERE
+                user_id = :userId
+        SQL;
+
+        $params = [
+            ':userName' => $userName,
+            ':realName' => $realName,
+            ':userId' => $userId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+        return true;
+    }
+
+    /**
+     * Validate update profile.
+     * 
+     * @param string $userName
+     * @param string $realName
+     * 
+     * @return array Returns array of errors
+     */
+    public function validateUpdateProfile($userName, $realName)
+    {
+        $errors = [];
+
+        if (empty($userName)) {
+            $errors['userName'] = '*Required';
+        }
+
+        if (empty($realName)) {
+            $errors['realName'] = '*Required';
+        }
+
+        return $errors;
+    }
+
+    /**
+     * Update user password.
+     * 
+     * @param int $userId
+     * @param string $curPwd
+     * @param string $newPwd
+     * @param string $confPwd
+     * 
+     * @return bool|array Returns true if successful, array of errors otherwise
+     */
+    public function updateUserPwd($userId, $curPwd, $newPwd, $confPwd)
+    {
+        $curEmail = $this->getCurUserEmail();
+        $errors = $this->validateUpdateUserPwd($curEmail, $curPwd, $newPwd, $confPwd);
+
+        if (count($errors) > 0) {
+            return $errors;
+        }
+
+        $newPwd = $this->encryptPwd($newPwd);
+
+        $sql = <<<SQL
+            UPDATE 
+                user
+            SET
+                pwd = :newPwd
+            WHERE
+                user_id = :userId
+        SQL;
+
+        $params = [
+            ':newPwd' => $newPwd,
+            ':userId' => $userId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+        return true;
+    }
+
+    /**
+     * Validate update user password.
+     * 
+     * @param string $email
+     * @param string $curPwd
+     * @param string $newPwd
+     * @param string $confPwd
+     * 
+     * @return array Returns array of errors
+     */
+    public function validateUpdateUserPwd($email, $curPwd, $newPwd, $confPwd)
+    {
+        $errors = [];
+
+        if (empty($curPwd)) {
+            $errors['curPwd'] = '*Required';
+        }
+
+        if (empty($newPwd)) {
+            $errors['newPwd'] = '*Required';
+        }
+
+        if (empty($confPwd)) {
+            $errors['confPwd'] = '*Required';
+        }
+
+        if (!ValidateModel::validatePassword($newPwd) && !isset($errors['newPwd'])) {
+            $errors['newPwd'] = '*Invalid password format';
+        }
+
+        if ($newPwd != $confPwd && !isset($errors['confPwd'])) {
+            $errors['confPwd'] = '*Password does not match';
+        }
+
+        if (!$this->verifyPwd($email, $curPwd) && !isset($errors['curPwd'])) {
+            $errors['curPwd'] = '*Incorrect password';
+        }
+
+        return $errors;
+    }
+
+    /**
+     * Get current user email.
+     * 
+     * @return string
+     */
+    public function getCurUserEmail()
+    {
+        $userId = UserModel::getCurUserId();
+
+        $sql = <<<SQL
+            SELECT email FROM user WHERE user_id = :userId
+        SQL;
+
+        $params = [
+            ':userId' => $userId
+        ];
+
+        return DatabaseModel::exec($sql, $params)->fetchColumn();
+    }
 }

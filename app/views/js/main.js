@@ -207,6 +207,31 @@ function badgeStatus(status) {
 }
 
 /**
+ * Set the role badge.
+ * 
+ * @param {string} role 
+ * 
+ * @returns {string} html
+ */
+function badgeRole(role) {
+    if (role === "public") {
+        badgeClass = "badge badge-completed";
+        roleText = "Public";
+
+    } else if (role === "artist") {
+        badgeClass = "badge badge-processing";
+        roleText = "Artist";
+
+    } else if (role === "admin") {
+        badgeClass = "badge badge-pending";
+        roleText = "Admin";
+    }
+
+    var html = `<span class="${badgeClass}">${roleText}</span>`;
+    return html;
+}
+
+/**
  * Format date.
  * 
  * @param {string} date 

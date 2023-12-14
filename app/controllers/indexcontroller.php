@@ -17,7 +17,8 @@ use App\Models\ProductModel;
 
 class IndexController
 {
-    public function index(){
+    public function index()
+    {
         $pm = new ProductModel();
         $products = $pm->getRecProd();
 

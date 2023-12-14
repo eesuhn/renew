@@ -23,6 +23,8 @@ if (is_array($params['product'])) :
     $prodImgPath = $product['img_path'];
     $prodPrice = $product['price'];
     $prodDesc = $product['description'];
+    $prodQty = $product['quantity'];
+    $prodDirName = $product['dir_name'];
 endif;
 
 $body = <<<HTML
@@ -37,7 +39,7 @@ $body = <<<HTML
     <div class="container product" id="product-section">
         <div class="row">
             <div class="col-md-6 image">
-                <img src="$root/$prodImgPath" alt="sample" class="focus-image"/>
+                <img src="$root/$prodImgPath" class="focus-image"/>
             </div>
             <div class="col-md-6 product-section">
                 <div class="row product-title-box">
@@ -51,6 +53,11 @@ $body = <<<HTML
                             <h2 class="product-price">RM $prodPrice</h2>
                         </span>
                     </div>
+                    <div class="col-md-6">
+                        <div class="d-flex justify-content-end align-items-center stock-count-box">
+                            <p class="product-rating"><strong class="stock-count">$prodQty</strong> pieces available</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -59,16 +66,16 @@ $body = <<<HTML
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="input-group">
+                        <div class="input-group btn-num-box">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                    <span class=""><i class="fas fa-minus"></i></span>
+                                    <i class="fas fa-minus"></i>
                                 </button>
                             </span>
-                            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+                            <input type="text" id="prod-count" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
-                                    <span class=""><i class="fas fa-plus"></i></span>
+                                    <i class="fas fa-plus"></i>
                                 </button>
                             </span>
                         </div>
@@ -76,7 +83,7 @@ $body = <<<HTML
                 </div>
                 <div class="row">
                     <div class="col-md-12 top-10">
-                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i>&nbsp&nbspAdd to Cart</button>
+                        <button class="add-to-cart" data-prod-dir-name="$prodDirName"><i class="fas fa-shopping-cart"></i>&nbsp&nbspAdd to Cart</button>
                     </div>
                 </div>
             </div>

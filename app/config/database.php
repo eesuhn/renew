@@ -13,7 +13,7 @@ $sql = <<<SQL
         `pwd` VARCHAR(255) NOT NULL,
         `role` VARCHAR(255) NOT NULL,
         `cookie` VARCHAR(255) NOT NULL DEFAULT '',
-        `time_created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        `time_create` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         `is_delete` TINYINT(1) NOT NULL DEFAULT 0
     );
 
@@ -21,20 +21,6 @@ $sql = <<<SQL
         `user_id` INT(11) NOT NULL,
         `user_name` VARCHAR(255) NOT NULL,
         `real_name` VARCHAR(255) NOT NULL DEFAULT '',
-        FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-    );
-
-    CREATE TABLE IF NOT EXISTS `public_lang` (
-        `user_id` INT(11) NOT NULL,
-        `address` VARCHAR(255) NOT NULL DEFAULT '',
-        FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-    );
-
-    CREATE TABLE IF NOT EXISTS `artist_lang` (
-        `user_id` INT(11) NOT NULL,
-        `approve` TINYINT(1) NOT NULL DEFAULT 0,
-        `description` TEXT NOT NULL DEFAULT '',
-        `img_path` VARCHAR(255) NOT NULL DEFAULT '',
         FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
     );
 
@@ -65,7 +51,7 @@ $sql = <<<SQL
         FOREIGN KEY (`rec_id`) REFERENCES `recyclable`(`rec_id`) ON DELETE CASCADE ON UPDATE CASCADE
     );
 
-    CREATE TABLE IF NOT EXISTS `order` (
+    CREATE TABLE IF NOT EXISTS `orders` (
         `order_id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         `user_id` INT(11) NOT NULL,
         `order_status` VARCHAR(255) NOT NULL,
@@ -98,7 +84,7 @@ $sql = <<<SQL
         `order_id` INT(11) NOT NULL,
         `prod_id` INT(11) NOT NULL,
         `quantity` INT(11) NOT NULL,
-        FOREIGN KEY (`order_id`) REFERENCES `order`(`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (`order_id`) REFERENCES `orders`(`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
         FOREIGN KEY (`prod_id`) REFERENCES `product`(`prod_id`) ON DELETE CASCADE ON UPDATE CASCADE
     );
 

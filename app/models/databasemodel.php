@@ -28,7 +28,7 @@ class DatabaseModel
         'rec_center',
         'recyclable',
         'rec_lang',
-        'order',
+        'orders',
         'product',
         'prod_lang',
         'order_item',

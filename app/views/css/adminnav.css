@@ -113,8 +113,13 @@
 }
 
 .fa-users {
-    margin-right: 15px;
+    margin-right: 16px;
+    margin-left: -1px;
+}
 
+.fa-shopping-cart {
+    margin-right: 18px;
+    margin-left: -3px;
 }
 
 /* Content */

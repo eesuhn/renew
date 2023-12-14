@@ -61,4 +61,20 @@ class ArtistController
     {
         return ViewManager::renderView('artistprofileview', [], ['artistnav']);
     }
+
+    public function editArtistProfileView()
+    {
+        $userId = UserModel::getCurUserId();
+
+        $um = new UserModel;
+        $user = $um->getUserById($userId);
+
+        $params['user'] = $user;
+
+        return ViewManager::renderView(
+            'editartistprofileview', 
+            $params, 
+            ['artistnav']
+        );
+    }
 }
