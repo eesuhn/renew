@@ -16,7 +16,7 @@ $body = <<<HTML
         <div class="container py-4 cart-title-box">
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="$root/" class="btn1"><i class="fa fa-arrow-left"></i>&nbsp&nbsp&nbspBack to Store</a>
+                    <a id="goBackBtn" class="btn1"><i class="fa fa-arrow-left"></i>&nbsp&nbsp&nbspBack</a>
                 </div>
             </div>
             <h1 class="display-4 py-2 cart-title">Cart&nbsp<span class="badge badge-secondary">3</span></h1>
@@ -88,7 +88,7 @@ if (isset($cart)) :
                                         </div>
                                     </td>
                                     <td class="text-center align-middle border-0">
-                                        <a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                                        <a href="$root/delete-cart-item?prod-id=$prodId" class="text-dark"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
         HTML;

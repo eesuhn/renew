@@ -179,4 +179,31 @@ class CartModel
 
         $this->clearCartByUserId($userId);
     }
+
+    /**
+     * Delete cart item.
+     * 
+     * @param int $prodId
+     * 
+     * @return void
+     */
+    public function deleteCartItem($prodId)
+    {
+        $userId = UserModel::getCurUserId();
+
+        $sql = <<<SQL
+            DELETE FROM
+                cart
+            WHERE
+                user_id = :userId AND
+                prod_id = :prodId
+        SQL;
+
+        $params = [
+            ':userId' => $userId,
+            ':prodId' => $prodId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+    }
 }

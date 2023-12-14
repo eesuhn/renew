@@ -181,4 +181,14 @@ class UserController
         header('Location: /renew/login');
         die();
     }
+
+    public function deleteCartItem()
+    {
+        $prodId = $_GET['prod-id'];
+
+        $cm = new CartModel();
+        $cm->deleteCartItem($prodId);
+
+        header('Location: /renew/cart');
+    }
 }

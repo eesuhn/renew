@@ -82,6 +82,10 @@ $rm->get(
     '/admin-user-list',
     'AdminController@adminUserListView');
 
+$rm->get(
+    '/delete-cart-item',
+    'UserController@deleteCartItem');
+
 // Add GET routes for AJAX here
 $rm->get(
     '/get-artist-products',
