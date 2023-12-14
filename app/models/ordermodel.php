@@ -208,4 +208,64 @@ class OrderModel
 
         return $orders;
     }
+
+    /**
+     * Get all orders.
+     * 
+     * @return array Returns an array of orders
+     */
+    public function getAllOrder()
+    {
+        $sql = <<<SQL
+            SELECT
+                o.order_id, 
+                ul.user_name,
+                o.time_create,
+                (p.price * oi.quantity) as total,
+                o.rec_point_used,
+                o.order_status
+            FROM
+                orders o
+            INNER JOIN
+                order_item oi ON o.order_id = oi.order_id
+            INNER JOIN
+                product p ON oi.prod_id = p.prod_id
+            INNER JOIN
+                user_lang ul ON o.user_id = ul.user_id
+            GROUP BY
+                o.order_id
+        SQL;
+
+        $orders = DatabaseModel::exec($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+        return $orders;
+    }
+
+    /**
+     * Update order status.
+     * 
+     * @param int $orderId
+     * @param string $orderStatus
+     * 
+     * @return bool Returns true if success.
+     */
+    public function updateOrderStatus($orderId, $orderStatus)
+    {
+        $sql = <<<SQL
+            UPDATE
+                orders
+            SET
+                order_status = :orderStatus
+            WHERE
+                order_id = :orderId
+        SQL;
+
+        $params = [
+            ':orderStatus' => $orderStatus,
+            ':orderId' => $orderId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+        return true;
+    }
 }

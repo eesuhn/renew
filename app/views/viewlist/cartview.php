@@ -16,7 +16,7 @@ $body = <<<HTML
         <div class="container py-4 cart-title-box">
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="$root/" class="btn1"><i class="fa fa-arrow-left"></i>&nbsp&nbsp&nbspBack to Home</a>
+                    <a href="$root/" class="btn1"><i class="fa fa-arrow-left"></i>&nbsp&nbsp&nbspBack to Store</a>
                 </div>
             </div>
             <h1 class="display-4 py-2 cart-title">Cart&nbsp<span class="badge badge-secondary">3</span></h1>

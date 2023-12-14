@@ -1,12 +1,13 @@
 .btn1 {
     background-color: #fff;
-    color: var(--text-light-color);
+    color: black;
     border: none;
     text-decoration: none;
+    margin-left: -20px;
 }
 
 .btn1:hover {
-    color: #000;
+    color: var(--primary-dark-color);
     border: none;
     text-decoration: none;
 }

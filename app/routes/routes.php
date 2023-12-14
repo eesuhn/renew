@@ -74,6 +74,10 @@ $rm->get(
     '/logout',
     'UserController@logout');
 
+$rm->get(
+    '/admin-order',
+    'AdminController@adminOrderView');
+
 // Add GET routes for AJAX here
 $rm->get(
     '/get-artist-products',
@@ -99,6 +103,10 @@ $rm->get(
     '/get-cart-total',
     'UserController@getCartTotal');
 
+$rm->get(
+    '/get-admin-orders',
+    'AdminController@getAdminOrders');
+
 // Add POST routes here
 $rm->post(
     '/register',
@@ -119,6 +127,10 @@ $rm->post(
 $rm->post(
     '/update-recycle',
     'AdminController@updateRecycle');
+
+$rm->post(
+    '/update-order',
+    'AdminController@updateOrder');
 
 $rm->post(
     '/delete-recycle',

@@ -11,6 +11,7 @@ use App\Views\ViewManager;
 use App\Utils\AjaxUtil;
 use App\Models\RecycleModel;
 use App\Models\UserModel;
+use App\Models\OrderModel;
 
 class AdminController
 {
@@ -47,6 +48,17 @@ class AdminController
         AjaxUtil::sendAjax($result);
     }
 
+    public function updateOrder()
+    {
+        $orderId = $_GET['order-id'];
+        $orderStatus = $_POST['order-status'];
+
+        $om = new OrderModel;
+        $result = $om->updateOrderStatus($orderId, $orderStatus);
+
+        AjaxUtil::sendAjax($result);
+    }
+
     public function deleteRecycle()
     {
         $recId = $_GET['rec-id'];
@@ -55,5 +67,18 @@ class AdminController
         $result = $rm->deleteRec($recId);
 
         AjaxUtil::sendAjax($result);
+    }
+
+    public function adminOrderView()
+    {
+        return ViewManager::renderView('adminorderview', [], ['adminnav']);
+    }
+
+    public function getAdminOrders()
+    {
+        $om = new OrderModel;
+        $result = $om->getAllOrder();
+
+        AjaxUtil::sendAjax(true, $result);
     }
 }

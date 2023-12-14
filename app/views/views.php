@@ -137,6 +137,14 @@ $vm->addView(
     ['admin'],
     true);
 
+$vm->addView(
+    'adminorderview',
+    'Admin Order',
+    ['adminorderview.css'],
+    ['adminorderview.js'],
+    ['admin'],
+    true);
+
 // Add segments here
 $vm->addSeg(
     'sample');

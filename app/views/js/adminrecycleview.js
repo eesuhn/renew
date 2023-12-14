@@ -158,7 +158,6 @@ function listenEditRecForm() {
     $(document).on('click', '.edit-rec-btn', function (e) {
         e.preventDefault();
         var recId = $(this).data('rec-id');
-
         var formData = new FormData($('#edit-rec-form-' + recId)[0]);
 
         sendAjax(
