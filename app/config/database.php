@@ -65,7 +65,7 @@ $sql = <<<SQL
         FOREIGN KEY (`rec_id`) REFERENCES `recyclable`(`rec_id`) ON DELETE CASCADE ON UPDATE CASCADE
     );
 
-    CREATE TABLE IF NOT EXISTS `order` (
+    CREATE TABLE IF NOT EXISTS `orders` (
         `order_id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         `user_id` INT(11) NOT NULL,
         `order_status` VARCHAR(255) NOT NULL,
@@ -98,7 +98,7 @@ $sql = <<<SQL
         `order_id` INT(11) NOT NULL,
         `prod_id` INT(11) NOT NULL,
         `quantity` INT(11) NOT NULL,
-        FOREIGN KEY (`order_id`) REFERENCES `order`(`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (`order_id`) REFERENCES `orders`(`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
         FOREIGN KEY (`prod_id`) REFERENCES `product`(`prod_id`) ON DELETE CASCADE ON UPDATE CASCADE
     );
 
