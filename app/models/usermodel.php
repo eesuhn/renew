@@ -447,4 +447,15 @@ class UserModel
 
         return $role;
     }
+
+    /**
+     * Logout user.
+     * 
+     * @return void
+     */
+    public function logout()
+    {
+        SessionModel::unsetSession('renew_user');
+        CookieModel::unsetLocalCookie();
+    }
 }

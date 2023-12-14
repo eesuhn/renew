@@ -60,8 +60,7 @@ $rm->get(
 
 $rm->get(
     '/artist-profile',
-    'ArtistController@artistProfileView'
-);
+    'ArtistController@artistProfileView');
 
 $rm->get(
     '/user-recycle',
@@ -70,6 +69,10 @@ $rm->get(
 $rm->get(
     '/admin-recycle',
     'AdminController@adminRecycleView');
+
+$rm->get(
+    '/logout',
+    'UserController@logout');
 
 // Add GET routes for AJAX here
 $rm->get(

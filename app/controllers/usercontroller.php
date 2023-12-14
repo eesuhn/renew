@@ -172,4 +172,13 @@ class UserController
 
         AjaxUtil::sendAjax(true, $orders);
     }
+
+    public function logout()
+    {
+        $um = new UserModel();
+        $um->logout();
+
+        header('Location: /renew/login');
+        die();
+    }
 }

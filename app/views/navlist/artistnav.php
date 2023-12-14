@@ -22,7 +22,7 @@ $nav['top'] = <<<HTML
         <a href="$root/artist-products"><i class="fas fa-tag"></i>Product</a>
         <hr>
         <a href=""><i class="fas fa-edit"></i>Profile</a>
-        <a href="" class="logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        <a href="$root/logout" class="logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
     </div>
 
     <div class="content">

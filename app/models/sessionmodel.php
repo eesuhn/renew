@@ -121,4 +121,17 @@ class SessionModel
         }
         return $decryptedData;
     }
+
+    /**
+     * Unset session data.
+     * 
+     * @param string $name
+     * 
+     * @return void
+     */
+    public static function unsetSession($name)
+    {
+        self::startSession();
+        unset($_SESSION[$name]);
+    }
 }

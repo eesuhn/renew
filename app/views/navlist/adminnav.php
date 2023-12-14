@@ -22,7 +22,7 @@ $nav['top'] = <<<HTML
         <a href="$root/admin-recycle"><i class="fas fa-tree"></i>Recycling Log</a>
         <hr>
         <a href=""><i class="fas fa-users"></i>Users</a>
-        <a href="" class="logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        <a href="$root/logout" class="logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
     </div>
 
     <div class="content">

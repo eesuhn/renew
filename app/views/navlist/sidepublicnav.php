@@ -25,7 +25,7 @@ $nav['top'] = <<<HTML
                         </li>
                         <div class="logout">
                             <li class="nav-item">
-                                <a class="nav-link logout" href="#"><i class="fas fa-sign-out-alt"></i>Log out&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                                <a class="nav-link logout" href="$root/logout"><i class="fas fa-sign-out-alt"></i>Log out&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
                             </li>
                         </div>
                     </ul>
