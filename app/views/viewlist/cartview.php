@@ -5,6 +5,10 @@ if (!defined('ACCESS')) {
     die();
 }
 
+if (count($params['cart']) > 0) :
+    $cart = $params['cart'];
+endif;
+
 $body = <<<HTML
     <div class="px-4 px-lg-0">
         <div class="container py-4 cart-title-box">
@@ -22,6 +26,12 @@ $body = <<<HTML
             <div class="row">
                 <div class="col-lg-12 bg-white rounded shadow-sm cart-table-box">
                     <div class="table-responsive">
+                        
+HTML;
+
+if (isset($cart)) :
+
+    $body .= <<<HTML
                         <table class="table cart-table">
                             <thead>
                                 <tr>
@@ -40,42 +50,65 @@ $body = <<<HTML
                                 </tr>
                             </thead>
                             <tbody>
-HTML;
+    HTML;
 
-$sample = 3;
-while ($sample > 0) :
-    $body .= <<<HTML
+    $count = 0;
+    while (count($cart) > $count) :
+        
+        $buyerId = $cart[$count]['buyer_id'];
+        $prodId = $cart[$count]['prod_id'];
+        $prodName = $cart[$count]['prod_name'];
+        $prodDesc = $cart[$count]['description'];
+        $prodImgPath = $cart[$count]['img_path'];
+        $prodPrice = $cart[$count]['price'];
+        $cartProdQty = $cart[$count]['quantity'];
+
+        $body .= <<<HTML
                                 <tr>
                                     <th scope="row" class="border-0">
                                         <div class="p-2">
-                                            <img src="$root/app/assets/sample/product.png" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                            <img src="$root/$prodImgPath" alt="" width="70" class="img-fluid rounded shadow-sm">
                                             <div class="ml-3 d-inline-block align-middle">
-                                                <h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle">Upcycled Glass Vases</a></h5>
-                                                <span class="text-muted font-weight-normal font-italic d-block">Desc</span>
+                                                <h5 class="mb-0"><a href="#" class="text-dark d-inline-block align-middle">$prodName</a></h5>
                                             </div>
                                         </div>
                                     </th>
-                                    <td class="border-0 align-middle"><strong>RM 79.00</strong></td>
+                                    <td class="border-0 align-middle"><strong>RM $prodPrice</strong></td>
                                     <td class="align-middle border-0">
                                         <div class="input-group mb-3 qty-input">
                                             <div class="input-group-prepend">
                                                 <button class="btn btn-outline-secondary js-btn-minus" type="button"><i class="fas fa-minus"></i></button>
                                             </div>
-                                            <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                            <input type="text" class="form-control text-center" value="$cartProdQty" placeholder="" aria-describedby="button-addon1">
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-secondary js-btn-plus" type="button"><i class="fas fa-plus"></i></button>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-center align-middle border-0"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                                    <td class="text-center align-middle border-0">
+                                        <a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                                    </td>
                                 </tr>
-    HTML;
-    $sample--;
-endwhile;
+        HTML;
 
-$body .= <<<HTML
+        $count++;
+    endwhile;
+
+    $body .= <<<HTML
                             </tbody>
                         </table>
+    HTML;
+
+else :
+        $body .= <<<HTML
+                        <div class="text-center empty-cart">
+                            <h3 class="text-center">Your cart is empty!</h3>
+                            <a href="$root/store" class="btn btn-dark">Go to Store</a>
+                        </div>
+        HTML;
+endif;
+
+$body .= <<<HTML
                     </div>
                 </div>
             </div>

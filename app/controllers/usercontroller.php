@@ -12,6 +12,7 @@ use App\Views\ViewManager;
 use App\Models\UserModel;
 use App\Utils\AjaxUtil;
 use App\Models\RecycleModel;
+use App\Models\ImageModel;
 
 class UserController
 {
@@ -80,7 +81,21 @@ class UserController
 
     public function cartView()
     {
-        return ViewManager::renderView('cartview', [], ['publicnav']);
+        $userId = UserModel::getCurUserId();
+
+        $cm = new CartModel();
+        $cart = $cm->getCartProdByUserId($userId);
+
+        /**
+         * Replace img_path with the actual path
+         */
+        foreach ($cart as $key => $product) {
+            $cart[$key]['img_path'] = ImageModel::getImgDir($product['seller_id'], $product['img_path']);
+        }
+
+        $params['cart'] = $cart;
+
+        return ViewManager::renderView('cartview', $params, ['publicnav']);
     }
 
     public function ordersView()

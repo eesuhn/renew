@@ -7,6 +7,7 @@ if (!defined('ACCESS')) {
     die();
 }
 
+use PDO;
 use App\Models\ProductModel;
 
 class CartModel
@@ -40,5 +41,45 @@ class CartModel
 
         DatabaseModel::exec($sql, $params);
         return true;
+    }
+
+    /**
+     * Get cart products by user id.
+     * 
+     * @param int $userId
+     * 
+     * @return array Returns an array of cart products.
+     * 
+     */
+    public function getCartProdByUserId($userId)
+    {
+        $sql = <<<SQL
+            SELECT
+                u.user_id as buyer_id,
+                c.prod_id,
+                c.quantity,
+                c.time_create,
+                p.user_id as seller_id, 
+                p.price,
+                pl.prod_name,
+                pl.description,
+                pl.img_path
+            FROM
+                cart c
+            INNER JOIN
+                product p ON c.prod_id = p.prod_id
+            INNER JOIN
+                prod_lang pl ON p.prod_id = pl.prod_id
+            INNER JOIN
+                user u ON p.user_id = u.user_id
+            WHERE
+                c.user_id = :userId
+        SQL;
+
+        $params = [
+            ':userId' => $userId
+        ];
+
+        return DatabaseModel::exec($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 }
