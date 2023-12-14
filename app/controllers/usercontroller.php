@@ -198,4 +198,17 @@ class UserController
 
         header('Location: /renew/cart');
     }
+
+    public function updateProfile()
+    {
+        $userId = UserModel::getCurUserId();
+        $displayName = $_POST['display-name'];
+        $realName = $_POST['real-name'];
+
+        $um = new UserModel();
+        $result = $um->updateProfile($userId, $displayName, $realName);
+        $flag = !is_array($result);
+
+        AjaxUtil::sendAjax($flag, $result);
+    }
 }

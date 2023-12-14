@@ -164,4 +164,8 @@ $rm->post(
     '/delete-user',
     'AdminController@deleteUser');
 
+$rm->post(
+    '/update-profile',
+    'UserController@updateProfile');
+
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

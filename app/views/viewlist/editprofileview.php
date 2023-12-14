@@ -22,18 +22,20 @@ $body = <<<HTML
         <div class="content">
             <span class="edit-user-title"><h2>Edit Account</h2></span>
 
-            <form class="form-horizontal">
+            <form class="form-horizontal" id="edit-profile-form" method="POST">
                 <h5 class="edit-profile-title">Account Info</h5>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="display-name">DISPLAY NAME</label>
-                        <input type="text" class="form-control" id="display-name" placeholder="$displayName">
+                        <input type="text" class="form-control" id="display-name" name="display-name" placeholder="$displayName" value="$displayName">
+                        <span id="userNameError" class="errorText"></span>
                     </div>
                     
                     <div class="form-group col-md-6">
                         <label for="real-name">REAL NAME</label>
-                        <input type="text" class="form-control" id="real-name" placeholder="$realName">
+                        <input type="text" class="form-control" id="real-name" name="real-name" placeholder="$realName" value="">
+                        <span id="realNameError" class="errorText"></span>
                     </div>
                     
                     <div class="form-group col-md-6">
@@ -47,7 +49,7 @@ $body = <<<HTML
                 </div>
             </form>
 
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="POST">
                 <h5 class="edit-profile-title">Login Info</h5>
 
                 <div class="form-row">
