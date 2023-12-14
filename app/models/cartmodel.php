@@ -9,6 +9,8 @@ if (!defined('ACCESS')) {
 
 use PDO;
 use App\Models\ProductModel;
+use App\Models\OrderModel;
+use App\Models\UserModel;
 
 class CartModel
 {
@@ -81,5 +83,52 @@ class CartModel
         ];
 
         return DatabaseModel::exec($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Clear cart by user id.
+     * 
+     * @param int $userId
+     * 
+     * @return void
+     */
+    public function clearCartByUserId($userId)
+    {
+        $sql = <<<SQL
+            DELETE FROM
+                cart
+            WHERE
+                user_id = :userId
+        SQL;
+
+        $params = [
+            ':userId' => $userId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+    }
+
+    /**
+     * Checkout cart.
+     * 
+     * @param int $discount (Optional) Discount value.
+     * 
+     * @return void
+     */
+    public function checkout($discount = 0)
+    {
+        $userId = UserModel::getCurUserId();
+
+        $pm = new ProductModel;
+
+        $om = new OrderModel;
+        $orderId = $om->setOrder($userId, $discount);
+
+        foreach ($this->getCartProdByUserId($userId) as $product) {
+            $om->setOrderItem($orderId, $product['prod_id'], $product['quantity']);
+            $pm->redProdQty($product['prod_id'], $product['quantity']);
+        }
+
+        $this->clearCartByUserId($userId);
     }
 }

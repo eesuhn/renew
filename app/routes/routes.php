@@ -88,6 +88,10 @@ $rm->get(
     '/get-user-rec-point',
     'UserController@getUserRecPoint');
 
+$rm->get(
+    '/get-cart-total',
+    'UserController@getCartTotal');
+
 // Add POST routes here
 $rm->post(
     '/register',
@@ -116,5 +120,9 @@ $rm->post(
 $rm->post(
     '/add-to-cart',
     'UserController@addToCart');
+
+$rm->post(
+    '/checkout',
+    'UserController@checkout');
 
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

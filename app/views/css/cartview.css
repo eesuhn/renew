@@ -86,6 +86,7 @@
 
 .qty-input {
     max-width: 120px;
+    padding-top: 4px;
 }
 
 .cart-table {
@@ -118,4 +119,11 @@
 
 .empty-cart {
     margin: 100px auto;
+}
+
+.cart-prod-qty {
+    background-color: transparent !important;
+    border: none !important;
+    font-weight: 700 !important;
+    color: black !important;
 }

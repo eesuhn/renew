@@ -73,7 +73,8 @@ $vm->addView(
 $vm->addView(
     'cartview',
     'Cart',
-    ['cartview.css']);
+    ['cartview.css'],
+    ['cartview.js']);
 
 $vm->addView(
     'productfocusview',

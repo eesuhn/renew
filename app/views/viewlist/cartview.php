@@ -78,13 +78,13 @@ if (isset($cart)) :
                                     <td class="border-0 align-middle"><strong>RM $prodPrice</strong></td>
                                     <td class="align-middle border-0">
                                         <div class="input-group mb-3 qty-input">
-                                            <div class="input-group-prepend">
+                                            <!-- <div class="input-group-prepend">
                                                 <button class="btn btn-outline-secondary js-btn-minus" type="button"><i class="fas fa-minus"></i></button>
-                                            </div>
-                                            <input type="text" class="form-control text-center" value="$cartProdQty" placeholder="" aria-describedby="button-addon1">
-                                            <div class="input-group-append">
+                                            </div> -->
+                                            <input type="text" class="form-control text-center cart-prod-qty" value="$cartProdQty" readonly>
+                                            <!-- <div class="input-group-append">
                                                 <button class="btn btn-outline-secondary js-btn-plus" type="button"><i class="fas fa-plus"></i></button>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </td>
                                     <td class="text-center align-middle border-0">
@@ -126,25 +126,33 @@ $body .= <<<HTML
                         </div>
                         <div class="p-4">
                             <div class="input-group mb-4 border rounded-pill p-2">
-                                <input type="text" placeholder="Enter amount (RM) to redeem" aria-describedby="button-addon3" class="form-control border-0">
+                                <input type="text" placeholder="Enter amount (RM) to redeem" class="form-control border-0" id="redeem-point" value="">
                                 <div class="input-group-append border-0">
-                                    <button id="button-addon3" type="button" class="btn btn-dark px-4 rounded-pill"><i class="fa fa-gift mr-2"></i>Redeem</button>
+                                    <button id="redeem-point-btn" type="button" class="btn btn-dark px-4 rounded-pill"><i class="fa fa-gift mr-2"></i>Redeem</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary</div>
-                        <div class="p-4">
+                        <form class="p-4" method="POST" id="checkout-form">
                             <ul class="list-unstyled mb-4">
-                                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>RM 390.00</strong></li>
-                                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Discount</strong><strong>- RM 0.00</strong></li>
-                                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                                    <h5 class="font-weight-bold">RM 400.00</h5>
+                                <li class="d-flex justify-content-between py-3 border-bottom">
+                                    <strong class="text-muted">Order Subtotal</strong><strong id="sub-total" value=""><!-- Set with JS --></strong>
+                                    <input type="hidden" id="sub-total-hidden" value="">
+                                </li>
+                                <li class="d-flex justify-content-between py-3 border-bottom">
+                                    <strong class="text-muted">Discount</strong><strong id="discount-total" value=""><!-- Set with JS --></strong>
+                                    <input type="hidden" id="discount-total-hidden" name="discount-total-hidden" value="">
+                                </li>
+                                <li class="d-flex justify-content-between py-3 border-bottom">
+                                    <strong class="text-muted">Total</strong>
+                                    <h5 class="font-weight-bold" id="total-rm"><!-- Set with JS --></h5>
+                                    <input type="hidden" id="total-rm-hidden" value="">
                                  </li>
                             </ul>
-                            <a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Proceed to checkout</a>
-                        </div>
+                            <a id="cart-checkout-btn" class="btn btn-dark rounded-pill py-2 btn-block">Proceed to checkout</a>
+                        </form>
                     </div>
                 </div>
             </div>

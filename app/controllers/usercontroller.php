@@ -13,6 +13,7 @@ use App\Models\UserModel;
 use App\Utils\AjaxUtil;
 use App\Models\RecycleModel;
 use App\Models\ImageModel;
+use App\Models\OrderModel;
 
 class UserController
 {
@@ -142,5 +143,23 @@ class UserController
         $result = $cm->addToCart($userId, $prodDirName, $prodCount);
 
         AjaxUtil::sendAjax(true, $result);
+    }
+
+    public function checkout()
+    {
+        $discountTotal = $_GET['disc-total'];
+
+        $cm = new CartModel();
+        $cm->checkout($discountTotal);
+
+        AjaxUtil::sendAjax(true);
+    }
+
+    public function getCartTotal()
+    {
+        $om = new OrderModel();
+        $total = $om->getOrderTotalByCart();
+
+        AjaxUtil::sendAjax(true, $total);
     }
 }
