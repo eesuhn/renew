@@ -10,6 +10,7 @@ if (!defined('ACCESS')) {
 use PDO;
 use App\Models\DatabaseModel;
 use DateTime;
+use App\Models\OrderModel;
 
 class RecycleModel
 {
@@ -358,11 +359,11 @@ class RecycleModel
     }
 
     /**
-     * Get recycle points by user id.
+     * Get total recycle points by user id.
      * 
      * @param int $userId
      * 
-     * @return array|bool Returns array of recycle points if found, false otherwise.
+     * @return int Returns total recycle points.
      */
     public function getTotalRecPointByUserId($userId)
     {
@@ -379,7 +380,13 @@ class RecycleModel
             ':userId' => $userId
         ];
     
-        return DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_ASSOC);
+        $totalRecPoint = DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_ASSOC)['total_rec_point'];
+
+        if ($totalRecPoint === null) {
+            $totalRecPoint = 0;
+        }
+
+        return $totalRecPoint;
     }
 
     /**
@@ -399,5 +406,20 @@ class RecycleModel
         
         // Round to 2 decimal places.
         return round($recPoint * $factor, 2);
+    }
+
+    /**
+     * Get total recycle points left by user id.
+     * 
+     * @param int $userId
+     * 
+     * @return int Returns total recycle points left.
+     */
+    public function getTotalRecPointLeftByUserId($userId)
+    {
+        $totalRecPointUsed = OrderModel::getTotalRecPointUsedByUserId($userId);
+        $totalRecPoint = $this->getTotalRecPointByUserId($userId);
+
+        return $totalRecPoint - $totalRecPointUsed;
     }
 }

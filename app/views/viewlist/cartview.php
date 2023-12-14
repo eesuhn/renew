@@ -5,6 +5,8 @@ if (!defined('ACCESS')) {
     die();
 }
 
+$totalCurrency = $params['totalCurrency'];
+
 if (count($params['cart']) > 0) :
     $cart = $params['cart'];
 endif;
@@ -119,11 +121,10 @@ $body .= <<<HTML
                         <div class="bg-light rounded-pill px-4 py-1 text-uppercase font-weight-bold points-worth">
                             <div class="points-worth">
                                 <p class="points-worth-text">Points Worth :</p>
-                                <span class="badge badge-pill badge-price">RM 32</span>
+                                <span class="badge badge-pill badge-price">RM $totalCurrency</span>
                             </div>
                         </div>
                         <div class="p-4">
-                            <p class="font-italic mb-4">Use your points to get a discount!</p>
                             <div class="input-group mb-4 border rounded-pill p-2">
                                 <input type="text" placeholder="Enter amount (RM) to redeem" aria-describedby="button-addon3" class="form-control border-0">
                                 <div class="input-group-append border-0">

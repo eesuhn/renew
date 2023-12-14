@@ -65,9 +65,7 @@ class UserController
 
         $rm = new RecycleModel();
 
-        // SAMPLE
-        $totalRecPointUnused = 100;
-
+        $totalRecPointUnused = $rm->getTotalRecPointLeftByUserId($userId);
         $totalCurrency = $rm->recPointToCurrency($totalRecPointUnused);
         
         $params['totalRecPointUnused'] = $totalRecPointUnused;
@@ -83,6 +81,11 @@ class UserController
     {
         $userId = UserModel::getCurUserId();
 
+        $rm = new RecycleModel();
+
+        $totalRecPointUnused = $rm->getTotalRecPointLeftByUserId($userId);
+        $totalCurrency = $rm->recPointToCurrency($totalRecPointUnused);
+
         $cm = new CartModel();
         $cart = $cm->getCartProdByUserId($userId);
 
@@ -94,6 +97,7 @@ class UserController
         }
 
         $params['cart'] = $cart;
+        $params['totalCurrency'] = $totalCurrency;
 
         return ViewManager::renderView('cartview', $params, ['publicnav']);
     }
