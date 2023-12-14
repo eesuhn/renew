@@ -153,6 +153,14 @@ $vm->addView(
     ['admin'],
     true);
 
+$vm->addView(
+    'editartistprofileview',
+    'Edit Artist Profile',
+    ['editartistprofileview.css'],
+    ['editartistprofileview.js'],
+    ['artist'],
+    true);
+
 // Add segments here
 $vm->addSeg(
     'sample');

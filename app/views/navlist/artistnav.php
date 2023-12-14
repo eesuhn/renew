@@ -21,7 +21,7 @@ $nav['top'] = <<<HTML
     <div class="sidebar">
         <a href="$root/artist-products"><i class="fas fa-tag"></i>Product</a>
         <hr>
-        <a href=""><i class="fas fa-edit"></i>Profile</a>
+        <a href="$root/edit-artist-profile"><i class="fas fa-edit"></i>Profile</a>
         <a href="$root/logout" class="logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
     </div>
 

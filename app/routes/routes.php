@@ -86,6 +86,10 @@ $rm->get(
     '/delete-cart-item',
     'UserController@deleteCartItem');
 
+$rm->get(
+    '/edit-artist-profile',
+    'ArtistController@editArtistProfileView');
+
 // Add GET routes for AJAX here
 $rm->get(
     '/get-artist-products',
