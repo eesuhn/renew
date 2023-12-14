@@ -35,6 +35,21 @@ class CartModel
                 (:prodId, :userId, :quantity)
         SQL;
 
+        /**
+         * If product is already added to cart, update quantity.
+         */
+        if ($this->checkIfProdAddedToCart($userId, $prodDirName)) {
+            $sql = <<<SQL
+                UPDATE
+                    cart
+                SET
+                    quantity = quantity + :quantity
+                WHERE
+                    prod_id = :prodId AND
+                    user_id = :userId
+            SQL;
+        }
+
         $params = [
             ':prodId' => $product['prod_id'],
             ':userId' => $userId,
@@ -43,6 +58,39 @@ class CartModel
 
         DatabaseModel::exec($sql, $params);
         return true;
+    }
+
+    /**
+     * Check if product is already added to cart.
+     * 
+     * @param int $userId
+     * @param string $prodDirName
+     * 
+     * @return bool Returns true if product is already added to cart.
+     */
+    public function checkIfProdAddedToCart($userId, $prodDirName)
+    {
+        $pm = new ProductModel;
+        $product = $pm->getProdByDirName($prodDirName);
+
+        $sql = <<<SQL
+            SELECT
+                COUNT(*) as count
+            FROM
+                cart
+            WHERE
+                prod_id = :prodId AND
+                user_id = :userId
+        SQL;
+
+        $params = [
+            ':prodId' => $product['prod_id'],
+            ':userId' => $userId
+        ];
+
+        $count = DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_ASSOC)['count'];
+
+        return $count > 0;
     }
 
     /**

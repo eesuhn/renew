@@ -41,7 +41,7 @@ if (isset($cart)) :
                                         <div class="p-2 px-3 text-uppercase">Product</div>
                                     </th>
                                     <th scope="col" class="border-0 bg-light">
-                                        <div class="py-2 text-uppercase">Price</div>
+                                        <div class="py-2 text-uppercase">Price (RM)</div>
                                     </th>
                                     <th scope="col" class="border-0 bg-light">
                                         <div class="py-2 text-uppercase">Quantity</div>
@@ -75,7 +75,7 @@ if (isset($cart)) :
                                             </div>
                                         </div>
                                     </th>
-                                    <td class="border-0 align-middle"><strong>RM $prodPrice</strong></td>
+                                    <td class="border-0 align-middle"><strong>$prodPrice</strong></td>
                                     <td class="align-middle border-0">
                                         <div class="input-group mb-3 qty-input">
                                             <!-- <div class="input-group-prepend">
