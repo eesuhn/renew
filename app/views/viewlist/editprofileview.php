@@ -5,10 +5,22 @@ if (!defined('ACCESS')) {
     die();
 }
 
+if (isset($params['user'])) {
+    $user = $params['user'];
+
+    $displayName = $user['user_name'];
+    $realName = $user['real_name'];
+    $email = $user['email'];
+
+    if ($realName == '') {
+        $realName = 'Enter Real Name';
+    }
+}
+
 $body = <<<HTML
     <div class="col-10">
         <div class="content">
-            <span class="edit-user-title"><h2>Edit Account</h2><button class="profile">View profile</button></span>
+            <span class="edit-user-title"><h2>Edit Account</h2></span>
 
             <form class="form-horizontal">
                 <h5 class="edit-profile-title">Account Info</h5>
@@ -16,30 +28,26 @@ $body = <<<HTML
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="display-name">DISPLAY NAME</label>
-                        <input type="text" class="form-control" id="display-name" placeholder="Display Name">
+                        <input type="text" class="form-control" id="display-name" placeholder="$displayName">
                     </div>
                     
                     <div class="form-group col-md-6">
                         <label for="real-name">REAL NAME</label>
-                        <input type="text" class="form-control" id="real-name" placeholder="Real Name">
-                    </div>
-
-                    <div class="form-group col-md-6">
-                        <label for="phone-no">PHONE</label>
-                        <input type="text" class="form-control" id="phone-no" placeholder="Phone Number">
+                        <input type="text" class="form-control" id="real-name" placeholder="$realName">
                     </div>
                     
                     <div class="form-group col-md-6">
                         <label for="email">EMAIL</label>
-                        <input type="email" class="form-control" id="email" placeholder="Email" disabled>
+                        <input type="email" class="form-control" id="email" placeholder="$email" disabled>
                     </div>
                 </div>
 
-                <div class="form-group address-row">
-                    <label for="address">YOUR ADDRESS</label>
-                    <input type="text" class="form-control" id="address" placeholder="Address">
+                <div class="button-group">
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
                 </div>
+            </form>
 
+            <form class="form-horizontal">
                 <h5 class="edit-profile-title">Login Info</h5>
 
                 <div class="form-row">
@@ -60,10 +68,8 @@ $body = <<<HTML
                     </div>
                 </div>
 
-                <hr>
                 <div class="button-group">
-                    <button type="submit" class="btn btn-primary">Update Profile</button>
-                    <button type="cancel" class="btn cancel-btn"><i class="far fa-times-circle"></i>Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-pwd">Update Password</button>
                 </div>
             </form>
         </div>

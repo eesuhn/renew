@@ -58,7 +58,7 @@ $vm->addView(
     'editprofileview',
     'Profile',
     ['editprofileview.css'],
-    [],
+    ['editprofileview.js'],
     ['public'],
     true);
 

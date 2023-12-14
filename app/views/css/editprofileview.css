@@ -81,7 +81,8 @@
     display: flex;
     gap: 10px;
     align-items: center;
-    margin-bottom: 20px;
+    margin-top: -20px;
+    margin-bottom: 40px;
 }
 
 .form-horizontal hr {
@@ -112,7 +113,7 @@
     line-height: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
-    width:15%;
+    width: 200px;
 }
 
 input:disabled {
@@ -122,4 +123,12 @@ input:disabled {
 .btn-primary:hover {
     background-color: var(--accent-dark-color);
     transition: all 0.3s ease;
+}
+
+.btn-pwd {
+    background-color: var(--primary-dark-color) !important;
+}
+
+.btn-pwd:hover {
+    background-color: var(--primary-color) !important;
 }

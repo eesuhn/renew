@@ -54,9 +54,16 @@ class UserController
 
     public function editProfileView()
     {
+        $userId = UserModel::getCurUserId();
+
+        $um = new UserModel;
+        $user = $um->getUserById($userId);
+
+        $params['user'] = $user;
+
         return ViewManager::renderView(
             'editprofileview', 
-            [], 
+            $params, 
             ['publicnav', 'sidepublicnav']);
     }
 
