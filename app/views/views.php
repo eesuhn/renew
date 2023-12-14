@@ -80,11 +80,7 @@ $vm->addView(
     'Cart',
     ['cartview.css'],
     ['cartview.js'],
-    [
-        'public',
-        'artist',
-        'admin'
-    ],
+    ['public'],
     true);
 
 $vm->addView(

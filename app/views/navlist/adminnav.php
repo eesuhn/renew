@@ -20,6 +20,7 @@ $nav['top'] = <<<HTML
 
     <div class="sidebar">
         <a href="$root/admin-recycle"><i class="fas fa-tree"></i>Recycling Log</a>
+        <a href=""><i class="fas fa-shopping-cart"></i>Order Log</a>
         <hr>
         <a href=""><i class="fas fa-users"></i>Users</a>
         <a href="$root/logout" class="logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
