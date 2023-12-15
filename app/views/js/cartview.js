@@ -85,6 +85,7 @@ function getCartTotal() {
         function (response) {
             setSubtotal(response.data);
             calcTotal();
+            limitDiscount();
         },
         "AJAX Error: Unable to get cart total."
     )
@@ -107,4 +108,15 @@ function listenRedeemPoint() {
         setDiscountTotal(point);
         calcTotal();
     });
+}
+
+/**
+ * Limit discount input if subtotal is 0
+ */
+function limitDiscount() {
+    const subTotal = $('#sub-total-hidden').val();
+
+    if (subTotal == 0) {
+        $('#redeem-point').prop('disabled', true);
+    }
 }

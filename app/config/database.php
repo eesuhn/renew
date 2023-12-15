@@ -55,7 +55,8 @@ $sql = <<<SQL
         `order_id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         `user_id` INT(11) NOT NULL,
         `order_status` VARCHAR(255) NOT NULL,
-        `rec_point_used` INT(11) NOT NULL DEFAULT 0,
+        `order_total` FLOAT NOT NULL,
+        `discount` FLOAT NOT NULL DEFAULT 0,
         `time_create` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
     );

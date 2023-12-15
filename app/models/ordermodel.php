@@ -15,17 +15,17 @@ use App\Models\CartModel;
 class OrderModel
 {
     /**
-     * Get total points used by user id.
+     * Get total discount from all orders by user id.
      * 
      * @param int $userId
      * 
      * @return int
      */
-    public static function getTotalRecPointUsedByUserId($userId)
+    public static function getTotalDiscountByUserId($userId)
     {
         $sql = <<<SQL
             SELECT
-                SUM(rec_point_used) as total_rec_point_used
+                SUM(discount) as total_discount
             FROM
                 orders
             WHERE
@@ -36,42 +36,48 @@ class OrderModel
             ':userId' => $userId
         ];
 
-        $totalRecPointUsed = DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_ASSOC)['total_rec_point_used'];
+        $totalDiscount = DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_ASSOC)['total_discount'];
 
-        if ($totalRecPointUsed === null) {
-            $totalRecPointUsed = 0;
+        if ($totalDiscount === null) {
+            $totalDiscount = 0;
         }
 
-        return $totalRecPointUsed;
+        return $totalDiscount;
     }
 
     /**
      * Set order.
      * 
      * @param int $userId
-     * @param int $recPointUsed (Optional) Default value is 0
+     * @param int $discount (Optional) Default value is 0
      * @param string $orderStatus (Optional) Default value is 'pending'
      * 
      * @return int Returns order id
      */
-    public function setOrder($userId, $recPointUsed = 0, $orderStatus = 'pending')
+    public function setOrder($userId, $discount = 0, $orderStatus = 'pending')
     {
+        $orderSubTotal = $this->getOrderTotalByCart();
+        $orderTotal = $orderSubTotal - $discount;
+
         $sql = <<<SQL
             INSERT INTO orders (
                 user_id,
                 order_status,
-                rec_point_used
+                order_total,
+                discount
             ) VALUES (
                 :userId,
                 :orderStatus,
-                :recPointUsed
+                :orderTotal,
+                :discount
             )
         SQL;
 
         $params = [
             ':userId' => $userId,
             ':orderStatus' => $orderStatus,
-            ':recPointUsed' => $recPointUsed
+            ':orderTotal' => $orderTotal,
+            ':discount' => $discount
         ];
 
         DatabaseModel::exec($sql, $params);
@@ -113,20 +119,31 @@ class OrderModel
     }
 
     /**
-     * Get order total amount by cart.
+     * Get order subtotal by cart.
      * 
      * @return int
      */
     public function getOrderTotalByCart()
     {
-        $userId = UserModel::getCurUserId();
+        $sql = <<<SQL
+            SELECT
+                SUM(p.price * c.quantity) as total
+            FROM
+                cart c
+            INNER JOIN
+                product p ON c.prod_id = p.prod_id
+            WHERE
+                c.user_id = :userId
+        SQL;
 
-        $cm = new CartModel();
-        $cart = $cm->getCartProdByUserId($userId);
+        $params = [
+            ':userId' => UserModel::getCurUserId()
+        ];
 
-        $total = 0;
-        foreach ($cart as $product) {
-            $total += $product['price'] * $product['quantity'];
+        $total = DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_ASSOC)['total'];
+
+        if ($total === null) {
+            $total = 0;
         }
 
         return $total;
@@ -180,10 +197,10 @@ class OrderModel
             SELECT
                 o.order_id,
                 o.order_status,
-                o.rec_point_used,
+                o.discount,
                 o.time_create,
                 p.prod_id,
-                SUM(p.price * oi.quantity) as total
+                o.order_total as total
             FROM
                 orders o
             INNER JOIN
@@ -221,8 +238,8 @@ class OrderModel
                 o.order_id, 
                 ul.user_name,
                 o.time_create,
-                (p.price * oi.quantity) as total,
-                o.rec_point_used,
+                o.order_total as total,
+                (o.discount * 10) as discount,
                 o.order_status
             FROM
                 orders o

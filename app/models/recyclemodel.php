@@ -417,7 +417,8 @@ class RecycleModel
      */
     public function getTotalRecPointLeftByUserId($userId)
     {
-        $totalRecPointUsed = OrderModel::getTotalRecPointUsedByUserId($userId);
+        $totalDiscount = OrderModel::getTotalDiscountByUserId($userId);
+        $totalRecPointUsed = $totalDiscount * 10;
         $totalRecPoint = $this->getTotalRecPointByUserId($userId);
 
         return $totalRecPoint - $totalRecPointUsed;

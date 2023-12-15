@@ -26,7 +26,7 @@ function setAdminOrdersTable(data) {
                 }
             },
             { data: 'total' },
-            { data: 'rec_point_used' },
+            { data: 'discount' },
             {
                 data: 'order_status',
                 render: function (data, type, row) {
