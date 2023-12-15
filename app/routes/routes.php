@@ -176,4 +176,12 @@ $rm->post(
     '/update-pwd',
     'UserController@updatePassword');
 
+$rm->post(
+    '/update-product',
+    'ArtistController@updateProduct');
+
+$rm->post(
+    '/delete-product',
+    'ArtistController@deleteProduct');
+
 $rm->handleRoute($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
