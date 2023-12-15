@@ -269,6 +269,8 @@ class RecycleModel
                 rec_center rc ON r.center_id = rc.center_id
             WHERE
                 r.user_id = :userId
+            AND 
+                r.is_delete = 0
         SQL;
 
         $params = [
@@ -374,6 +376,8 @@ class RecycleModel
                 recyclable
             WHERE
                 user_id = :userId
+            AND 
+                is_delete = 0
         SQL;
     
         $params = [
