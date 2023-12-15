@@ -124,7 +124,7 @@ function ellipsisUserList(userId, userRole) {
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header edit-user-modal-header">
-                        <h5 class="modal-title" id="edit-user-modal-label">Delete Recycle</h5>
+                        <h5 class="modal-title" id="edit-user-modal-label">Delete User</h5>
                     </div>
                     <form id="delete-user-form-${userId}" method="POST">
                         <div class="modal-body edit-user-input">

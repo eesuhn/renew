@@ -377,4 +377,61 @@ class ProductModel
 
         return $price * $qty;
     }
+
+    /**
+     * Update product quantity and price.
+     * 
+     * @param string $prodId
+     * @param string $price
+     * @param string $qty
+     * 
+     * @return bool Returns true if updating product is successful.
+     */
+    public function updateProdQtyPrice($prodId, $price, $qty)
+    {
+        $sql = <<<SQL
+            UPDATE
+                product
+            SET
+                quantity = :qty,
+                price = :price
+            WHERE
+                prod_id = :prodId
+        SQL;
+
+        $params = [
+            ':qty' => $qty,
+            ':price' => $price,
+            ':prodId' => $prodId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+        return true;
+    }
+
+    /**
+     * Delete product.
+     * 
+     * @param string $prodId
+     * 
+     * @return bool Returns true if deleting product is successful.
+     */
+    public function deleteProduct($prodId)
+    {
+        $sql = <<<SQL
+            UPDATE 
+                product
+            SET
+                is_deleted = 1
+            WHERE
+                prod_id = :prodId
+        SQL;
+
+        $params = [
+            ':prodId' => $prodId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+        return true;
+    }
 }
