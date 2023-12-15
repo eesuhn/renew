@@ -11,7 +11,7 @@ $totalCurrency = $params['totalCurrency'];
 $body = <<<HTML
     <div class="col-10">
         <div class="content">
-            <span><h2>My Points</h2><button class="profile">View profile</button></span>
+            <span><h2>My Points</h2></span>
             <h2 class="point-title">Reward Points</h2>
             <div class="row">
                 <div class="col-md-4">
