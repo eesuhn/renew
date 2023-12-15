@@ -19,7 +19,7 @@ $body = <<<HTML
                     <a id="goBackBtn" class="btn1"><i class="fa fa-arrow-left"></i>&nbsp&nbsp&nbspBack</a>
                 </div>
             </div>
-            <h1 class="display-4 py-2 cart-title">Cart&nbsp<span class="badge badge-secondary">3</span></h1>
+            <h1 class="display-4 py-2 cart-title">Cart</h1>
         </div>
     </div>
 
