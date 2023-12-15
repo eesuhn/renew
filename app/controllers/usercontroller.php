@@ -14,6 +14,7 @@ use App\Utils\AjaxUtil;
 use App\Models\RecycleModel;
 use App\Models\ImageModel;
 use App\Models\OrderModel;
+use App\Models\ValidateModel;
 
 class UserController
 {
@@ -54,6 +55,11 @@ class UserController
 
     public function editProfileView()
     {
+        if (!ValidateModel::validateLogin()) {
+            header('Location: /renew/login');
+            die();
+        }
+        
         $userId = UserModel::getCurUserId();
 
         $um = new UserModel;
@@ -157,9 +163,10 @@ class UserController
         $discountTotal = $_GET['disc-total'];
 
         $cm = new CartModel();
-        $cm->checkout($discountTotal);
+        $result = $cm->checkout($discountTotal);
+        $flag = true;
 
-        AjaxUtil::sendAjax(true);
+        AjaxUtil::sendAjax($flag, $result);
     }
 
     public function getCartTotal()
