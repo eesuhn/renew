@@ -1,0 +1,129 @@
+#admin-order {
+    border: none;
+    width: 100%;
+}
+
+#admin-order th,
+#admin-order td {
+    border: none;
+}
+
+#admin-order thead tr {
+    border-bottom: 2px solid #ccc;
+    font-size: 12px;
+    color: #888;
+    background-color: #F4F5F6;
+}
+
+#admin-order thead th {
+    padding: 20px;
+}
+
+#admin-order tbody td {
+    padding: 15px 20px;
+    background-color: #fff;
+}
+
+#admin-order tbody td:nth-child(3) {
+    color: #6B7280;
+    font-size: 14px;
+}
+
+#admin-order tbody td:nth-child(1) {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+#admin-order_filter input[type="search"] {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #333;
+    background-color: #F4F5F6;
+    margin-top: 0;
+}
+
+#admin-order_filter input[type="search"]:focus {
+    outline: none;
+    border: 1px solid var(--accent-color);
+}
+
+#admin-order_filter label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #6B7280;
+}
+
+#admin-order_paginate {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    color: #fff;
+}
+
+#admin-order_paginate span a {
+    padding: 10px 22px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-left: 5px;
+    background-color: var(--accent-color);
+}
+
+#admin-order_paginate span a:hover {
+    background-color: var(--accent-dark-color);
+    transition: all 0.3s ease;
+}
+
+#admin-order_paginate span a.paginate_button.current {
+    background-color: var(--accent-dark-color);
+    border: 1px solid var(--accent-dark-color);
+}
+
+#admin-order_paginate .previous,
+#admin-order_paginate .next {
+    display: none;
+}
+
+.edit-order-input label {
+    margin-bottom: -10px;
+}
+
+.close { 
+    font-size: 30px;
+}
+
+.edit-order-btn,
+.delete-rec-btn {
+    float: right;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+}
+
+.edit-order-btn:hover, 
+.delete-rec-btn:hover {
+    background-color: var(--accent-dark-color);
+    color: #fff;
+}
+
+.edit-order-modal-header {
+    border-bottom: none;
+    margin-bottom: -26px;
+}
+
+.edit-order-modal-header h5 {
+    margin-top: 2px;
+    font-weight: 700;
+}
+
+.delete-close-btn {
+    float: right;
+    margin-top: 6px;
+    margin-right: 12px;
+    border: none; 
+}

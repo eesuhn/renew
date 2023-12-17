@@ -12,7 +12,7 @@ $body = <<<HTML
                 <p>My Products</p>
             </div>
             <div class="col text-right mt-2">
-                <button type="button" class="btn btn-accent" data-toggle="modal" data-target="#addProdModal" data-whatever="">Add Product</button>
+                <button type="button" class="btn btn-accent" data-toggle="modal" data-target="#add-prod-modal">Add Product</button>
             </div>
         </div>
     </div>
@@ -31,11 +31,11 @@ $body = <<<HTML
         <tbody></tbody>
     </table>
 
-    <div class="modal fade" id="addProdModal" tabindex="-1" role="dialog" aria-labelledby="addProdModalLabel" aria-hidden="true">
+    <div class="modal fade" id="add-prod-modal" tabindex="-1" role="dialog" aria-labelledby="add-prod-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header add-prod-modal-header">
-                    <h5 class="modal-title" id="addProdModalLabel">Add Product</h5>
+                    <h5 class="modal-title" id="add-prod-modal-label">Add Product</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

@@ -176,3 +176,79 @@ function listenBackBtn() {
         window.history.back();
     });
 }
+
+/**
+ * Set the status badge.
+ * 
+ * @param {string} status 
+ * 
+ * @returns {string} html
+ */
+function badgeStatus(status) {
+    if (status === "cancelled") {
+        badgeClass = "badge badge-cancelled";
+        statusText = "Cancelled";
+
+    } else if (status === "completed") {
+        badgeClass = "badge badge-completed";
+        statusText = "Completed";
+
+    } else if (status === "processing") {
+        badgeClass = "badge badge-processing";
+        statusText = "Processing";
+
+    } else if (status === "pending") {
+        badgeClass = "badge badge-pending";
+        statusText = "Pending";
+    }
+
+    var html = `<span class="${badgeClass}">${statusText}</span>`;
+    return html;
+}
+
+/**
+ * Set the role badge.
+ * 
+ * @param {string} role 
+ * 
+ * @returns {string} html
+ */
+function badgeRole(role) {
+    if (role === "public") {
+        badgeClass = "badge badge-completed";
+        roleText = "Public";
+
+    } else if (role === "artist") {
+        badgeClass = "badge badge-processing";
+        roleText = "Artist";
+
+    } else if (role === "admin") {
+        badgeClass = "badge badge-pending";
+        roleText = "Admin";
+    }
+
+    var html = `<span class="${badgeClass}">${roleText}</span>`;
+    return html;
+}
+
+/**
+ * Format date.
+ * 
+ * @param {string} date 
+ * 
+ * @returns {string} html
+ */
+function formatdate(date) {
+    var date = new Date(date);
+    var options = { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric', 
+        hour: 'numeric', 
+        minute: 'numeric', 
+        hour12: true 
+    };
+
+    var html = `<span>${date.toLocaleDateString("en-US", options)}</span>`;
+    return html;
+}

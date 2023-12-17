@@ -48,6 +48,7 @@
     font-size: 32px;
     font-weight: 700;
     margin-left: -4px;
+    margin-bottom: -2px;
 }
 
 .product-desc {
@@ -67,8 +68,14 @@
     margin-top: 10px;
 }
 
-.product-rating i {
-    color: grey;
+.product-rating {
+    color: gray;
+}
+
+.stock-count {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: black !important;
 }
 
 .rating {
@@ -150,6 +157,8 @@
     outline: none;
     border-color: transparent;
     text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .add-to-cart {
@@ -252,4 +261,17 @@
 
 .rec-prod-text {
     margin-bottom: -10px;
+}
+
+.btn-num-box {
+    width: 140px;
+}
+
+.stock-count-box {
+    margin-top: 24px;
+    margin-bottom: -2px;
+}
+
+.stock-count-box p {
+    font-size: 14px;
 }

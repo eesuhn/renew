@@ -22,7 +22,6 @@ if (isset($params['user'])) :
 endif;
 
 $body = <<<HTML
-    <div class="col-10">
         <div class="content">
             <span class="edit-user-title"><h2>Edit Account</h2></span>
 
@@ -83,5 +82,4 @@ $body = <<<HTML
                 </div>
             </form>
         </div>
-    </div>
 HTML;

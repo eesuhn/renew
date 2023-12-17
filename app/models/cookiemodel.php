@@ -31,11 +31,11 @@ class CookieModel
     }
 
     /**
-     * Delete local cookie.
+     * Unset local cookie.
      * 
      * @return void
      */
-    private static function deleteLocalCookie()
+    public static function unsetLocalCookie()
     {
         $expiry = time() - self::$expiryDuration;
         setcookie('renew_user', '', $expiry, '/renew/');

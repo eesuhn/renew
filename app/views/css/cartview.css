@@ -1,12 +1,13 @@
 .btn1 {
     background-color: #fff;
-    color: var(--text-light-color);
+    color: black;
     border: none;
     text-decoration: none;
+    margin-left: -20px;
 }
 
 .btn1:hover {
-    color: #000;
+    color: var(--primary-dark-color);
     border: none;
     text-decoration: none;
 }
@@ -26,10 +27,13 @@
     color: grey;
 }
 
-.badge-success {
+.badge-price {
     padding: 6px 12px;  
     margin-left: 10px;
     font-size: 15px;
+    color: #DEF7EC;
+    background-color: var(--green-800, #03543F);
+    margin-top: 8px;
 }
 
 .text-dark i {
@@ -83,6 +87,7 @@
 
 .qty-input {
     max-width: 120px;
+    padding-top: 4px;
 }
 
 .cart-table {
@@ -102,4 +107,24 @@
 
 .cart-table-box {
     padding: 48px 48px 10px;
+}
+
+.points-worth-text {
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.points-worth {
+    padding-top: 5px;
+}
+
+.empty-cart {
+    margin: 100px auto;
+}
+
+.cart-prod-qty {
+    background-color: transparent !important;
+    border: none !important;
+    font-weight: 700 !important;
+    color: black !important;
 }

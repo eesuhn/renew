@@ -13,6 +13,7 @@ if (count($params['products']) > 0) :
 endif;
 
 $body = <<<HTML
+    <!-- 
 	<div class="container search-box-bar">
         <div class="row">
             <div class="col-md-6 mt-4">
@@ -25,15 +26,14 @@ $body = <<<HTML
                     </div>
                 </form>
             </div>
-            <!-- 
             <div class="col-md-6 text-right mt-5">
                 <button type="button" class="btn btn-outline-success my-2 my-sm-0">
                     <i class="fas fa-filter"></i>
                 </button>
             </div> 
-            -->
         </div>
     </div>
+    -->
 HTML;
 
 $body .= <<<HTML

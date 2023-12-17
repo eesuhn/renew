@@ -61,4 +61,42 @@ class ArtistController
     {
         return ViewManager::renderView('artistprofileview', [], ['artistnav']);
     }
+
+    public function editArtistProfileView()
+    {
+        $userId = UserModel::getCurUserId();
+
+        $um = new UserModel;
+        $user = $um->getUserById($userId);
+
+        $params['user'] = $user;
+
+        return ViewManager::renderView(
+            'editartistprofileview', 
+            $params, 
+            ['artistnav']
+        );
+    }
+
+    public function updateProduct()
+    {
+        $prodId = $_GET['prod-id'];
+        $prodPrice = $_POST['prod-price'];
+        $prodQty = $_POST['prod-quantity'];
+
+        $pm = new ProductModel();
+        $result = $pm->updateProdQtyPrice($prodId, $prodPrice, $prodQty);
+
+        AjaxUtil::sendAjax($result);
+    }
+
+    public function deleteProduct()
+    {
+        $prodId = $_GET['prod-id'];
+
+        $pm = new ProductModel();
+        $result = $pm->deleteProduct($prodId);
+
+        AjaxUtil::sendAjax($result);
+    }
 }

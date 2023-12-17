@@ -57,13 +57,18 @@ $vm->addView(
 $vm->addView(
     'editprofileview',
     'Profile',
-    ['editprofileview.css']);
+    ['editprofileview.css'],
+    ['editprofileview.js'],
+    ['public'],
+    true);
 
 $vm->addView(
     'pointsview',
     'Points',
     ['pointsview.css'],
-    ['pointsview.js']);
+    ['pointsview.js'],
+    ['public'],
+    true);
 
 $vm->addView(
     'storeview',
@@ -73,7 +78,10 @@ $vm->addView(
 $vm->addView(
     'cartview',
     'Cart',
-    ['cartview.css']);
+    ['cartview.css'],
+    ['cartview.js'],
+    ['public'],
+    true);
 
 $vm->addView(
     'productfocusview',
@@ -85,31 +93,73 @@ $vm->addView(
     'recycleformview',
     'Recycle Form',
     ['recycleformview.css'],
-    ['recycleformview.js']);
+    ['recycleformview.js'],
+    ['public'],
+    true);
 
 $vm->addView(
     'ordersview',
     'Orders',
     ['ordersview.css'],
-    ['ordersview.js']);
+    ['ordersview.js'],
+    ['public'],
+    true);
 
 $vm->addView(
     'artistproductsview',
     'Artist Products',
     ['artistproductsview.css'],
-    ['artistproductsview.js']);
+    ['artistproductsview.js'],
+    ['artist'],
+    true);
 
 $vm->addView(
     'artistprofileview',
     'Artist Profile',
     ['artistprofileview.css'],
-    ['artistprofileview.js']);
+    ['artistprofileview.js'],
+    ['artist'],
+    true);
 
 $vm->addView(
     'userrecycleview',
     'My Recycle',
     ['userrecycleview.css'],
-    ['userrecycleview.js']);
+    ['userrecycleview.js'],
+    ['public'],
+    true);
+
+$vm->addView(
+    'adminrecycleview',
+    'Admin Recycle',
+    ['adminrecycleview.css'],
+    ['adminrecycleview.js'],
+    ['admin'],
+    true);
+
+$vm->addView(
+    'adminorderview',
+    'Admin Order',
+    ['adminorderview.css'],
+    ['adminorderview.js'],
+    ['admin'],
+    true);
+
+$vm->addView(
+    'adminuserlistview',
+    'Admin User List',
+    ['adminuserlistview.css'],
+    ['adminuserlistview.js'],
+    ['admin'],
+    true);
+
+$vm->addView(
+    'editartistprofileview',
+    'Edit Artist Profile',
+    ['editartistprofileview.css'],
+    ['editartistprofileview.js'],
+    ['artist'],
+    true);
 
 // Add segments here
 $vm->addSeg(

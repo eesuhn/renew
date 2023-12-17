@@ -322,4 +322,116 @@ class ProductModel
 
         return $prodArr;
     }
+
+    /**
+     * Reduce product quantity.
+     * 
+     * @param string $prodId
+     * @param string $qtySold
+     * 
+     * @return void
+     */
+    public function redProdQty($prodId, $qtySold)
+    {
+        $sql = <<<SQL
+            UPDATE
+                product
+            SET
+                quantity = quantity - :qtySold
+            WHERE
+                prod_id = :prodId
+        SQL;
+
+        $params = [
+            ':qtySold' => $qtySold,
+            ':prodId' => $prodId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+    }
+
+    /**
+     * Get product price multiplied by quantity.
+     * 
+     * @param string $prodId
+     * @param string $qty
+     * 
+     * @return int
+     */
+    public function getProdPriceQty($prodId, $qty)
+    {
+        $sql = <<<SQL
+            SELECT
+                price
+            FROM
+                product
+            WHERE
+                prod_id = :prodId
+        SQL;
+
+        $params = [
+            ':prodId' => $prodId
+        ];
+
+        $price = DatabaseModel::exec($sql, $params)->fetch(PDO::FETCH_ASSOC)['price'];
+
+        return $price * $qty;
+    }
+
+    /**
+     * Update product quantity and price.
+     * 
+     * @param string $prodId
+     * @param string $price
+     * @param string $qty
+     * 
+     * @return bool Returns true if updating product is successful.
+     */
+    public function updateProdQtyPrice($prodId, $price, $qty)
+    {
+        $sql = <<<SQL
+            UPDATE
+                product
+            SET
+                quantity = :qty,
+                price = :price
+            WHERE
+                prod_id = :prodId
+        SQL;
+
+        $params = [
+            ':qty' => $qty,
+            ':price' => $price,
+            ':prodId' => $prodId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+        return true;
+    }
+
+    /**
+     * Delete product.
+     * 
+     * @param string $prodId
+     * 
+     * @return bool Returns true if deleting product is successful.
+     */
+    public function deleteProduct($prodId)
+    {
+        $sql = <<<SQL
+            UPDATE 
+                product
+            SET
+                is_deleted = 1
+            WHERE
+                prod_id = :prodId
+        SQL;
+
+        $params = [
+            ':prodId' => $prodId
+        ];
+
+        DatabaseModel::exec($sql, $params);
+        return true;
+    }
 }
