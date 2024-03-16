@@ -9,7 +9,7 @@ providing a platform for the public to recycle items & for local artists to show
     <img src="https://github.com/eesuhn/ReNew/assets/102596628/20acb5c8-0461-4826-bd9e-69b3e43e406a" alt="banner" width="700" />
 </p>
 
-<i>*might just be the cleanest code I done so far using MVC model</i>
+<i>*MVC model using vanilla PHP</i>
 
 ### Setting up is easy
 1. Create a database named `renew` <br>
