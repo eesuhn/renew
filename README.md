@@ -12,8 +12,7 @@ providing a platform for the public to recycle items & for local artists to show
 <i>*might just be the cleanest code I done so far using MVC model</i>
 
 ### Setting up is easy
-1. Run `git clone https://github.com/eesuhn/ReNew.git` in terminal
-2. Create a database named `renew` <br>
-  2.1. Edit configuration at `app/config/config.php` if needed
-3. Visit `localhost/renew/` if you're using `XAMPP` or any similar local env. <br>
-  3.1. Make sure local env. supports `.htaccess`
+1. Create a database named `renew` <br>
+  1.1. Edit configuration at `app/config/config.php` if needed
+2. Visit `localhost/renew/` if you're using `XAMPP` or any similar local env. <br>
+  2.1. Make sure local env. supports `.htaccess`
